@@ -1,0 +1,44 @@
+{
+  "name": "cwrc-gitwriter",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf build/*",
+    "lint": "eslint src/js",
+    "browserify": "browserify src/js/main.js --debug -p [ minifyify --map main.js.map --output build/main.js.map ] > build/app.js",
+    "watchify": "watchify src/js/main.js -o build/app.js --debug ",
+    "build:js": "npm run browserify",
+    "build:images": "cp -r src/img build/img",
+    "build:css": "cp -r src/css build/css",
+    "build:html": "cp src/*.html build/.",
+    "build": "npm run clean && mkdir -p public && npm run build:images && npm run build:css && npm run build:html && npm run build:js",
+    "test": "jasmine-node --verbose --captureExceptions spec"
+    
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "browserify-css"
+    ]
+  },
+  "browserify-css": {
+    "autoInject": true,
+    "minify": true,
+    "rootDir": "."
+  },
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "bootstrap": "^3.3.6",
+    "browserify": "^13.0.1",
+    "browserify-css": "^0.9.1",
+    "browserify-shim": "^3.8.12",
+    "eslint": "^3.0.1",
+    "jquery": "^3.1.0",
+    "jquery-ui": "^1.12.0",
+    "js-cookie": "^2.1.3",
+    "materialize-css": "^0.97.6",
+    "minifyify": "^7.3.3",
+    "nock": "^9.0.2",
+    "watchify": "^3.7.0"
+  }
+}
