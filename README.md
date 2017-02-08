@@ -9,7 +9,6 @@
 1. [Repository Organization](#repository-organization)
 1. [Development](#development)
 1. [Contributing](#contributing)
-1. [FAQ](#faq)
 1. [License](#license)
 
 ### Overview
@@ -31,18 +30,19 @@ All the code and related libraries are packaged up together into a single javasc
 
 ### Demo 
 
-A [CWRC GitHub Sandbox](http://208.75.74.217/editor_github.html) uses the NPM package published from this repository along with the code in [CWRC-Writer](https://github.com/cwrc/CWRC-Writer), [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), [CWRC-Git](https://github.com/cwrc/CWRC-Git], and [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GitServer). The same code is easily (for someone with modest development experience) installed on any server to run your own instance.
+A [CWRC GitHub Sandbox](http://208.75.74.217/editor_github.html) uses the NPM package published from this repository along with the code in [CWRC-Writer](https://github.com/cwrc/CWRC-Writer), [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), [CWRC-Git](https://github.com/cwrc/CWRC-Git), and [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GitDelegator). The same code is easily (for someone with modest development experience) installed on any server to run your own instance.
 
 ### Installation
 
 - Download the code for this repository, or clone the repository.
 - Update config.js with:
-	- the uri for the server to which you'll deploy this webapp.
-	- the directory on the server to which you'll deploy this webapp.
-	- the username under which you'll ssh (via ssh keys) to deploy the webapp.
+	- still working this out
 - install all the NPM package dependencies:
 	```` npm install ````
-- browserify and deploy the app
+- browserify the code to package it up for deployment:
+	``npm build``
+- deploy the app by copying the generated build directory to your web server.  You might choose to useftp, scp, rsync, etc.  Or you might choose to fork this repository, adjust the configuration as needed, and deploy to a host that allows git deployment
+- note that you will also have to install the [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer) on your server
 
 ### Use
 
@@ -66,15 +66,17 @@ README - the README that are reading right now
 
 ### Development
 
+The code in this repository simply brings together code from other repositories and wouldn't in itself typically be usefully modified.  You would only clone this repository to create a new deployment.
+
 ### Contributing
 
-### FAQ
+As explained in the development section you wouldn't typically usefully modify anything here for use by others.  Nevertheless, if there is something we've missed, please submit an Issue.
 
 ### License
 
 [GNU GPL V2](LICENSE)
 
 
-<b id="f1">1.</b> Instructions for installing the CWRC-GithubServer are here: [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer). [↩](#a1)
+<b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/cwrc/CWRC-GithubServer). [↩](#a1)
 
 <b id="f2">2.</b> The [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) is in it's own github repository, and distributed as it's own NPM module, to [keep separate things separate](https://en.wikipedia.org/wiki/Separation_of_concerns).  Packaging it separately allows us, for example, to package the tests for the delegator with the delegator itself (and makes writing the tests easier) as well making it perfectly clear that the delegator is a self contained chunck of code, and maybe more importantly enforces it's self-containedness (by preventing us from sneaking in a call to some internal part of the module, which we would probably end up doing if the delegator was part of this repository. [↩](#a2)
