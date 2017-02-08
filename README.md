@@ -2,31 +2,79 @@
 
 # CWRC-GitWriter
 
-The CWRC-GitWriter is an instance of the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer) configured to interact with an installed instance of the [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer) to in turn use Github for so called ‘back-end’ services:  document, annotation, and schema storage.
+1. [Overview](#overview)
+1. [Demo](#demo)
+1. [Installation](#installation)
+1. [Use](#use)
+1. [Repository Organization](#repository-organization)
+1. [Development](#development)
+1. [Contributing](#contributing)
+1. [FAQ](#faq)
+1. [License](#license)
 
-An instance of the CWRC-Writer is configured to interact with different backends by creating a javascript class that satisfies the CWRC [Delegator API](https://github.com/cwrc/CWRC-Writer#delegate-to-your-services).  The delegator to interact with the [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer) is in it's own repository: [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer).<sup id="a1">[1](#f1)</sup>
+### Overview
+
+The CWRC-GitWriter is an instance of the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer) configured to interact with an installed instance<sup id="a1">[1](#f1)</sup> of the [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer) which in turn uses Github for so called ‘back-end’ services:  document, annotation, and schema storage.
+
+Any instance of the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer) ( and in this case the instance is the CWRC-GitWriter) is configured to interact with a specific backend (in this case [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer)) by creating a javascript class that satisfies the CWRC [Delegator API](https://github.com/cwrc/CWRC-Writer#delegate-to-your-services). The delegator to interact with the [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer) is in it's own GitHub repository: [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) and published as an [NPM package](https://www.npmjs.com/package/cwrcgit).<sup id="a2">[2](#f2)</sup> and the CWRC-GitWriter simply imports it and registers it with the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer).
 
 The code in this repository essentially, therefore:
 
-- imports the [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) that makes HTTP calls to the [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer)
-- imports the CWRC-Writer NPM module, and registers the [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) with it
+- imports the [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) NPM module that makes HTTP calls to an instance of the [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer)
+- imports the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer), and registers the [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) with it
 
-All put together, the flow runs a bit like this:
+When all put together, the flow runs a bit like this:
 
 ![Picture](docs/images/flow.png)
 
+All the code and related libraries are packaged up together into a single javascript file, using [browserify](https://www.npmjs.com/package/browserify)
+
+### Demo 
+
+A [CWRC GitHub Sandbox](http://208.75.74.217/editor_github.html) uses the NPM package published from this repository along with the code in [CWRC-Writer](https://github.com/cwrc/CWRC-Writer), [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), [CWRC-Git](https://github.com/cwrc/CWRC-Git], and [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GitServer). The same code is easily (for someone with modest development experience) installed on any server to run your own instance.
+
+### Installation
+
+- Download the code for this repository, or clone the repository.
+- Update config.js with:
+	- the uri for the server to which you'll deploy this webapp.
+	- the directory on the server to which you'll deploy this webapp.
+	- the username under which you'll ssh (via ssh keys) to deploy the webapp.
+- install all the NPM package dependencies:
+	```` npm install ````
+- browserify and deploy the app
+
+### Use
+
+This is an instance of the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer) editor configured to use GitHub for backend storage. Instructions for using any instance of the CWRCWriter are at [CWRC-Writer](https://github.com/cwrc/CWRC-Writer).
+
+### Repository Organization
+
 This repository is organized as follows:
 
+````
 src/index.htm - imports the main.js file.
 
 src/js/app.js - imports the CWRC-Writer npm module and initializes the editor.  Also registers the Github Delegator with the editor.
 
 docs/images/ - folder of images for README
 
-tests/ - jasmine tests
-
-package.json - lists required npm packages, in particular the CWRC-WRiter and the CWRC-GitDelegator and defines build scripts including browserify, which bundles the entire application into a single javascript file that it puts in build/main.js
+package.json - lists required npm packages, in particular the CWRC-WRiter and the CWRC-GitDelegator and defines build scripts including browserify, which bundles the entire application into a single javascript file in build/main.js
 
 README - the README that are reading right now
+````
 
-<b id="f1">1</b> The [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) is in it's own github repository, and distributed as it's own NPM module, to [keep separate things separate](https://en.wikipedia.org/wiki/Separation_of_concerns).  Packaging it separately allows us, for example, to package the tests for the delegator with the delegator itself (and makes writing the tests easier) as well making it perfectly clear that the delegator is a self contained chunck of code, and maybe more importantly enforces it's self-containedness (by preventing us from sneaking in a call to some internal part of the module, which we would probably end up doing if the delegator was part of this repository. [↩](#a1)
+### Development
+
+### Contributing
+
+### FAQ
+
+### License
+
+[GNU GPL V2](LICENSE)
+
+
+<b id="f1">1.</b> Instructions for installing the CWRC-GithubServer are here: [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer). [↩](#a1)
+
+<b id="f2">2.</b> The [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) is in it's own github repository, and distributed as it's own NPM module, to [keep separate things separate](https://en.wikipedia.org/wiki/Separation_of_concerns).  Packaging it separately allows us, for example, to package the tests for the delegator with the delegator itself (and makes writing the tests easier) as well making it perfectly clear that the delegator is a self contained chunck of code, and maybe more importantly enforces it's self-containedness (by preventing us from sneaking in a call to some internal part of the module, which we would probably end up doing if the delegator was part of this repository. [↩](#a2)
