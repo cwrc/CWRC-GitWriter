@@ -35,13 +35,25 @@ A [CWRC GitHub Sandbox](http://208.75.74.217/editor_github.html) uses the NPM pa
 ### Installation
 
 - Download the code for this repository, or clone the repository.
-- Update config.js with:
-	- still working this out
 - install all the NPM package dependencies:
 	```` npm install ````
+- IMPORTANT:  YOU *MUST* AFTER THE INSTALL COMPLETES, edit:
+
+```node_modules/jquery-ui/package.json```
+
+and add the following:
+
+```
+"browserify": {
+  "transform": [
+	"deamdify"
+  ]
+}
+```
+
 - browserify the code to package it up for deployment:
 	``npm build``
-- deploy the app by copying the generated build directory to your web server.  You might choose to useftp, scp, rsync, etc.  Or you might choose to fork this repository, adjust the configuration as needed, and deploy to a host that allows git deployment
+- deploy the app by copying the generated build directory to your web server.  You might choose to use ftp, scp, rsync, etc.  Or you might choose to fork this repository, adjust the configuration as needed, and deploy to a host that allows git deployment
 - note that you will also have to install the [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer) on your server
 
 ### Use
@@ -79,4 +91,4 @@ As explained in the development section you wouldn't typically usefully modify a
 
 <b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/cwrc/CWRC-GithubServer). [↩](#a1)
 
-<b id="f2">2.</b> The [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) is in it's own github repository, and distributed as it's own NPM module, to [keep separate things separate](https://en.wikipedia.org/wiki/Separation_of_concerns).  Packaging it separately allows us, for example, to package the tests for the delegator with the delegator itself (and makes writing the tests easier) as well making it perfectly clear that the delegator is a self contained chunck of code, and maybe more importantly enforces it's self-containedness (by preventing us from sneaking in a call to some internal part of the module, which we would probably end up doing if the delegator was part of this repository. [↩](#a2)
+<b id="f2">2.</b> The [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) is in it's own github repository, and distributed as a discrete NPM module, to [keep separate things separate](https://en.wikipedia.org/wiki/Separation_of_concerns).  Packaging it separately allows us, for example, to package the tests for the delegator with the delegator itself (and makes writing the tests easier) as well making it perfectly clear that the delegator is a self contained chunck of code, and maybe more importantly enforces it's self-containedness (by preventing us from sneaking in a call to some internal part of the module, which we would probably end up doing if the delegator was part of this repository. [↩](#a2)
