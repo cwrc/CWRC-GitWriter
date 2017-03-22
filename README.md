@@ -1,11 +1,12 @@
 ![Picture](http://www.cwrc.ca/wp-content/uploads/2010/12/CWRC_Dec-2-10_smaller.png)
 
+[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+
 # CWRC-GitWriter
 
 1. [Overview](#overview)
-1. [Demo](#demo)
-1. [Installation](#installation)
 1. [Use](#use)
+1. [Installation](#installation)
 1. [Repository Organization](#repository-organization)
 1. [Development](#development)
 1. [Contributing](#contributing)
@@ -13,26 +14,28 @@
 
 ### Overview
 
-The CWRC-GitWriter is an instance of the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer) configured to interact with an installed instance<sup id="a1">[1](#f1)</sup> of the [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer) which in turn uses Github for so called ‘back-end’ services:  document, annotation, and schema storage.
+CWRC-GitWriter is an instance of the [CWRC-Writer](http://cwrc.ca/Documentation/project-editor/#DITA_Files-Various_Applications/CWRC-Writer/Embed_Ref_Splash.html), a [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) text editor for in-browser XML editing and stand-off RDF annotation using the [Open Annotation Data Model](http://www.openannotation.org/spec/core/). CWRC-GitWriter stores documents, annotations, templates, and XML schemas in GitHub.
 
-Any instance of the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer) ( and in this case the instance is the CWRC-GitWriter) is configured to interact with a specific backend (in this case [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer)) by creating a javascript class that satisfies the CWRC [Delegator API](https://github.com/cwrc/CWRC-Writer#delegate-to-your-services). The delegator to interact with the [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer) is in it's own GitHub repository: [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) and published as an [NPM package](https://www.npmjs.com/package/cwrcgit).<sup id="a2">[2](#f2)</sup> and the CWRC-GitWriter simply imports it and registers it with the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer).
+The code in this repository serves two purposes:
 
-The code in this repository essentially, therefore:
+1.  To back the sandbox deployment [http://208.75.74.217](http://208.75.74.217)
+2.  To provide an example configuration of the CWRC-Writer for those who might like to substitute a different backend (e.g., database, file system on server)
 
-- imports the [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) NPM module that makes HTTP calls to an instance of the [CWRC-GithubServer](https://github.com/cwrc/CWRC-GithubServer)
-- imports the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer), and registers the [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) with it
+### Use
 
-When all put together, the flow runs a bit like this:
+A running deployment of the code in this repository is available for anyone's use at:
 
-![Picture](docs/images/flow.png)
-
-All the code and related libraries are packaged up together into a single javascript file, using [browserify](https://www.npmjs.com/package/browserify)
-
-### Demo 
-
-A [CWRC GitHub Sandbox](http://208.75.74.217/editor_github.html) uses the NPM package published from this repository along with the code in [CWRC-Writer](https://github.com/cwrc/CWRC-Writer), [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), [CWRC-Git](https://github.com/cwrc/CWRC-Git), and [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GitDelegator). The same code is easily (for someone with modest development experience) installed on any server to run your own instance.
+[http://208.75.74.217](http://208.75.74.217)
 
 ### Installation
+
+Although the sandbox version provides a freely usable instance, you may of course install an instance of the CWRC-GitWriter on your own server.  CWRC-GitWriter also requires a running instance<sup id="a1">[1](#f1)</sup> of [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), which in turn interacts with GitHub through the [GitHub API](https://developer.github.com/v3/).
+
+CWRC-GitWriter is a web application with an HTML file [build/index.html](build/index.html) that imports a single javascript file, [build/js/app.js](build/js/app.js) and a few CSS files. 
+
+To deploy the CWRC-GitWriter you might therefore simply copy the build directory to your server, probably the same server from which you'd serve the [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer).
+
+First, though, you'll have to build the application:
 
 - Download the code for this repository, or clone the repository.
 - install all the NPM package dependencies:
@@ -53,32 +56,31 @@ and add the following:
 
 - browserify the code to package it up for deployment:
 	``npm build``
-- deploy the app by copying the generated build directory to your web server.  You might choose to use ftp, scp, rsync, etc.  Or you might choose to fork this repository, adjust the configuration as needed, and deploy to a host that allows git deployment
-- note that you will also have to install the [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer) on your server
 
-### Use
-
-This is an instance of the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer) editor configured to use GitHub for backend storage. Instructions for using any instance of the CWRCWriter are at [CWRC-Writer](https://github.com/cwrc/CWRC-Writer).
-
-### Repository Organization
-
-This repository is organized as follows:
-
-````
-src/index.htm - imports the main.js file.
-
-src/js/app.js - imports the CWRC-Writer npm module and initializes the editor.  Also registers the Github Delegator with the editor.
-
-docs/images/ - folder of images for README
-
-package.json - lists required npm packages, in particular the CWRC-WRiter and the CWRC-GitDelegator and defines build scripts including browserify, which bundles the entire application into a single javascript file in build/main.js
-
-README - the README that are reading right now
-````
+Now you can deploy the app by copying the generated build directory to your web server.  You might choose to use ftp, scp, rsync, etc.  Or you might choose to fork this repository, adjust the configuration as needed, and deploy to a host that allows git deployment
 
 ### Development
 
-The code in this repository simply brings together code from other repositories and wouldn't in itself typically be usefully modified.  You would only clone this repository to create a new deployment.
+The code in this repository simply brings together and configures code from other repositories and wouldn't in itself typically be usefully modified.  You could, however, clone this repository as a base from which to create a new configuration of the CWRC-Writer, or simply use the code here as a guide in creating your own configuration.  
+
+CWRC-GitWriter uses [NPM](https://www.npmjs.com) both for dependency management and for running it's main build script.  The build script in turn uses [Browserify](https://browserify.org) to bundle all code into the single [build/js/app.js](build/js/app.js) file. The [package.json](package.json) file contains the script for invoking Browserify as well as the full list of NPM packages required.  
+
+The entry point into the CWRC-GitWriter code is [src/js/app.js](src/js/app.js) which uses [node.js module loading](https://nodejs.org/api/modules.html) to 'require' - either from the [NPM public registry](https://www.npmjs.com) or from local files - the bits and pieces that make up the CWRC-GitWriter, and plug them together.  CWRC-GitWriter invokes [Browserify](https://browserify.org) on the app.js file to resolve all the 'require' statements, and bundle all the code, including NPM packages and local files, into a single javascript file that is loaded into the web browser.  
+
+To develop with the CWRC-GitWriter, you'll need to understand NPM and Browserify.  Then you can start by looking at the CWRC-GitWriter NPM [package.json](package.json) file and at the entry point into the CWRC-GitWriter: [src/js/app.js](src/js/app.js).  The [src/js/app.js](src/js/app.js) in particular is a good example of how to configure a instance of a CWRC-Writer to use a different backend (other than Github, e.g., file system, database) 
+
+The app.js file imorts ('requires')  the following NPM CWRC packages:
+
+[CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base) - the base CWRC-Writer
+[CWRC-GitDelegator](https://www.npmjs.com/package/cwrc-git-delegator) - a javascript class that handles calls to the backend, in this case to Github via the CWRC-GitServer
+[CWRC-PublicEntityDialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs) - a javascript class that handles lookups of named entities
+
+and two config files:
+
+[src/js/config.js](src/js/config.js) - initially describes the XML schemas supported
+[src/js/layout-config.js](src/js/layout-config.js) - sets up the specific layout of the CWRC-Writer.  This file in turn 'requires' the following NPM package:
+
+[CWRC-WriterLayout](https://www.npmjs.com/package/cwrc-writer-layout) - provides functions for setting up the layout
 
 ### Contributing
 
