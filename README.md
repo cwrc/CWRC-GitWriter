@@ -65,22 +65,38 @@ The code in this repository simply brings together and configures code from othe
 
 CWRC-GitWriter uses [NPM](https://www.npmjs.com) both for dependency management and for running it's main build script.  The build script in turn uses [Browserify](https://browserify.org) to bundle all code into the single [build/js/app.js](build/js/app.js) file. The [package.json](package.json) file contains the script for invoking Browserify as well as the full list of NPM packages required.  
 
-The entry point into the CWRC-GitWriter code is [src/js/app.js](src/js/app.js) which uses [node.js module loading](https://nodejs.org/api/modules.html) to 'require' - either from the [NPM public registry](https://www.npmjs.com) or from local files - the bits and pieces that make up the CWRC-GitWriter, and plug them together.  CWRC-GitWriter invokes [Browserify](https://browserify.org) on the app.js file to resolve all the 'require' statements, and bundle all the code, including NPM packages and local files, into a single javascript file that is loaded into the web browser.  
+The entry point into the CWRC-GitWriter code, on which Browserify is invoked, is [src/js/app.js](src/js/app.js) which uses [node.js module loading](https://nodejs.org/api/modules.html) to 'require' - either from the [NPM public registry](https://www.npmjs.com) or from local files - the bits and pieces that make up the CWRC-GitWriter, and plug them together.  [Browserify](https://browserify.org) resolves all the 'require' statements, and bundles all the code, including NPM packages and local files, into a single javascript file that is loaded into the web browser.  
 
-To develop with the CWRC-GitWriter, you'll need to understand NPM and Browserify.  Then you can start by looking at the CWRC-GitWriter NPM [package.json](package.json) file and at the entry point into the CWRC-GitWriter: [src/js/app.js](src/js/app.js).  The [src/js/app.js](src/js/app.js) in particular is a good example of how to configure a instance of a CWRC-Writer to use a different backend (other than Github, e.g., file system, database) 
+To develop with the CWRC-GitWriter, you'll therefore need to understand NPM and Browserify.  Then you can get into the CWRC-GitWriter NPM [package.json](package.json) file and [src/js/app.js](src/js/app.js).  
 
-The app.js file imorts ('requires')  the following NPM CWRC packages:
+The [src/js/app.js](src/js/app.js) is also a good example of how to configure a instance of a CWRC-Writer to use a different backend (other than Github, e.g., file system, database). The app.js file imorts ('requires') the following NPM CWRC packages:
 
-[CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base) - the base CWRC-Writer
-[CWRC-GitDelegator](https://www.npmjs.com/package/cwrc-git-delegator) - a javascript class that handles calls to the backend, in this case to Github via the CWRC-GitServer
-[CWRC-PublicEntityDialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs) - a javascript class that handles lookups of named entities
+<dl>
+
+<dt>[CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)</dt>
+<dd>The base CWRC-Writer</dd>
+
+<dt>[CWRC-GitDelegator](https://www.npmjs.com/package/cwrc-git-delegator)</dt>
+<dd> The javascript class that handles calls to the backend, in this case to Github via the CWRC-GitServer.<sup id="a2">[2](#f2)</sup></dd>
+
+<dd>[CWRC-PublicEntityDialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)</dd>
+<dt> The javascript class that handles lookups of named entities.</dt>
+
+</dl>
 
 and two config files:
 
-[src/js/config.js](src/js/config.js) - initially describes the XML schemas supported
-[src/js/layout-config.js](src/js/layout-config.js) - sets up the specific layout of the CWRC-Writer.  This file in turn 'requires' the following NPM package:
+<dl>
+  <dt>[src/js/config.js](src/js/config.js)</dt>
+  <dd>Javascript object that describes the XML schemas supported, and is used to pass in other objects to the CWRC-Writer.</dd>
 
-[CWRC-WriterLayout](https://www.npmjs.com/package/cwrc-writer-layout) - provides functions for setting up the layout
+  <dt>[src/js/layout-config.js](src/js/layout-config.js)</dt>
+  <dd>Sets up the specific layout of the CWRC-Writer.  This file in turn 'requires' the [CWRC-WriterLayout](https://www.npmjs.com/package/cwrc-writer-layout) which provides functions for setting up the layout.</dd>
+</dl>
+
+The [src/js/app.js](src/js/app.js) file ties all these together as you would for your own configuration of the CWRC-Writer.
+
+Note that the authentication for Github is invoked here in app.js since it redirects to the GitHub site if the user isn't loaded.  Better to redirect here at the outset before loading up all the other CWRC related code.
 
 ### Contributing
 
