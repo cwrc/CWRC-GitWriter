@@ -71,28 +71,24 @@ To develop with the CWRC-GitWriter, you'll therefore need to understand NPM and 
 
 The [src/js/app.js](src/js/app.js) is also a good example of how to configure a instance of a CWRC-Writer to use a different backend (other than Github, e.g., file system, database). The app.js file imorts ('requires') the following NPM CWRC packages:
 
-<dl>
 
-<dt>[CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)</dt>
-<dd>The base CWRC-Writer</dd>
+`[CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)`
+The base CWRC-Writer
 
-<dt>[CWRC-GitDelegator](https://www.npmjs.com/package/cwrc-git-delegator)</dt>
-<dd> The javascript class that handles calls to the backend, in this case to Github via the CWRC-GitServer.<sup id="a2">[2](#f2)</sup></dd>
+`[CWRC-GitDelegator](https://www.npmjs.com/package/cwrc-git-delegator)`
+The javascript class that handles calls to the backend, in this case to Github via the CWRC-GitServer.<sup id="a2">[2](#f2)</sup>
 
-<dd>[CWRC-PublicEntityDialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)</dd>
-<dt> The javascript class that handles lookups of named entities.</dt>
-
-</dl>
+`[CWRC-PublicEntityDialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)`
+The javascript class that handles lookups of named entities.
 
 and two config files:
 
-<dl>
-  <dt>[src/js/config.js](src/js/config.js)</dt>
-  <dd>Javascript object that describes the XML schemas supported, and is used to pass in other objects to the CWRC-Writer.</dd>
+`[src/js/config.js](src/js/config.js)`
+Javascript object that describes the XML schemas supported, and is used to pass in other objects to the CWRC-Writer.
 
-  <dt>[src/js/layout-config.js](src/js/layout-config.js)</dt>
-  <dd>Sets up the specific layout of the CWRC-Writer.  This file in turn 'requires' the [CWRC-WriterLayout](https://www.npmjs.com/package/cwrc-writer-layout) which provides functions for setting up the layout.</dd>
-</dl>
+`[src/js/layout-config.js](src/js/layout-config.js)`
+Sets up the specific layout of the CWRC-Writer.  This file in turn 'requires' the [CWRC-WriterLayout](https://www.npmjs.com/package/cwrc-writer-layout) which provides functions for setting up the layout.
+
 
 The [src/js/app.js](src/js/app.js) file ties all these together as you would for your own configuration of the CWRC-Writer.
 
