@@ -72,23 +72,24 @@ To develop with the CWRC-GitWriter, you'll therefore need to understand NPM and 
 The [src/js/app.js](src/js/app.js) is also a good example of how to configure a instance of a CWRC-Writer to use a different backend (other than Github, e.g., file system, database). The app.js file imorts ('requires') the following NPM CWRC packages:
 
 
-`[CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)`
+[CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)
 The base CWRC-Writer
 
-`[CWRC-GitDelegator](https://www.npmjs.com/package/cwrc-git-delegator)`
+[CWRC-GitDelegator](https://www.npmjs.com/package/cwrc-git-delegator)
 The javascript class that handles calls to the backend, in this case to Github via the CWRC-GitServer.<sup id="a2">[2](#f2)</sup>
 
-`[CWRC-PublicEntityDialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)`
+[CWRC-PublicEntityDialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)
 The javascript class that handles lookups of named entities.
 
 and two config files:
 
-`[src/js/config.js](src/js/config.js)`
+[src/js/config.js](src/js/config.js)
+
 Javascript object that describes the XML schemas supported, and is used to pass in other objects to the CWRC-Writer.
 
-`[src/js/layout-config.js](src/js/layout-config.js)`
-Sets up the specific layout of the CWRC-Writer.  This file in turn 'requires' the [CWRC-WriterLayout](https://www.npmjs.com/package/cwrc-writer-layout) which provides functions for setting up the layout.
+[src/js/layout-config.js](src/js/layout-config.js)
 
+Sets up the specific layout of the CWRC-Writer.  This file in turn 'requires' the [CWRC-WriterLayout](https://www.npmjs.com/package/cwrc-writer-layout) which provides functions for setting up the layout.
 
 The [src/js/app.js](src/js/app.js) file ties all these together as you would for your own configuration of the CWRC-Writer.
 
@@ -103,6 +104,6 @@ As explained in the development section you wouldn't typically usefully modify a
 [GNU GPL V2](LICENSE)
 
 
-<b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/cwrc/CWRC-GithubServer). [↩](#a1)
+<b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer). [↩](#a1)
 
 <b id="f2">2.</b> The [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) is in it's own github repository, and distributed as a discrete NPM module, to [keep separate things separate](https://en.wikipedia.org/wiki/Separation_of_concerns).  Packaging it separately allows us, for example, to package the tests for the delegator with the delegator itself (and makes writing the tests easier) as well making it perfectly clear that the delegator is a self contained chunck of code, and maybe more importantly enforces it's self-containedness (by preventing us from sneaking in a call to some internal part of the module, which we would probably end up doing if the delegator was part of this repository. [↩](#a2)
