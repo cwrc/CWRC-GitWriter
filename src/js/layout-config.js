@@ -7,7 +7,7 @@
 //require('jquery-layout');
 //require('jquery-ui/ui/widgets/tabs');
 
-let layoutModules = require('cwrc-writer-layout');
+//var layoutModules = require('cwrc-writer-layout');
 
 function Layout(w) {
     this.w = w;
@@ -127,13 +127,13 @@ Layout.prototype = {
             }
         });
         
-        layoutModules.addStructureTreePanel(this.w, 'westTabsContent');
-        layoutModules.addEntitiesListPanel(this.w, 'westTabsContent');
-        layoutModules.addRelationsListPanel(this.w, 'westTabsContent');
+        this.w.layoutModules.addStructureTreePanel(this.w, 'westTabsContent');
+        this.w.layoutModules.addEntitiesListPanel(this.w, 'westTabsContent');
+        this.w.layoutModules.addRelationsListPanel(this.w, 'westTabsContent');
         
         if (!this.w.isReadOnly) {
-            layoutModules.addValidationPanel(this.w, 'southTabsContent');
-            layoutModules.addSelectionPanel(this.w, 'southTabsContent');
+            this.w.layoutModules.addValidationPanel(this.w, 'southTabsContent');
+            this.w.layoutModules.addSelectionPanel(this.w, 'southTabsContent');
 
         }
         

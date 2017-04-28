@@ -2,8 +2,8 @@ if (!window.$) {
     	window.jQuery = window.$ = require('jquery')
     }
 
-let Delegator = require('cwrc-git-delegator')
-let delegator = new Delegator();
+var Delegator = require('cwrc-git-delegator')
+var delegator = new Delegator();
 
     // only continue loading the cwrcWriter if the user has authenticated with github
 if (delegator.authenticate()) {
@@ -23,8 +23,8 @@ if (delegator.authenticate()) {
 	require('jquery-ui/ui/widgets/tooltip')
 
 	var CWRCWriter = require('cwrc-writer-base')
-	var config = require('./config')
-
+	
+	var config = require('./schema-config')
 	config.delegator = Delegator
 	config.layout = require('./layout-config')
 	config.entityLookupDialogs = require('cwrc-public-entity-dialogs')
