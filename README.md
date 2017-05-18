@@ -120,6 +120,7 @@ If you are making changes to the npm packages that contribute to the GitWriter (
 
 Once finished making and testing local changes to the delegator or cwrc-writer-base (or any other package), then publish the new NPM packages, and remove the dependencies from package.json:
 
+```
 "dependencies": {
     "bootstrap": "3.3.7",
     "cwrc-writer-layout": "1.0.5",
@@ -127,6 +128,7 @@ Once finished making and testing local changes to the delegator or cwrc-writer-b
     "jquery-ui": "1.12",
     "js-cookie": "2.1.3"
   }
+```
 
  and finally reinstall them from NPM:
 
