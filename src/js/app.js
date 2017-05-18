@@ -1,12 +1,9 @@
 if (!window.$) {
     	window.jQuery = window.$ = require('jquery')
     }
-
-var Delegator = require('cwrc-git-delegator')
-var delegator = new Delegator();
-
+var storageDialogs = require('cwrc-git-dialogs');
     // only continue loading the cwrcWriter if the user has authenticated with github
-if (delegator.authenticate()) {
+if (storageDialogs.authenticate()) {
 	
 	require('./jquery/jquery-ui-core.js')
 	require("./jquery/plugins/jquery.layout-latest.js")
@@ -22,13 +19,12 @@ if (delegator.authenticate()) {
 	require('jquery-ui/ui/widgets/dialog')
 	require('jquery-ui/ui/widgets/tooltip')
 
-	var CWRCWriter = require('cwrc-writer-base')
-	
-	var config = require('./schema-config')
-	config.delegator = Delegator
+	var config = require('./config')
+	config.storageDialogs = storageDialogs
 	config.layout = require('./layout-config')
 	config.entityLookupDialogs = require('cwrc-public-entity-dialogs')
 
+	var CWRCWriter = require('cwrc-writer-base')
 	window.writer = new CWRCWriter(config)
 	writer.init('cwrcWriterContainer')
 	writer.showLoadDialog()

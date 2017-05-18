@@ -38,10 +38,9 @@
   },
   "dependencies": {
     "bootstrap": "3.3.7",
-    "cwrc-git-delegator": "1.7.0",
+    "cwrc-git-dialogs": "file:///Users/jc/Dropbox/cwrc/github/cwrc-git-dialogs",
     "cwrc-public-entity-dialogs": "1.0.2",
-    "cwrc-writer-base": "2.2.0",
-    "cwrc-writer-layout": "1.0.5",
+    "cwrc-writer-base": "file:///Users/jc/Dropbox/cwrc/github/CWRC-WriterBase",
     "jquery": "3.1.0",
     "jquery-ui": "1.12",
     "js-cookie": "2.1.3"

@@ -1,5 +1,6 @@
 module.exports = {
     "cwrcRootUrl": "",
+    "validationUrl": "http://validator.services.cwrc.ca/validator/validate.html",
     "cwrcDialogs": {
         "cwrcApiUrl": "http://apps.testing.cwrc.ca/islandora/cwrc_entities/v1/",
         "repositoryBaseObjectUrl": "http://commons.cwrc.ca/",

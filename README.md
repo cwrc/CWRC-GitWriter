@@ -19,7 +19,7 @@ CWRC-GitWriter is an instance of the [CWRC-Writer](http://cwrc.ca/Documentation/
 The code in this repository serves two purposes:
 
 1.  To back the sandbox deployment [http://208.75.74.217](http://208.75.74.217)
-2.  To provide an example configuration of the CWRC-Writer for those who might like to substitute a different backend (e.g., database, file system on server, different XML validator, different entity lookup.)
+2.  To provide an example configuration of the CWRC-Writer for those who might like to substitute a different backend (e.g., database, file system on server, different entity lookup.)
 
 ### Use
 
@@ -31,8 +31,8 @@ A running deployment of the code in this repository is available for anyone's us
 
 Although the sandbox version provides a freely usable instance, you may of course install an instance of the CWRC-GitWriter on your own server.  CWRC-GitWriter also requires a running instance<sup id="a1">[1](#f1)</sup> of [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), which in turn interacts with GitHub through the [GitHub API](https://developer.github.com/v3/).
 
-Note that if you want to create a new version of the CWRC-Writer that is configured to work with your own document repository (e.g., a database) or XML validator, or entity lookup, this repository still provides you with the best example to follow.  You'll also want to look at the [CWRC-GitDelegator](https://www.npmjs.com/package/cwrc-git-delegator) repository, which holds
-the javascript class that handles calls to the backend, in this case to Github via the CWRC-GitServer.<sup id="a2">[2](#f2)</sup>  This is the class you'd want to replace with your own.
+Note that if you want to create a new version of the CWRC-Writer that is configured to work with your own document repository (e.g., a database), this repository still provides you with the best example to follow.  You'll also want to look at the [cwrc-git-dialogs](https://www.npmjs.com/package/cwrc-git-dialogs) repository, which holds
+the javascript class that handles calls to the backend storage, in this case to Github via the CWRC-GitServer.  This is the class you'd want to replace with your own.  To replace the entity lookups you'd replace [cwrc-public-entity-dialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)
 
 CWRC-GitWriter is a web application with an HTML file [build/index.html](build/index.html) that imports a single javascript file, [build/js/app.js](build/js/app.js) and a few CSS files. 
 
@@ -84,11 +84,11 @@ The [src/js/app.js](src/js/app.js) is in particular a good example of how to con
 [CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)
 The base CWRC-Writer
 
-[CWRC-GitDelegator](https://www.npmjs.com/package/cwrc-git-delegator)
-The javascript class that handles calls to the backend, in this case to Github via the CWRC-GitServer.<sup id="a2">[2](#f2)</sup>  This is the class you'd want to replace with your own.
+[cwrc-git-dialogs](https://www.npmjs.com/package/cwrc-git-dialogs)
+The javascript class that handles calls to the backend storage, in this case to Github via the CWRC-GitServer.<sup id="a2">[2](#f2)</sup>  This is the class you'd want to replace with your own.
 
-[CWRC-PublicEntityDialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)
-The javascript class that handles lookups of named entities.
+[cwrc-public-entity-dialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)
+The javascript class that handles lookups of named entities.  You may want to replace this with your own entity lookup
 
 and two config files:
 
@@ -109,10 +109,9 @@ If you are making changes to the npm packages that contribute to the GitWriter (
 ```
 "dependencies": {
     "bootstrap": "3.3.7",
-    "cwrc-git-delegator": "file:///Users/jc/Dropbox/cwrc/github/CWRC-GitDelegator",
-    "cwrc-public-entity-dialogs": "1.0.2",
+    "cwrc-public-entity-dialogs": file:///Users/jc/Dropbox/cwrc/github/cwrc-public-entity-dialogs",
+    "cwrc-git-dialogs": "file:///Users/jc/Dropbox/cwrc/github/cwrc-git-dialogs",
     "cwrc-writer-base": "file:///Users/jc/Dropbox/cwrc/github/CWRC-WriterBase",
-    "cwrc-writer-layout": "1.0.5",
     "jquery": "3.1.0",
     "jquery-ui": "1.12",
     "js-cookie": "2.1.3"
@@ -123,7 +122,6 @@ Once finished making and testing local changes to the delegator or cwrc-writer-b
 
 "dependencies": {
     "bootstrap": "3.3.7",
-    "cwrc-public-entity-dialogs": "1.0.2",
     "cwrc-writer-layout": "1.0.5",
     "jquery": "3.1.0",
     "jquery-ui": "1.12",
@@ -133,18 +131,17 @@ Once finished making and testing local changes to the delegator or cwrc-writer-b
  and finally reinstall them from NPM:
 
 ```
-  npm i cwrc-writer-base cwrc-git-delegator -S
+  npm i cwrc-writer-base cwrc-git-dialogs cwrc-public-entity-dialogs -S
 ```
 
 ### Contributing
 
-As explained in the development section you wouldn't typically usefully modify anything here for use by others.  Nevertheless, if there is something we've missed, please submit an Issue.
+As explained in the development section you wouldn't typically usefully modify anything here for use by others.  Nevertheless, if there is something we've missed, please submit an Issue.  If you are interested, however, please take a look at our [Development Docs](https://github.com/jchartrand/CWRC-Writer-Dev-Docs)
 
 ### License
 
 [GNU GPL V2](LICENSE)
 
 
-<b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer). [↩](#a1)
+<b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/jchartrand/CWRC-GitServer). [↩](#a1)
 
-<b id="f2">2.</b> The [CWRC-GitDelegator](https://github.com/cwrc/CWRC-GithubServer) is in it's own github repository, and distributed as a discrete NPM module, to [keep separate things separate](https://en.wikipedia.org/wiki/Separation_of_concerns).  Packaging it separately allows us, for example, to package the tests for the delegator with the delegator itself (and makes writing the tests easier) as well making it perfectly clear that the delegator is a self contained chunck of code, and maybe more importantly enforces it's self-containedness (by preventing us from sneaking in a call to some internal part of the module, which we would probably end up doing if the delegator was part of this repository. [↩](#a2)
