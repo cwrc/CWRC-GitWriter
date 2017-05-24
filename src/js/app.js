@@ -1,10 +1,11 @@
 if (!window.$) {
     	window.jQuery = window.$ = require('jquery')
     }
+
 var storageDialogs = require('cwrc-git-dialogs');
     // only continue loading the cwrcWriter if the user has authenticated with github
 if (storageDialogs.authenticate()) {
-	
+
 	require('./jquery/jquery-ui-core.js')
 	require("./jquery/plugins/jquery.layout-latest.js")
 	require("./jquery/plugins/jquery.contextmenu.min.js")
@@ -19,13 +20,19 @@ if (storageDialogs.authenticate()) {
 	require('jquery-ui/ui/widgets/dialog')
 	require('jquery-ui/ui/widgets/tooltip')
 
+	var CWRCWriter = require('cwrc-writer-base')
+
 	var config = require('./config')
 	config.storageDialogs = storageDialogs
 	config.layout = require('./layout-config')
 	config.entityLookupDialogs = require('cwrc-public-entity-dialogs')
-
-	var CWRCWriter = require('cwrc-writer-base')
 	window.writer = new CWRCWriter(config)
 	writer.init('cwrcWriterContainer')
+	
 	writer.showLoadDialog()
+	
+
+
+
+
 }

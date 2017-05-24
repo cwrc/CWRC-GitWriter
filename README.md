@@ -109,7 +109,7 @@ If you are making changes to the npm packages that contribute to the GitWriter (
 ```
 "dependencies": {
     "bootstrap": "3.3.7",
-    "cwrc-public-entity-dialogs": file:///Users/jc/Dropbox/cwrc/github/cwrc-public-entity-dialogs",
+    "cwrc-public-entity-dialogs": "file:///Users/jc/Dropbox/cwrc/github/cwrc-public-entity-dialogs",
     "cwrc-git-dialogs": "file:///Users/jc/Dropbox/cwrc/github/cwrc-git-dialogs",
     "cwrc-writer-base": "file:///Users/jc/Dropbox/cwrc/github/CWRC-WriterBase",
     "jquery": "3.1.0",
@@ -117,6 +117,13 @@ If you are making changes to the npm packages that contribute to the GitWriter (
     "js-cookie": "2.1.3"
   }
  ```
+
+To rebuild at anytime, first pulling in modified packages:
+
+
+```
+rm -rf node_modules/cwrc-git-delegator && rm -rf node_modules/cwrc-writer-base && rm -rf node_modules/cwrc-git-dialogs && npm install && npm run build
+```
 
 Once finished making and testing local changes to the delegator or cwrc-writer-base (or any other package), then publish the new NPM packages, and remove the dependencies from package.json:
 
@@ -135,6 +142,8 @@ Once finished making and testing local changes to the delegator or cwrc-writer-b
 ```
   npm i cwrc-writer-base cwrc-git-dialogs cwrc-public-entity-dialogs -S
 ```
+
+
 
 ### Contributing
 
