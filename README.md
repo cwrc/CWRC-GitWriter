@@ -1,4 +1,4 @@
-![Picture](http://www.cwrc.ca/wp-content/uploads/2010/12/CWRC_Dec-2-10_smaller.png)
+![Picture](http://cwrc.ca/logos/CWRC_logos_2016_versions/CWRCLogo-Horz-FullColour.png)
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
@@ -146,12 +146,12 @@ Once finished making and testing local changes to the delegator or cwrc-writer-b
 
 ### Contributing
 
-As explained in the development section you wouldn't typically usefully modify anything here for use by others.  Nevertheless, if there is something we've missed, please submit an Issue.  If you are interested, however, please take a look at our [Development Docs](https://github.com/jchartrand/CWRC-Writer-Dev-Docs)
+As explained in the development section you wouldn't typically usefully modify anything here for use by others.  Nevertheless, if there is something we've missed, please submit an Issue.  If you are interested, however, please take a look at our [Development Docs](https://github.com/cwrc/CWRC-Writer-Dev-Docs)
 
 ### License
 
 [GNU GPL V2](LICENSE)
 
 
-<b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/jchartrand/CWRC-GitServer). [↩](#a1)
+<b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer). [↩](#a1)
 
