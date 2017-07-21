@@ -27,6 +27,10 @@ A running deployment of the code in this repository is available for anyone's us
 
 [http://208.75.74.217](http://208.75.74.217)
 
+### Overview
+
+![High Level Overview](/docs/images/cwrcwriter-high-level-diagram.png?raw=true "High Level Overview")
+
 ### Installation
 
 Although the sandbox version provides a freely usable instance, you may of course install an instance of the CWRC-GitWriter on your own server.  CWRC-GitWriter also requires a running instance<sup id="a1">[1](#f1)</sup> of [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), which in turn interacts with GitHub through the [GitHub API](https://developer.github.com/v3/).
