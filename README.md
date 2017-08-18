@@ -122,14 +122,13 @@ If you are making changes to the npm packages that contribute to the GitWriter (
   }
  ```
 
-To rebuild at anytime, first pulling in modified packages:
-
+When doing a new build, first pull in any changes you made to the local packages:
 
 ```
 rm -rf node_modules/cwrc-public-entity-dialogs && rm -rf node_modules/cwrc-writer-base && rm -rf node_modules/cwrc-git-dialogs && npm install && npm run build
 ```
 
-Once finished making and testing local changes to the delegator or cwrc-writer-base (or any other package), then publish the new NPM packages, and remove the dependencies from package.json:
+Once finished making and testing local changes,  publish the new NPM packages, including the local packages, and remove the dependencies from package.json:
 
 ```
 "dependencies": {
@@ -146,6 +145,7 @@ Once finished making and testing local changes to the delegator or cwrc-writer-b
   npm i cwrc-writer-base cwrc-git-dialogs cwrc-public-entity-dialogs -S
 ```
 
+NOTE:  another alternative to working with local packages is [npm link](https://docs.npmjs.com/cli/link)
 
 
 ### Contributing
