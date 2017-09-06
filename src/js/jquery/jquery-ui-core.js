@@ -20,3 +20,7 @@ require('jquery-ui/ui/widget');
 // required for jquery layout
 require('jquery-ui/ui/widgets/mouse');
 require('jquery-ui/ui/widgets/draggable');
+
+// required by checkboxradio but not actually included
+require('jquery-ui/ui/escape-selector');
+require('jquery-ui/ui/form-reset-mixin');
