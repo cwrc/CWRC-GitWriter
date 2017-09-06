@@ -20,9 +20,8 @@ require('jquery-ui/ui/widgets/tooltip')
 var CWRCWriter = require('cwrc-writer-base')
 var config = require('./config');
 //  config.storageDialogs = storageDialogs;
-config.entityLookupDialogs = require('cwrc-public-entity-dialogs');
-config.layout = require('./layout-config');
+//config.entityLookupDialogs = require('cwrc-public-entity-dialogs');
+//config.layout = require('./layout-config');
 
 var writer = new CWRCWriter(config);
 window.Drupal.CWRCWriter.writer = writer;
-writer.init('cwrcWriterContainer');
