@@ -1,11 +1,11 @@
 if (!window.$) {
-    	window.jQuery = window.$ = require('jquery')
-    }
+	window.jQuery = window.$ = require('jquery')
+}
 
 var storageDialogs = require('cwrc-git-dialogs');
     // only continue loading the cwrcWriter if the user has authenticated with github
-if (storageDialogs.authenticate()) {
 
+if (storageDialogs.authenticate()) {
 	require('./jquery/jquery-ui-core.js')
 	require("./jquery/plugins/jquery.layout-latest.js")
 	require("./jquery/plugins/jquery.contextmenu.min.js")
@@ -30,9 +30,4 @@ if (storageDialogs.authenticate()) {
 	writer.init('cwrcWriterContainer')
 	
 	writer.showLoadDialog()
-	
-
-
-
-
 }

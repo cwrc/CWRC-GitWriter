@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "bootstrap": "3.3.7",
-    "cwrc-git-dialogs": "1.0.0",
+    "cwrc-git-dialogs": "^1.1.0",
     "cwrc-public-entity-dialogs": "1.0.2",
     "cwrc-writer-base": "2.4.2",
     "jquery": "3.1.0",
