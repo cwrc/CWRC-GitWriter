@@ -1,13 +1,9 @@
 'use strict';
 
-//var $ = require('jquery');
+var $ = require('jquery');
 
-//window.jQuery = window.$ = require('jquery');
-
-//require('jquery-layout');
-//require('jquery-ui/ui/widgets/tabs');
-
-//var layoutModules = require('cwrc-writer-layout');
+require('./jquery/plugins/jquery.layout-latest.js');
+require('jquery-ui/ui/widgets/tabs');
 
 function Layout(w) {
     this.w = w;

@@ -38,3 +38,6 @@ jspm_packages
 
 build
 /bin/
+/classes/
+.classpath
+.settings
