@@ -54,7 +54,11 @@ Layout.prototype = {
                             '<li><a href="#structure">Structure</a></li>'+
                             '<li><a href="#relations">Relations</a></li>'+
                         '</ul>'+
-                        '<div id="westTabsContent" class="ui-layout-content"></div>'+
+                        '<div id="westTabsContent" class="ui-layout-content">'+
+                            '<div id="entities"></div>'+
+                            '<div id="structure"></div>'+
+                            '<div id="relations"></div>'+
+                        '</div>'+
                     '</div>'+
                 '</div>'+
                 '<div id="cwrc_main" class="ui-layout-center">'+
@@ -123,9 +127,9 @@ Layout.prototype = {
             }
         });
         
-        this.w.layoutModules.addStructureTreePanel(this.w, 'westTabsContent');
-        this.w.layoutModules.addEntitiesListPanel(this.w, 'westTabsContent');
-        this.w.layoutModules.addRelationsListPanel(this.w, 'westTabsContent');
+        this.w.layoutModules.addStructureTreePanel(this.w, 'structure');
+        this.w.layoutModules.addEntitiesListPanel(this.w, 'entities');
+        this.w.layoutModules.addRelationsListPanel(this.w, 'relations');
         
         if (!this.w.isReadOnly) {
             this.w.layoutModules.addValidationPanel(this.w, 'southTabsContent');
