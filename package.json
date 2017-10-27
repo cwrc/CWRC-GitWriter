@@ -43,7 +43,7 @@
   "dependencies": {
     "bootstrap": "3.3.7",
     "cwrc-dialogs": "cwrc/CWRC-Dialogs#npm",
-    "cwrc-writer-base": "ajmacdonald/CWRC-WriterBase",
+    "cwrc-writer-base": "cwrc/CWRC-WriterBase",
     "jquery": "3.1.0",
     "jquery-ui": "1.12",
     "js-cookie": "2.1.3",
