@@ -37,8 +37,8 @@
     "cwrcDialogs:importcss": "copyfiles -f node_modules/cwrc-dialogs/css/cD.css build/css/cD/css/ && copyfiles -f node_modules/cwrc-dialogs/font-awesome/css/font-awesome.css build/css/cD/css/ && copyfiles -f \"node_modules/cwrc-dialogs/font-awesome/fonts/*\" build/css/cD/fonts/",
     "cwrcDialogs:bootstrap": "copyfiles -f node_modules/cwrc-dialogs/css/bootstrap.css build/css/bootstrap/css/ && copyfiles -f \"node_modules/bootstrap/dist/fonts/*\" build/css/bootstrap/fonts/",
     
-    "build:js": "mkdirp build/js && npm run cwrcDialogs && browserify src/js/app.js -o build/js/app.js --debug --verbose -t [ babelify --presets [ es2015 ] ]",
-    "watch": "watchify src/js/app.js --debug -o build/js/app.js --verbose  -t [ babelify --presets [ es2015 ] ]"
+    "build:js": "mkdirp build/js && npm run cwrcDialogs && browserify src/js/app.js -o build/js/app.js --debug --verbose -g deamdify -t [ babelify --presets [ es2015 ] ]",
+    "watch": "watchify src/js/app.js --debug -o build/js/app.js --verbose -g deamdify -t [ babelify --presets [ es2015 ] ]"
   },
   "dependencies": {
     "bootstrap": "3.3.7",
