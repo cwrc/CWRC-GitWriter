@@ -90,8 +90,9 @@ Layout.prototype = {
                 size: 'auto',
                 minSize: 325,
                 onresize: function(region, pane, state, options) {
+                    var borderHeight = $('#westTabs').outerHeight() - $('#westTabs').height();
                     var tabsHeight = $('#westTabs > ul').outerHeight();
-                    $('#westTabsContent').height(state.layoutHeight - tabsHeight);
+                    $('#westTabsContent').height(state.layoutHeight - (tabsHeight+borderHeight));
 //                    $.layout.callbacks.resizeTabLayout(region, pane);
                 }
             }
@@ -105,8 +106,15 @@ Layout.prototype = {
             },
             center: {
                 onresize: function(region, pane, state, options) {
-                    var uiHeight = 4;
-                    var toolbar = $('.mce-toolbar-grp', this.w.editor.getContainer());
+                    var $container = $(this.w.editor.getContainer());
+                    
+                    var outerBorderWidth = $container.outerWidth()-$container.width();
+                    $container.width(state.layoutWidth - outerBorderWidth);
+                    
+                    var outerBorderHeight = $container.outerHeight()-$container.height();
+                    var innerBorderHeight = $container.find('.mce-edit-area').outerHeight()-$container.find('.mce-edit-area').height();
+                    var uiHeight = outerBorderHeight + innerBorderHeight;
+                    var toolbar = $container.find('.mce-toolbar-grp');
                     if (toolbar.is(':visible')) {
                         uiHeight += toolbar.outerHeight();
                     }
@@ -121,8 +129,9 @@ Layout.prototype = {
                     $.layout.callbacks.resizeTabLayout(event, ui);
                 },
                 onresize: function(region, pane, state, options) {
+                    var borderHeight = $('#southTabs').outerHeight() - $('#southTabs').height();
                     var tabsHeight = $('#southTabs > ul').outerHeight();
-                    $('#southTabsContent').height(state.layoutHeight - tabsHeight);
+                    $('#southTabsContent').height(state.layoutHeight - (tabsHeight+borderHeight));
                 }
             }
         });
