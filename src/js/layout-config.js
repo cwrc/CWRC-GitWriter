@@ -89,7 +89,7 @@ Layout.prototype = {
             west: {
                 size: 'auto',
                 minSize: 325,
-                onresize: function(region, pane, state, options) {
+                onresize_end: function(region, pane, state, options) {
                     var borderHeight = $('#westTabs').outerHeight() - $('#westTabs').height();
                     var tabsHeight = $('#westTabs > ul').outerHeight();
                     $('#westTabsContent').height(state.layoutHeight - (tabsHeight+borderHeight));
@@ -105,7 +105,7 @@ Layout.prototype = {
                 slidable: false
             },
             center: {
-                onresize: function(region, pane, state, options) {
+                onresize_end: function(region, pane, state, options) {
                     var $container = $(this.w.editor.getContainer());
                     
                     var outerBorderWidth = $container.outerWidth()-$container.width();
@@ -128,7 +128,7 @@ Layout.prototype = {
                 activate: function(event, ui) {
                     $.layout.callbacks.resizeTabLayout(event, ui);
                 },
-                onresize: function(region, pane, state, options) {
+                onresize_end: function(region, pane, state, options) {
                     var borderHeight = $('#southTabs').outerHeight() - $('#southTabs').height();
                     var tabsHeight = $('#southTabs > ul').outerHeight();
                     $('#southTabsContent').height(state.layoutHeight - (tabsHeight+borderHeight));
