@@ -1,10 +1,9 @@
-window.Drupal = window.Drupal || {};
 if (!window.$) {
 	window.jQuery = window.$ = require('jquery');
 }
 
-window.Drupal.CWRCWriterConfig = require('./config.js');
-window.Drupal.CWRCWriter = require('cwrc-writer-base');
-window.Drupal.CWRCWriterLayout = require('./layout-config.js');
-window.Drupal.CWRCWriterDialogs = require('cwrc-dialogs');
-window.Drupal.CWRCWriterStorageDialogs = require('./storage-dialogs.js');
+window.CWRCWriterConfig = require('./config.js');
+window.CWRCWriter = require('cwrc-writer-base');
+window.CWRCWriterLayout = require('./layout-config.js');
+window.CWRCWriterDialogs = require('cwrc-public-entity-dialogs');
+window.CWRCWriterStorageDialogs = require('./storage-dialogs.js');

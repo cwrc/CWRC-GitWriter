@@ -16,11 +16,11 @@
         <div id="cwrcWriterContainer" style="height: 100%; width: 100%;"></div>
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript">
-        	var config = Drupal.CWRCWriterConfig;
-        	config.layout = Drupal.CWRCWriterLayout;
-        	config.entityLookupDialogs = Drupal.CWRCWriterDialogs;
-        	config.storageDialogs = Drupal.CWRCWriterStorageDialogs;
-        	var writer = new Drupal.CWRCWriter(config);
+        	var config = CWRCWriterConfig;
+        	config.layout = CWRCWriterLayout;
+        	config.entityLookupDialogs = CWRCWriterDialogs;
+        	config.storageDialogs = CWRCWriterStorageDialogs;
+        	var writer = new CWRCWriter(config);
         	writer.init("cwrcWriterContainer");
        	</script>
     </body>
