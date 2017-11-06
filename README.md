@@ -1,4 +1,4 @@
-![Picture](http://www.cwrc.ca/wp-content/uploads/2010/12/CWRC_Dec-2-10_smaller.png)
+![Picture](http://cwrc.ca/logos/CWRC_logos_2016_versions/CWRCLogo-Horz-FullColour.png)
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
@@ -26,6 +26,10 @@ The code in this repository serves two purposes:
 A running deployment of the code in this repository is available for anyone's use at:
 
 [http://208.75.74.217](http://208.75.74.217)
+
+### Overview
+
+![High Level Overview](/docs/images/cwrcwriter-high-level-diagram.png?raw=true "High Level Overview")
 
 ### Installation
 
@@ -118,14 +122,13 @@ If you are making changes to the npm packages that contribute to the GitWriter (
   }
  ```
 
-To rebuild at anytime, first pulling in modified packages:
-
+When doing a new build, first pull in any changes you made to the local packages:
 
 ```
 rm -rf node_modules/cwrc-public-entity-dialogs && rm -rf node_modules/cwrc-writer-base && rm -rf node_modules/cwrc-git-dialogs && npm install && npm run build
 ```
 
-Once finished making and testing local changes to the delegator or cwrc-writer-base (or any other package), then publish the new NPM packages, and remove the dependencies from package.json:
+Once finished making and testing local changes,  publish the new NPM packages, including the local packages, and remove the dependencies from package.json:
 
 ```
 "dependencies": {
@@ -142,16 +145,17 @@ Once finished making and testing local changes to the delegator or cwrc-writer-b
   npm i cwrc-writer-base cwrc-git-dialogs cwrc-public-entity-dialogs -S
 ```
 
+NOTE:  another alternative to working with local packages is [npm link](https://docs.npmjs.com/cli/link)
 
 
 ### Contributing
 
-As explained in the development section you wouldn't typically usefully modify anything here for use by others.  Nevertheless, if there is something we've missed, please submit an Issue.  If you are interested, however, please take a look at our [Development Docs](https://github.com/jchartrand/CWRC-Writer-Dev-Docs)
+As explained in the development section you wouldn't typically usefully modify anything here for use by others.  Nevertheless, if there is something we've missed, please submit an Issue.  If you are interested, however, please take a look at our [Development Docs](https://github.com/cwrc/CWRC-Writer-Dev-Docs)
 
 ### License
 
 [GNU GPL V2](LICENSE)
 
 
-<b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/jchartrand/CWRC-GitServer). [↩](#a1)
+<b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer). [↩](#a1)
 

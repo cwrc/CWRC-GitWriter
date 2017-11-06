@@ -18,12 +18,13 @@
   ],
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/jchartrand/CWRC-GitWriter/issues"
+    "url": "https://github.com/cwrc/CWRC-GitWriter/issues"
   },
   "homepage": "https://github.com/cwrc/CWRC-GitWriter#readme",
   "scripts": {
     "build": "npm run clean && npm run copyfiles && npm run build:js",
     "clean": "rimraf build",
+    "cm": "git-cz",
     "copyfiles": "npm run copy:images && npm run copy:css && npm run copy:html && npm run copy:xml && npm run copy:jstree && npm run tinymce:copyskin ",
     "copy:images": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/img/**/*\" build/",
     "copy:css": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/css/**/*\" build/ && copyfiles -f node_modules/prismjs/themes/prism.css build/css/",
@@ -50,12 +51,19 @@
     "babelify": "7.3.0",
     "browserify": "^13.0.1",
     "browserify-shim": "^3.2.0",
+    "commitizen": "^2.9.6",
     "copyfiles": "^1.0.0",
+    "cz-conventional-changelog": "^2.0.0",
     "deamdify": "au-phiware/deamdify",
     "minifier": "^0.8.0",
     "minifyify": "^7.3.3",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.5.4",
     "watchify": "^3.7.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
