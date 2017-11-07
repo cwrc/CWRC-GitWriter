@@ -1,13 +1,9 @@
 'use strict';
 
-//var $ = require('jquery');
+var $ = require('jquery');
 
-//window.jQuery = window.$ = require('jquery');
-
-//require('jquery-layout');
-//require('jquery-ui/ui/widgets/tabs');
-
-//var layoutModules = require('cwrc-writer-layout');
+require('layout');
+require('jquery-ui/ui/widgets/tabs');
 
 function Layout(w) {
     this.w = w;
@@ -58,7 +54,11 @@ Layout.prototype = {
                             '<li><a href="#structure">Structure</a></li>'+
                             '<li><a href="#relations">Relations</a></li>'+
                         '</ul>'+
-                        '<div id="westTabsContent" class="ui-layout-content"></div>'+
+                        '<div id="westTabsContent" class="ui-layout-content">'+
+                            '<div id="entities"></div>'+
+                            '<div id="structure"></div>'+
+                            '<div id="relations"></div>'+
+                        '</div>'+
                     '</div>'+
                 '</div>'+
                 '<div id="cwrc_main" class="ui-layout-center">'+
@@ -89,9 +89,10 @@ Layout.prototype = {
             west: {
                 size: 'auto',
                 minSize: 325,
-                onresize: function(region, pane, state, options) {
+                onresize_end: function(region, pane, state, options) {
+                    var borderHeight = $('#westTabs').outerHeight() - $('#westTabs').height();
                     var tabsHeight = $('#westTabs > ul').outerHeight();
-                    $('#westTabsContent').height(state.layoutHeight - tabsHeight);
+                    $('#westTabsContent').height(state.layoutHeight - (tabsHeight+borderHeight));
 //                    $.layout.callbacks.resizeTabLayout(region, pane);
                 }
             }
@@ -104,9 +105,16 @@ Layout.prototype = {
                 slidable: false
             },
             center: {
-                onresize: function(region, pane, state, options) {
-                    var uiHeight = 4;
-                    var toolbar = $('.mce-toolbar-grp', this.w.editor.getContainer());
+                onresize_end: function(region, pane, state, options) {
+                    var $container = $(this.w.editor.getContainer());
+                    
+                    var outerBorderWidth = $container.outerWidth()-$container.width();
+                    $container.width(state.layoutWidth - outerBorderWidth);
+                    
+                    var outerBorderHeight = $container.outerHeight()-$container.height();
+                    var innerBorderHeight = $container.find('.mce-edit-area').outerHeight()-$container.find('.mce-edit-area').height();
+                    var uiHeight = outerBorderHeight + innerBorderHeight;
+                    var toolbar = $container.find('.mce-toolbar-grp');
                     if (toolbar.is(':visible')) {
                         uiHeight += toolbar.outerHeight();
                     }
@@ -120,16 +128,17 @@ Layout.prototype = {
                 activate: function(event, ui) {
                     $.layout.callbacks.resizeTabLayout(event, ui);
                 },
-                onresize: function(region, pane, state, options) {
+                onresize_end: function(region, pane, state, options) {
+                    var borderHeight = $('#southTabs').outerHeight() - $('#southTabs').height();
                     var tabsHeight = $('#southTabs > ul').outerHeight();
-                    $('#southTabsContent').height(state.layoutHeight - tabsHeight);
+                    $('#southTabsContent').height(state.layoutHeight - (tabsHeight+borderHeight));
                 }
             }
         });
         
-        this.w.layoutModules.addStructureTreePanel(this.w, 'westTabsContent');
-        this.w.layoutModules.addEntitiesListPanel(this.w, 'westTabsContent');
-        this.w.layoutModules.addRelationsListPanel(this.w, 'westTabsContent');
+        this.w.layoutModules.addStructureTreePanel(this.w, 'structure');
+        this.w.layoutModules.addEntitiesListPanel(this.w, 'entities');
+        this.w.layoutModules.addRelationsListPanel(this.w, 'relations');
         
         if (!this.w.isReadOnly) {
             this.w.layoutModules.addValidationPanel(this.w, 'southTabsContent');
