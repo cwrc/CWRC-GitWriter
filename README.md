@@ -47,19 +47,6 @@ First, though, you'll have to build the application:
 - Download the code for this repository, or clone the repository.
 - install all the NPM package dependencies:
 	```` npm install ````
-- IMPORTANT:  YOU *MUST* AFTER THE INSTALL COMPLETES, edit:
-
-```node_modules/jquery-ui/package.json```
-
-and add the following:
-
-```
-"browserify": {
-  "transform": [
-	"deamdify"
-  ]
-}
-```
 
 - browserify the code to package it up for deployment:
 	``npm build``
