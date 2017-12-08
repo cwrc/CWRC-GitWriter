@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "bootstrap": "3.3.7",
-    "cwrc-git-dialogs": "^1.1.0",
+    "cwrc-git-dialogs": "^1.1.1",
     "cwrc-public-entity-dialogs": "^1.2.0",
     "cwrc-writer-base": "^2.6.0",
     "dbpedia-entity-lookup": "0.0.0",
