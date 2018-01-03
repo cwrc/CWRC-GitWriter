@@ -69,12 +69,12 @@ Layout.prototype = {
                     '</div>'+
                     southTabs+
                 '</div>'+
-                '<div class="cwrc ui-layout-east" id="cwrcEastContent">'+
-                '</div>'+
+//                '<div class="cwrc ui-layout-east" id="cwrcEastContent">'+
+//                '</div>'+
             '</div>'
         );
         
-        var iv = this.w.layoutModules.addImageViewerPanel(this.w, 'cwrcEastContent');
+//        var iv = this.w.layoutModules.addImageViewerPanel(this.w, 'cwrcEastContent');
         
         this.ui = $('#cwrc_wrapper').layout({
             defaults: {
@@ -99,14 +99,14 @@ Layout.prototype = {
                     $('#westTabsContent').height(state.layoutHeight - (tabsHeight+borderHeight));
 //                    $.layout.callbacks.resizeTabLayout(region, pane);
                 }
-            },
-            east: {
-                size: 'auto',
-                minSize: 325,
-                onresize: function(region, pane, state, options) {
-                    iv.resizeImage();
-                }
             }
+//            ,east: {
+//                size: 'auto',
+//                minSize: 325,
+//                onresize: function(region, pane, state, options) {
+//                    iv.resizeImage();
+//                }
+//            }
         });
         
         this.ui.panes.center.layout({
