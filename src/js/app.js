@@ -1,7 +1,3 @@
-if (!window.$) {
-    window.jQuery = window.$ = require('jquery');
-}
-
 window.CWRCWriterStorageDialogs = require('cwrc-git-dialogs');
 
 // only continue loading the cwrcWriter if the user has authenticated with github
