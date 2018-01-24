@@ -3,7 +3,6 @@ window.CWRCWriterStorageDialogs = require('cwrc-git-dialogs');
 // only continue loading the cwrcWriter if the user has authenticated with github
 if (window.CWRCWriterStorageDialogs.authenticate()) {
 
-    window.CWRCWriterLayout = require('./layout-config.js');
     let viaf = require('viaf-entity-lookup')
     let dbpedia = require('dbpedia-entity-lookup');
     let wikidata = require('wikidata-entity-lookup');
