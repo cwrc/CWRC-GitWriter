@@ -1,7 +1,7 @@
-window.CWRCWriterStorageDialogs = require('cwrc-git-dialogs');
+//window.CWRCWriterStorageDialogs = require('cwrc-git-dialogs');
 
 // only continue loading the cwrcWriter if the user has authenticated with github
-if (window.CWRCWriterStorageDialogs.authenticate()) {
+//if (window.CWRCWriterStorageDialogs.authenticate()) {
 
     let viaf = require('viaf-entity-lookup')
     let dbpedia = require('dbpedia-entity-lookup');
@@ -15,7 +15,7 @@ if (window.CWRCWriterStorageDialogs.authenticate()) {
         organizations: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
         titles: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
     })
-    //window.CWRCWriterStorageDialogs = require('./storage-dialogs.js');
+    window.CWRCWriterStorageDialogs = require('./storage-dialogs.js');
     window.CWRCWriterConfig = require('./config.js');
     window.CWRCWriter = require('cwrc-writer-base');
-}
+//}
