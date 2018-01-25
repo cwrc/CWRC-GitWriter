@@ -6,8 +6,7 @@ var blankTEIDoc = '<?xml version="1.0" encoding="UTF-8"?> <?xml-model href="http
 
 function setBlankDocumentInEditor(writer) {
     var defaultxmlDoc = $.parseXML(blankTEIDoc);
-    // writer.fileManager.loadDocumentFromXml(defaultxmlDoc);
-    writer.loadDocument(defaultxmlDoc);
+    writer.loadDocumentXML(defaultxmlDoc);
 }
 
 module.exports = {
