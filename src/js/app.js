@@ -1,9 +1,3 @@
-var prevJQuery = window.jQuery;
-var $ = require('jquery');
-window.jQuery = $;
-require('bootstrap');
-window.jQuery = prevJQuery;
-
 let CWRCWriterStorageDialogs = require('cwrc-git-dialogs');
 
 // only continue loading the cwrcWriter if the user has authenticated with github
