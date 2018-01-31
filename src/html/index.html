@@ -9,17 +9,5 @@
     <body>
         <div id="cwrcWriterContainer" style="height: 100%; width: 100%;"></div>
         <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript">
-            var config = CWRCWriterConfig;
-            config.container = 'cwrcWriterContainer';
-            config.modules = {
-                west: ['structure','entities'],
-                south: ['selection', 'validation']
-            };
-            config.entityLookupDialogs = CWRCWriterDialogs;
-            config.storageDialogs = CWRCWriterStorageDialogs;
-            var writer = new CWRCWriter(config);
-            writer.showLoadDialog();
-        </script>
     </body>
 </html>
