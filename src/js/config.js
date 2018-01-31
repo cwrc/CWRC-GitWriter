@@ -20,8 +20,8 @@ module.exports = {
             "cssUrl": "https://cwrc.ca/templates/css/tei.css",
             "schemaMappingsId": "tei",
             "entityTemplates": {
-                "note": "schema/tei/xml/note.xml",
-                "citation": "schema/tei/xml/citation.xml"
+                "note": "https://cwrc-writer.cwrc.ca/schema/tei/xml/note.xml",
+                "citation": "https://cwrc-writer.cwrc.ca/schema/tei/xml/citation.xml"
             }
         },
         "events": {
@@ -30,8 +30,8 @@ module.exports = {
             "cssUrl": "https://cwrc.ca/templates/css/orlando_v2_cwrc-writer.css",
             "schemaMappingsId": "orlando",
             "entityTemplates": {
-                "note": "schema/orlando/xml/note_events.xml",
-                "citation": "schema/orlando/xml/citation_events.xml"
+                "note": "https://cwrc-writer.cwrc.ca/schema/orlando/xml/note_events.xml",
+                "citation": "https://cwrc-writer.cwrc.ca/schema/orlando/xml/citation_events.xml"
             }
         },
         "biography": {
@@ -40,8 +40,8 @@ module.exports = {
             "cssUrl": "https://cwrc.ca/templates/css/orlando_v2_cwrc-writer.css",
             "schemaMappingsId": "orlando",
             "entityTemplates": {
-                "note": "schema/orlando/xml/note_biography.xml",
-                "citation": "schema/orlando/xml/citation_biography.xml"
+                "note": "https://cwrc-writer.cwrc.ca/schema/orlando/xml/note_biography.xml",
+                "citation": "https://cwrc-writer.cwrc.ca/schema/orlando/xml/citation_biography.xml"
             }
         },
         "writing": {
@@ -50,8 +50,8 @@ module.exports = {
             "cssUrl": "https://cwrc.ca/templates/css/orlando_v2_cwrc-writer.css",
             "schemaMappingsId": "orlando",
             "entityTemplates": {
-                "note": "schema/orlando/xml/note_writing.xml",
-                "citation": "schema/orlando/xml/citation_writing.xml"
+                "note": "https://cwrc-writer.cwrc.ca/schema/orlando/xml/note_writing.xml",
+                "citation": "https://cwrc-writer.cwrc.ca/schema/orlando/xml/citation_writing.xml"
             }
         },
         "cwrcEntry": {
@@ -60,8 +60,8 @@ module.exports = {
             "cssUrl": "https://cwrc.ca/templates/css/cwrc.css",
             "schemaMappingsId": "cwrcEntry",
             "entityTemplates": {
-                "note": "schema/cwrcEntry/xml/note.xml",
-                "citation": "schema/cwrcEntry/xml/citation.xml"
+                "note": "https://cwrc-writer.cwrc.ca/schema/cwrcEntry/xml/note.xml",
+                "citation": "https://cwrc-writer.cwrc.ca/schema/cwrcEntry/xml/citation.xml"
             }
         }
     },
