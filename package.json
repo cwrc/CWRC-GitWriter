@@ -30,14 +30,13 @@
     "copy:css": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/css/**/*\" build/",
     "copy:html": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/html/*\" build/ && copyfiles -f src/html/index.html build/",
     "copy:xml": "copyfiles -u 5 \"node_modules/cwrc-writer-base/src/js/schema/*/xml/*\" build/schema/",
-    "copy:openseadragon": "mkdirp build/img/osd && copyfiles -f \"node_modules/openseadragon/build/openseadragon/images/*\" build/img/osd/",
     "build:js": "mkdirp build/js && browserify src/js/app.js -o build/js/app.js --debug --verbose -g deamdify -t [ babelify --presets [ es2015 ] ]",
     "watch": "watchify src/js/app.js --debug -o build/js/app.js --verbose -g deamdify -t [ babelify --presets [ es2015 ] ]"
   },
   "dependencies": {
     "cwrc-git-dialogs": "^1.1.6",
     "cwrc-public-entity-dialogs": "^1.2.4",
-    "cwrc-writer-base": "2.11.1",
+    "cwrc-writer-base": "2.11.3",
     "dbpedia-entity-lookup": "^0.2.0",
     "getty-entity-lookup": "^1.4.0",
     "viaf-entity-lookup": "^1.2.0",
