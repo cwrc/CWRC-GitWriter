@@ -37,8 +37,8 @@
     "cwrc-git-dialogs": "^1.1.6",
     "cwrc-public-entity-dialogs": "^1.2.4",
     "cwrc-writer-base": "2.11.4",
-    "dbpedia-entity-lookup": "^0.2.0",
-    "getty-entity-lookup": "^1.4.0",
+    "dbpedia-entity-lookup": "^0.3.0",
+    "getty-entity-lookup": "^1.4.1",
     "viaf-entity-lookup": "^1.2.0",
     "wikidata-entity-lookup": "^1.2.1"
   },
