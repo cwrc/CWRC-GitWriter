@@ -7,11 +7,12 @@ if (CWRCWriterStorageDialogs.authenticate()) {
     let dbpedia = require('dbpedia-entity-lookup');
     let wikidata = require('wikidata-entity-lookup');
     let getty = require('getty-entity-lookup');
+    let geonames = require('geonames-entity-lookup');
     let CWRCWriterDialogs = require('cwrc-public-entity-dialogs');
 
     CWRCWriterDialogs.registerEntitySources({
         people: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('getty', getty).set('dbpedia', dbpedia),
-        places: (new Map()).set('viaf', viaf).set('dbpedia', dbpedia).set('wikidata', wikidata),
+        places: (new Map()).set('geonames', geonames).set('viaf', viaf).set('dbpedia', dbpedia).set('wikidata', wikidata),
         organizations: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
         titles: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
     })
