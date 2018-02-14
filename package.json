@@ -25,7 +25,7 @@
     "build": "npm run clean && npm run copyfiles && npm run build:js",
     "clean": "rimraf build",
     "cm": "git-cz",
-    "copyfiles": "npm run copy:images && npm run copy:css && npm run copy:html && npm run copy:xml && npm run copy:openseadragon",
+    "copyfiles": "npm run copy:images && npm run copy:css && npm run copy:html && npm run copy:xml",
     "copy:images": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/img/**/*\" build/",
     "copy:css": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/css/**/*\" build/",
     "copy:html": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/html/*\" build/ && copyfiles -f src/html/index.html build/",
