@@ -35,10 +35,11 @@
   },
   "dependencies": {
     "cwrc-git-dialogs": "^1.1.6",
-    "cwrc-public-entity-dialogs": "^1.2.2",
-    "cwrc-writer-base": "2.11.1",
-    "dbpedia-entity-lookup": "^0.2.0",
-    "getty-entity-lookup": "^1.4.0",
+    "cwrc-public-entity-dialogs": "^1.2.5",
+    "cwrc-writer-base": "2.12.0",
+    "dbpedia-entity-lookup": "^0.3.0",
+    "geonames-entity-lookup": "^1.1.1",
+    "getty-entity-lookup": "^1.4.1",
     "viaf-entity-lookup": "^1.2.0",
     "wikidata-entity-lookup": "^1.2.1"
   },
