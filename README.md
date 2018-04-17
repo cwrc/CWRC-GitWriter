@@ -49,7 +49,7 @@ First, though, you'll have to build the application:
 	```` npm install ````
 
 - browserify the code to package it up for deployment:
-	``npm build``
+	``npm run build``
 
 Now you can deploy the app by copying the generated build directory to your web server.  You might choose to use ftp, scp, rsync, etc.  An example rsync command might be:
 
