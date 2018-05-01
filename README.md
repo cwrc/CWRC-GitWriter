@@ -65,22 +65,27 @@ The entry point into the CWRC-GitWriter code, on which Browserify is invoked, is
 
 To develop a new configuration of the CWRC-Writer, you'll therefore need to understand NPM and Browserify.  Then you can get into the CWRC-GitWriter NPM [package.json](package.json) file and [src/js/app.js](src/js/app.js) and adapt it to your own project.
 
-The [src/js/app.js](src/js/app.js) is in particular a good example of how to configure a instance of a CWRC-Writer to use a different backend (other than Github, e.g., file system, database). The app.js file imorts ('requires') the following NPM CWRC packages:
+The [src/js/app.js](src/js/app.js) is in particular a good example of how to configure a instance of a CWRC-Writer to use a different backend (other than Github, e.g., file system, database).
 
-[CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)
-The base CWRC-Writer
+The app.js file imports ('requires') the following NPM CWRC packages:
 
-[cwrc-git-dialogs](https://www.npmjs.com/package/cwrc-git-dialogs)
-The javascript class that handles calls to the backend storage, in this case to Github via the CWRC-GitServer.<sup id="a2">[2](#f2)</sup>  This is the class you'd want to replace with your own.
+* [CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)
 
-[cwrc-public-entity-dialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)
-The javascript class that handles lookups of named entities.  You may want to replace this with your own entity lookup
+   The base CWRC-Writer
 
-and a config file:
+* [cwrc-git-dialogs](https://www.npmjs.com/package/cwrc-git-dialogs)
 
-[src/js/config.js](src/js/config.js)
+   The javascript class that handles calls to the backend storage, in this case to Github via the CWRC-GitServer.<sup id="a2">[2](#f2)</sup>  This is the class you'd want to replace with your own.
 
-Javascript object that describes the XML schemas supported, and is used to pass in other objects to the CWRC-Writer.
+* [cwrc-public-entity-dialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)
+   
+   The javascript class that handles lookups of named entities.  You may want to replace this with your own entity lookup
+
+The app.js file also imports a config file:
+
+* [src/js/config.js](src/js/config.js)
+   
+   Javascript object that describes the XML schemas supported, and is used to pass in other objects to the CWRC-Writer.
 
 The [src/js/app.js](src/js/app.js) file ties all these together as you would for your own configuration of the CWRC-Writer.
 
