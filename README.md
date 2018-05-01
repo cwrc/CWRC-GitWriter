@@ -7,7 +7,6 @@
 1. [Overview](#overview)
 1. [Use](#use)
 1. [Installation](#installation)
-1. [Repository Organization](#repository-organization)
 1. [Development](#development)
 1. [Contributing](#contributing)
 1. [License](#license)
@@ -38,20 +37,15 @@ Although the sandbox version provides a freely usable instance, you may of cours
 Note that if you want to create a new version of the CWRC-Writer that is configured to work with your own document repository (e.g., a database), this repository still provides you with the best example to follow.  You'll also want to look at the [cwrc-git-dialogs](https://www.npmjs.com/package/cwrc-git-dialogs) repository, which holds
 the javascript class that handles calls to the backend storage, in this case to Github via the CWRC-GitServer.  This is the class you'd want to replace with your own.  To replace the entity lookups you'd replace [cwrc-public-entity-dialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)
 
-CWRC-GitWriter is a web application with an HTML file [build/index.html](build/index.html) that imports a single javascript file, [build/js/app.js](build/js/app.js) and a few CSS files. 
+#### Building
 
-To deploy the CWRC-GitWriter you might therefore simply copy the build directory to your server, probably the same server from which you'd serve the [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer).
+This repository contains two JS files: the [app file](src/js/app.js) and the [config file](src/js/config.js). The app file does not contain much code itself; it's main purpose to load/require other code bases, and then configure and instantiate the CWRC-Writer. It must first be built in order to be useable. To build:
 
-First, though, you'll have to build the application:
+- Download the code for this repository, or clone the repository
+- Install all the NPM package dependencies: `npm install`
+- Browserify the code to package it up for deployment: `npm run build`
 
-- Download the code for this repository, or clone the repository.
-- install all the NPM package dependencies:
-	```` npm install ````
-
-- browserify the code to package it up for deployment:
-	``npm run build``
-
-Now you can deploy the app by copying the generated build directory to your web server.  You might choose to use ftp, scp, rsync, etc.  An example rsync command might be:
+The built code resides in the newly created build directory. It contains the app, along with all the necessary CSS, XML, and image files. To deploy the CWRC-GitWriter simply copy the build directory to your server, probably the same server from which you'd serve the [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer). You might choose to use ftp, scp, rsync, etc.  An example rsync command might be:
 
 ```
 rsync -azvh -e ssh build/ jchartrand@1.1.1.1:cwrc
@@ -60,7 +54,8 @@ where you'd subsitute your own userid (for jchartrand), ip address (for 1.1.1.1)
 
 Another alternative would be to fork this repository, adjust the configuration as needed, and deploy to a host that allows git deployment.
 
-### Using this as an example to build a CWRCWriter with a different backend
+### Development
+#### Using this as an example to build a CWRCWriter with a different backend
 
 The code in this repository simply brings together and configures code from other repositories and wouldn't in itself typically be usefully modified.  You could, however, clone this repository as a base from which to create a new configuration of the CWRC-Writer, or simply use the code here as a guide in creating your own configuration.   Your configuration might, for example, use Fedora to store documents, rather than GitHub.
 
@@ -81,21 +76,17 @@ The javascript class that handles calls to the backend storage, in this case to 
 [cwrc-public-entity-dialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)
 The javascript class that handles lookups of named entities.  You may want to replace this with your own entity lookup
 
-and two config files:
+and a config file:
 
 [src/js/config.js](src/js/config.js)
 
 Javascript object that describes the XML schemas supported, and is used to pass in other objects to the CWRC-Writer.
 
-[src/js/layout-config.js](src/js/layout-config.js)
-
-Sets up the specific layout of the CWRC-Writer.  
-
 The [src/js/app.js](src/js/app.js) file ties all these together as you would for your own configuration of the CWRC-Writer.
 
 Note that the authentication for Github is invoked in app.js since it redirects to the GitHub site if the user isn't loaded.  Better to redirect here at the outset before loading up all the other CWRC related code.
 
-If you are making changes to the npm packages that contribute to the GitWriter (or more likely to some custom instance of the GitWriter that you've built) and you find yourself repeatedly packaging and publishing the NPM packages and reimporting the newly published packages (e.g.,```npm i cwrc-writer-base@latest cwrc-git-delegator@latest -S```) then you can instead point the package.json dependencies at the local instances, like so:
+If you are making changes to the npm packages that contribute to the GitWriter (or more likely to some custom instance of the GitWriter that you've built) and you find yourself repeatedly packaging and publishing the NPM packages and reimporting the newly published packages (e.g.,```npm i cwrc-writer-base@latest```) then you can instead point the package.json dependencies at the local instances, like so:
 
 ```
 "dependencies": {
