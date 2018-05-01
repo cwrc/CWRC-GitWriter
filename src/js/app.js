@@ -16,7 +16,6 @@ if (CWRCWriterStorageDialogs.authenticate()) {
         organizations: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
         titles: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
     })
-    //window.CWRCWriterStorageDialogs = require('./storage-dialogs.js');
     let config = require('./config.js');
     config.container = 'cwrcWriterContainer';
     config.modules = {

@@ -1,18 +1,6 @@
 module.exports = {
     "cwrcRootUrl": "",
     "validationUrl": "https://validator.services.cwrc.ca/validator/validate.html",
-    "cwrcDialogs": {
-        "cwrcApiUrl": "https://apps.testing.cwrc.ca/islandora/cwrc_entities/v1/",
-        "repositoryBaseObjectUrl": "https://commons.cwrc.ca/",
-        "geonameUrl": "https://apps.testing.cwrc.ca/cwrc-mtp/geonames/",
-        "viafUrl": "https://apps.testing.cwrc.ca/services/viaf/",
-        "googleGeocodeUrl": "https://maps.googleapis.com/maps/api/geocode/xml",
-        "schemas": {
-            "person": "https://cwrc.ca/schemas/entities.rng",
-            "organization": "https://cwrc.ca/schemas/entities.rng",
-            "place": "https://cwrc.ca/schemas/entities.rng"
-        }
-    },
     "schemas": {
         "tei": {
             "name": "CWRC Basic TEI Schema",
@@ -64,6 +52,5 @@ module.exports = {
                 "citation": "https://cwrc-writer.cwrc.ca/schema/cwrcEntry/xml/citation.xml"
             }
         }
-    },
-    "defaultDocument": "templates/letter"
+    }
 };
