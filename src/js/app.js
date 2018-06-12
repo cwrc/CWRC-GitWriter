@@ -10,6 +10,8 @@ if (CWRCWriterStorageDialogs.authenticate()) {
     let geonames = require('geonames-entity-lookup');
     let CWRCWriterDialogs = require('cwrc-public-entity-dialogs');
 
+    CWRCWriterDialogs.showNoLinkButton(true);
+    CWRCWriterDialogs.showCreateNewButton(false);
     CWRCWriterDialogs.registerEntitySources({
         people: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('getty', getty).set('dbpedia', dbpedia),
         places: (new Map()).set('geonames', geonames).set('viaf', viaf).set('dbpedia', dbpedia).set('wikidata', wikidata),
