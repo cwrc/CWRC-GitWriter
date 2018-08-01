@@ -1,4 +1,4 @@
-let CWRCWriterStorageDialogs = require('cwrc-git-dialogs');
+let CWRCWriterStorageDialogs = require('cwrc-git-dialogs')['default'];
 
 // only continue loading the cwrcWriter if the user has authenticated with github
 if (CWRCWriterStorageDialogs.authenticate()) {
