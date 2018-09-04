@@ -14,10 +14,10 @@ if (CWRCWriterStorageDialogs.authenticate()) {
     CWRCWriterDialogs.showCreateNewButton(false);
     CWRCWriterDialogs.showEditButton(false);
     CWRCWriterDialogs.registerEntitySources({
-        people: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('getty', getty).set('dbpedia', dbpedia),
-        places: (new Map()).set('geonames', geonames).set('viaf', viaf).set('dbpedia', dbpedia).set('wikidata', wikidata),
-        organizations: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
-        titles: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
+        person: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('getty', getty).set('dbpedia', dbpedia),
+        place: (new Map()).set('geonames', geonames).set('viaf', viaf).set('dbpedia', dbpedia).set('wikidata', wikidata),
+        organization: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
+        title: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
     })
     //window.CWRCWriterStorageDialogs = require('./storage-dialogs.js');
     let config = require('./config.js');
