@@ -150,6 +150,7 @@ After authenticating with Github, Github returns an OAuth token, which is then s
 
 We could store this token in a server side session, but instead we store it in a browser cookie that the GitWriter submits in the request header (to help with CSRF) for each request to the GitServer:
 
+<img width="873" alt="image" src="https://user-images.githubusercontent.com/547165/45240465-cc872100-b2b6-11e8-905a-7b8e08fd640c.png">
 
 ### Contributing
 
