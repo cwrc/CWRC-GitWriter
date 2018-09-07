@@ -8,6 +8,7 @@
 1. [Use](#use)
 1. [Installation](#installation)
 1. [Development](#development)
+1. [Authentication](#authentication)
 1. [Contributing](#contributing)
 1. [License](#license)
 
@@ -89,7 +90,8 @@ The app.js file also imports a config file:
 
 The [src/js/app.js](src/js/app.js) file ties all these together as you would for your own configuration of the CWRC-Writer.
 
-Note that the authentication for Github is invoked in app.js since it redirects to the GitHub site if the user isn't loaded.  Better to redirect here at the outset before loading up all the other CWRC related code.
+Note that the authentication for Github is invoked in app.js since it redirects to the GitHub site if the user isn't loaded.  Better to redirect here at the outset before loading up all the other CWRC related code.  Read more about authentication
+below in the [Authentication Section](#authentication)
 
 If you are making changes to the npm packages that contribute to the GitWriter (or more likely to some custom instance of the GitWriter that you've built) and you find yourself repeatedly packaging and publishing the NPM packages and reimporting the newly published packages (e.g.,```npm i cwrc-writer-base@latest```) then you can instead point the package.json dependencies at the local instances, like so:
 
@@ -129,6 +131,24 @@ Once finished making and testing local changes,  publish the new NPM packages, i
 ```
 
 NOTE:  another alternative to working with local packages is [npm link](https://docs.npmjs.com/cli/link)
+
+### Authentication
+
+Authentication is with Github using OAuth, as described in the Github API docs:
+ 
+[Github - building oauth apps](https://developer.github.com/apps/building-oauth-apps/)
+ 
+The two relevant steps there are 
+
+[Creating an OAuth App](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
+
+and the section called Web Application Flow in:
+
+[Authorizing OAuth Apps](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)
+
+After authenticating with Github, Github returns an OAuth token, which is then submitted on every request to the Github API.
+
+We could store this token in a server side session, but instead we store it in a browser cookie that the GitWriter submits in the request header (to help with CSRF) for each request to the GitServer:
 
 
 ### Contributing
