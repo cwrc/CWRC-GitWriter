@@ -42,12 +42,12 @@
   },
   "dependencies": {
     "cwrc-git-dialogs": "^1.8.1",
-    "cwrc-public-entity-dialogs": "^1.9.4",
+    "cwrc-public-entity-dialogs": "^1.9.5",
     "cwrc-writer-base": "^2.21.0",
     "dbpedia-entity-lookup": "^0.4.1",
     "geonames-entity-lookup": "^1.1.6",
     "getty-entity-lookup": "^1.4.4",
-    "viaf-entity-lookup": "^1.2.3",
+    "viaf-entity-lookup": "^1.2.4",
     "wikidata-entity-lookup": "^1.2.3"
   },
   "devDependencies": {
