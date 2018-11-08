@@ -57,7 +57,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babelify": "^8.0.0",
-    "browserify": "^14.3.0",
+    "browserify": "^14.5.0",
     "commitizen": "^2.10.1",
     "copyfiles": "^1.0.0",
     "cz-conventional-changelog": "^2.1.0",
