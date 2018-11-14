@@ -51,6 +51,16 @@ module.exports = {
                 "note": "https://dev-cwrc-writer.cwrc.ca/schema/cwrcEntry/xml/note.xml",
                 "citation": "https://dev-cwrc-writer.cwrc.ca/schema/cwrcEntry/xml/citation.xml"
             }
+        },
+        "epidoc": {
+            "name": "EpiDoc Schema",
+            "url": "http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng",
+            "cssUrl": "https://cwrc.ca/templates/css/tei.css",
+            "schemaMappingsId": "tei",
+            "entityTemplates": {
+                "note": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/note.xml",
+                "citation": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/citation.xml"
+            }
         }
     }
 };
