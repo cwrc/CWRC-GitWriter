@@ -55,6 +55,7 @@ module.exports = {
         "epidoc": {
             "name": "EpiDoc Schema",
             "url": "http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng",
+            "altUrl": "https://cwrc.ca/epidoc/schema/latest/tei-epidoc.rng",
             "cssUrl": "https://cwrc.ca/templates/css/tei.css",
             "schemaMappingsId": "tei",
             "entityTemplates": {
