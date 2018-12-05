@@ -62,6 +62,46 @@ module.exports = {
                 "note": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/note.xml",
                 "citation": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/citation.xml"
             }
+        },
+        "teiAll": {
+            "name": "TEI All Schema",
+            "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng",
+            "cssUrl": "https://cwrc.ca/templates/css/tei.css",
+            "schemaMappingsId": "tei",
+            "entityTemplates": {
+                "note": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/note.xml",
+                "citation": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/citation.xml"
+            }
+        },
+        "teiCorpus": {
+            "name": "TEI Corpus Schema",
+            "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_corpus.rng",
+            "cssUrl": "https://cwrc.ca/templates/css/tei.css",
+            "schemaMappingsId": "tei",
+            "entityTemplates": {
+                "note": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/note.xml",
+                "citation": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/citation.xml"
+            }
+        },
+        "teiMs": {
+            "name": "TEI Manuscript Schema",
+            "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_ms.rng",
+            "cssUrl": "https://cwrc.ca/templates/css/tei.css",
+            "schemaMappingsId": "tei",
+            "entityTemplates": {
+                "note": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/note.xml",
+                "citation": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/citation.xml"
+            }
+        },
+        "teiSpeech": {
+            "name": "TEI Speech Schema",
+            "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_speech.rng",
+            "cssUrl": "https://cwrc.ca/templates/css/tei.css",
+            "schemaMappingsId": "tei",
+            "entityTemplates": {
+                "note": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/note.xml",
+                "citation": "https://dev-cwrc-writer.cwrc.ca/schema/tei/xml/citation.xml"
+            }
         }
     }
 };
