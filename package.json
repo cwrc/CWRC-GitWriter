@@ -41,9 +41,9 @@
     ]
   },
   "dependencies": {
-    "cwrc-git-dialogs": "^1.8.4",
+    "cwrc-git-dialogs": "^1.8.5",
     "cwrc-public-entity-dialogs": "^1.9.5",
-    "cwrc-writer-base": "^2.25.12",
+    "cwrc-writer-base": "^2.29.6",
     "dbpedia-entity-lookup": "^0.4.1",
     "geonames-entity-lookup": "^1.1.6",
     "getty-entity-lookup": "^1.4.4",
@@ -65,7 +65,7 @@
     "minifier": "^0.8.0",
     "minifyify": "^7.3.3",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.5.4",
+    "rimraf": "^2.6.3",
     "watchify": "^3.11.0"
   },
   "config": {
