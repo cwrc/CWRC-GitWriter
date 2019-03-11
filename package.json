@@ -66,6 +66,7 @@
     "minifier": "^0.8.0",
     "minifyify": "^7.3.3",
     "mkdirp": "^0.5.1",
+    "path-exists-cli": "^1.0.0",
     "rimraf": "^2.6.3",
     "watchify": "^3.11.0"
   },
