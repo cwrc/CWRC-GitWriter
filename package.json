@@ -23,15 +23,16 @@
   "homepage": "https://github.com/cwrc/CWRC-DevGitWriter#readme",
   "scripts": {
     "build": "npm run clean && npm run copyfiles && npm run build:js",
+    "build:cwrc-writer": "cd \"node_modules/cwrc-writer-base\" && npm run build",
     "clean": "rimraf build",
     "cm": "git-cz",
-    "copyfiles": "npm run copy:images && npm run copy:css && npm run copy:html && npm run copy:xml",
+    "copyfiles": "npm run copy:images && npm run copy:css && npm run copy:html",
     "copy:images": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/img/**/*\" build/",
-    "copy:css": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/css/**/*\" build/",
+    "copy:css": "copyfiles -u 3 \"node_modules/cwrc-writer-base/build/**/*\" build/",
     "copy:html": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/html/*\" build/ && copyfiles -f src/html/index.html build/",
-    "copy:xml": "copyfiles -u 5 \"node_modules/cwrc-writer-base/src/js/schema/*/xml/*\" build/schema/",
     "build:js": "mkdirp build/js && browserify src/js/app.js -o build/js/app.js --debug --verbose -g babelify -g deamdify",
-    "watch": "watchify src/js/app.js --debug -o build/js/app.js --verbose -g babelify -g deamdify"
+    "watch": "watchify src/js/app.js --debug -o build/js/app.js --verbose -g babelify -g deamdify",
+    "dev": "npm run build:cwrc-writer && npm run copy:css"
   },
   "babel": {
     "presets": [
@@ -43,7 +44,7 @@
   "dependencies": {
     "cwrc-git-dialogs": "^1.8.5",
     "cwrc-public-entity-dialogs": "^1.10.0",
-    "cwrc-writer-base": "^2.30.2",
+    "cwrc-writer-base": "^2.31.3",
     "dbpedia-entity-lookup": "^0.4.1",
     "geonames-entity-lookup": "^1.1.6",
     "getty-entity-lookup": "^1.4.4",
