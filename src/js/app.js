@@ -19,11 +19,11 @@ if (CWRCWriterStorageDialogs.authenticate()) {
         organization: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
         title: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
     })
-    //window.CWRCWriterStorageDialogs = require('./storage-dialogs.js');
+    // window.CWRCWriterStorageDialogs = require('./storage-dialogs.js');
     let config = require('./config.js');
     config.container = 'cwrcWriterContainer';
     config.modules = {
-        west: [ 'structure', 'entities', 'relations' ],
+        west: [ 'structure', 'entities', 'nerve' ],
         south: [ 'selection', 'validation' ],
         east: [ 'imageViewer' ]
     };
@@ -35,4 +35,5 @@ if (CWRCWriterStorageDialogs.authenticate()) {
     writer.event('writerInitialized').subscribe(function() {
         writer.showLoadDialog();
     });
+    // window.writer = writer;
 }
