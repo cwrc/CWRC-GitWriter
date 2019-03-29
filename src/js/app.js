@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 let CWRCWriterStorageDialogs = require('cwrc-git-dialogs')['default'];
 
 // only continue loading the cwrcWriter if the user has authenticated with github
@@ -37,3 +39,5 @@ if (CWRCWriterStorageDialogs.authenticate()) {
     });
     // window.writer = writer;
 }
+
+});

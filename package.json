@@ -30,7 +30,7 @@
     "copy:images": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/img/**/*\" build/",
     "copy:css": "copyfiles -u 3 \"node_modules/cwrc-writer-base/build/**/*\" build/",
     "copy:html": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/html/*\" build/ && copyfiles -f src/html/index.html build/",
-    "build:js": "mkdirp build/js && browserify src/js/app.js -o build/js/app.js -g babelify -g deamdify",
+    "build:js": "mkdirp build/js && browserify src/js/app.js -o build/js/app.js --debug -g babelify -g deamdify",
     "build:debug:js": "mkdirp build/js && browserify src/js/app.js -o build/js/app.js --debug --verbose -g babelify -g deamdify",
     "watch": "watchify src/js/app.js --debug -o build/js/app.js --verbose -g babelify -g deamdify",
     "dev": "npm run build:cwrc-writer && npm run copy:css"
@@ -45,7 +45,7 @@
   "dependencies": {
     "cwrc-git-dialogs": "^1.8.5",
     "cwrc-public-entity-dialogs": "^1.10.1",
-    "cwrc-writer-base": "^2.32.0",
+    "cwrc-writer-base": "^2.33.6",
     "dbpedia-entity-lookup": "^0.4.1",
     "geonames-entity-lookup": "^1.1.6",
     "getty-entity-lookup": "^1.4.4",
