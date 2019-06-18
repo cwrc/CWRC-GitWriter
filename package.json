@@ -23,7 +23,7 @@
   "homepage": "https://github.com/cwrc/CWRC-DevGitWriter#readme",
   "scripts": {
     "build": "npm run clean && npm run build:cwrc-writer && npm run copyfiles && npm run build:js",
-    "build:cwrc-writer": "cd \"node_modules/cwrc-writer-base\" && npm run build",
+    "build:cwrc-writer": "cd \"node_modules/cwrc-writer-base\" && npm run build && npm run build-scoped-css -- --global-var=\"parentId=#cwrcWriterContainer\"",
     "clean": "rimraf build",
     "cm": "git-cz",
     "copyfiles": "npm run copy:images && npm run copy:css && npm run copy:html",
@@ -43,14 +43,14 @@
     ]
   },
   "dependencies": {
-    "cwrc-git-dialogs": "^1.8.5",
-    "cwrc-public-entity-dialogs": "^1.10.1",
-    "cwrc-writer-base": "^2.38.0",
-    "dbpedia-entity-lookup": "^0.4.1",
-    "geonames-entity-lookup": "^1.1.6",
-    "getty-entity-lookup": "^1.4.4",
-    "viaf-entity-lookup": "^1.2.4",
-    "wikidata-entity-lookup": "^1.2.3"
+    "cwrc-git-dialogs": "^1.9.9",
+    "cwrc-public-entity-dialogs": "^1.11.2",
+    "cwrc-writer-base": "^2.43.1",
+    "dbpedia-entity-lookup": "^0.4.2",
+    "geonames-entity-lookup": "^1.1.7",
+    "getty-entity-lookup": "^1.4.5",
+    "viaf-entity-lookup": "^1.2.5",
+    "wikidata-entity-lookup": "^1.2.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
