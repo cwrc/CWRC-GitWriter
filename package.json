@@ -42,9 +42,9 @@
     ]
   },
   "dependencies": {
-    "cwrc-git-dialogs": "^1.9.11",
-    "cwrc-public-entity-dialogs": "1.11.1",
-    "cwrc-writer-base": "2.41.14",
+    "cwrc-git-dialogs": "^1.8.5",
+    "cwrc-public-entity-dialogs": "^1.10.1",
+    "cwrc-writer-base": "^2.41.13",
     "dbpedia-entity-lookup": "^0.4.2",
     "geonames-entity-lookup": "^1.1.7",
     "getty-entity-lookup": "^1.4.5",
