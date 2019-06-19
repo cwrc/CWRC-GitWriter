@@ -1,7 +1,4 @@
-let CWRCWriterStorageDialogs = require('cwrc-git-dialogs')['default'];
-
-// only continue loading the cwrcWriter if the user has authenticated with github
-if (CWRCWriterStorageDialogs.authenticate()) {
+document.addEventListener('DOMContentLoaded', function() {
 
     let viaf = require('viaf-entity-lookup')
     let dbpedia = require('dbpedia-entity-lookup');
@@ -19,10 +16,12 @@ if (CWRCWriterStorageDialogs.authenticate()) {
         organization: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
         title: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
     })
+    // window.CWRCWriterStorageDialogs = require('./storage-dialogs.js');
+    let CWRCWriterStorageDialogs = require('cwrc-git-dialogs')['default'];
     let config = require('./config.js');
     config.container = 'cwrcWriterContainer';
     config.modules = {
-        west: [ 'structure', 'entities', 'relations' ],
+        west: [ 'structure', 'entities', 'nerve' ],
         south: [ 'selection', 'validation' ],
         east: [ 'imageViewer' ]
     };
@@ -31,7 +30,10 @@ if (CWRCWriterStorageDialogs.authenticate()) {
     
     let CWRCWriter = require('cwrc-writer-base');
     var writer = new CWRCWriter(config);
+
     writer.event('writerInitialized').subscribe(function() {
-        writer.showLoadDialog();
+        if (writer.storageDialogs.authenticate()) {
+            writer.showLoadDialog();
+        }
     });
-}
+});
