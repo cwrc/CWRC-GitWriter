@@ -31,9 +31,11 @@
     "copy:css": "copyfiles -u 3 \"node_modules/cwrc-writer-base/build/**/*\" build/",
     "copy:html": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/html/*\" build/ && copyfiles -f src/html/index.html build/",
     "build:js": "mkdirp build/js && browserify src/js/app.js -o build/js/app.js --debug -g babelify -g deamdify",
+    "build:map:js": "mkdirp build/js && browserify src/js/app.js --debug -g babelify -g deamdify | exorcist build/js/app.js.map > build/js/app.js",
     "build:debug:js": "mkdirp build/js && browserify src/js/app.js -o build/js/app.js --debug --verbose -g babelify -g deamdify",
     "watch": "watchify src/js/app.js --debug -o build/js/app.js --verbose -g babelify -g deamdify",
-    "dev": "npm run build:cwrc-writer && npm run copy:css"
+    "dev": "npm run build:cwrc-writer && npm run copy:css",
+    "sourcemap": "source-map-explorer build/js/app.js build/js/app.js.map"
   },
   "babel": {
     "presets": [
@@ -43,9 +45,9 @@
     ]
   },
   "dependencies": {
-    "cwrc-git-dialogs": "^1.12.0",
-    "cwrc-public-entity-dialogs": "^1.11.2",
-    "cwrc-writer-base": "^2.45.1",
+    "cwrc-git-dialogs": "^1.14.1",
+    "cwrc-public-entity-dialogs": "^1.11.3",
+    "cwrc-writer-base": "^2.46.1",
     "dbpedia-entity-lookup": "^0.4.2",
     "geonames-entity-lookup": "^1.1.7",
     "getty-entity-lookup": "^1.4.5",
@@ -64,11 +66,13 @@
     "copyfiles": "^1.2.0",
     "cz-conventional-changelog": "^2.1.0",
     "deamdify": "0.3.0",
+    "exorcist": "^1.0.1",
     "minifier": "^0.8.0",
     "minifyify": "^7.3.3",
     "mkdirp": "^0.5.1",
     "path-exists-cli": "^1.0.0",
     "rimraf": "^2.6.3",
+    "source-map-explorer": "^2.0.1",
     "watchify": "^3.11.1"
   },
   "config": {
