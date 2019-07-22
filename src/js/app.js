@@ -5,20 +5,20 @@ document.addEventListener('DOMContentLoaded', function() {
     let wikidata = require('wikidata-entity-lookup');
     let getty = require('getty-entity-lookup');
     let geonames = require('geonames-entity-lookup');
-    let CWRCWriterDialogs = require('cwrc-public-entity-dialogs');
+    let EntityLookupDialogs = require('cwrc-public-entity-dialogs');
 
-    CWRCWriterDialogs.showNoLinkButton(true);
-    CWRCWriterDialogs.showCreateNewButton(false);
-    CWRCWriterDialogs.showEditButton(false);
-    CWRCWriterDialogs.registerEntitySources({
+    EntityLookupDialogs.showNoLinkButton(true);
+    EntityLookupDialogs.showCreateNewButton(false);
+    EntityLookupDialogs.showEditButton(false);
+    EntityLookupDialogs.registerEntitySources({
         person: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('getty', getty).set('dbpedia', dbpedia),
         place: (new Map()).set('geonames', geonames).set('viaf', viaf).set('dbpedia', dbpedia).set('wikidata', wikidata),
         organization: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
         title: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
     })
 
-    let CWRCWriterStorageDialogs = require('cwrc-git-dialogs');
-    CWRCWriterStorageDialogs.setServerURL('http://localhost:3000/github');
+    let GitStorageDialogs = require('cwrc-git-dialogs');
+    GitStorageDialogs.setServerURL('./github');
 
     let config = require('./config.js');
     config.container = 'cwrcWriterContainer';
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {id: 'structure', title: 'Markup'},
             {id: 'entities', title: 'Entities'},
             {id: 'nerve', title: 'NERVE', config: {
-                'nerveUrl': 'https://nerve.services.cwrc.ca'
+                'nerveUrl': 'https://dh.sharcnet.ca/NerveService'
             }}
         ],
         south: [
@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
             {id: 'imageViewer', title: 'Image Viewer'}
         ]
     };
-    config.entityLookupDialogs = CWRCWriterDialogs;
-    config.storageDialogs = CWRCWriterStorageDialogs;
+    config.entityLookupDialogs = EntityLookupDialogs;
+    config.storageDialogs = GitStorageDialogs;
     
     let CWRCWriter = require('cwrc-writer-base');
     var writer = new CWRCWriter(config);
