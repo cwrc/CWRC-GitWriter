@@ -29,7 +29,7 @@ A running deployment of the code in this repository is available for anyone's us
 
 ### Overview
 
-![High Level Overview](/docs/images/cwrcwriter-high-level-diagram.png?raw=true "High Level Overview")
+![High Level Overview](/docs/images/cwrc-gitwriter-overview.svg)
 
 ### Installation
 
