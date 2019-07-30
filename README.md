@@ -117,9 +117,9 @@ The two relevant steps there are:
 
 After authenticating with GitHub, GitHub returns an OAuth token, which is then submitted on every request to the GitHub API.
 
-We could store this token in a server side session, but instead we store it in a browser cookie that the CWRC-GitWriter submits in the request header (to help with CSRF) for each request to the CWRC-GitServer:
+We could store this token in a server side session, but instead we store it in a browser cookie that the CWRC-GitWriter submits in the request header (to help guard against [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)) for each request to the CWRC-GitServer:
 
-<img width="873" alt="image" src="https://user-images.githubusercontent.com/547165/45240465-cc872100-b2b6-11e8-905a-7b8e08fd640c.png">
+![OAuth Overview](/docs/images/oauth.svg)
 
 ### License
 
