@@ -4,21 +4,21 @@
 
 # CWRC-GitWriter
 
-1. [Overview](#overview)
-1. [Use](#use)
-1. [Installation](#installation)
-1. [Development](#development)
-1. [Authentication](#authentication)
-1. [License](#license)
-
-### Overview
-
 CWRC-GitWriter is an instance of the [CWRC-Writer](http://cwrc.ca/Documentation/project-editor/#DITA_Files-Various_Applications/CWRC-Writer/Embed_Ref_Splash.html), a WYSIWYG text editor for in-browser XML editing and stand-off RDF annotation. CWRC-GitWriter is named as such because it uses GitHub as its document storage system.
 
 The code in this repository serves two purposes:
 
 1.  To back the sandbox deployment: [https://cwrc-writer.cwrc.ca/](https://cwrc-writer.cwrc.ca/)
 2.  To provide an example configuration of the CWRC-Writer for those who might like to substitute a different storage or lookup system.
+
+## Table of Contents
+
+1. [Use](#use)
+1. [Overview](#overview)
+1. [Installation](#installation)
+1. [Development](#development)
+1. [Authentication](#authentication)
+1. [License](#license)
 
 ### Use
 
@@ -117,7 +117,7 @@ The two relevant steps there are:
 
 After authenticating with GitHub, GitHub returns an OAuth token, which is then submitted on every request to the GitHub API.
 
-We could store this token in a server side session, but instead we store it in a browser cookie that the CWRC-GitWriter submits in the request header (to help guard against [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)) for each request to the CWRC-GitServer:
+We could store this token in a server side session, but instead we store it in a browser cookie that the CWRC-GitWriter submits in the request header (to help guard against [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)) for each request to the CWRC-GitServer.
 
 ![OAuth Overview](/docs/images/oauth.svg)
 
