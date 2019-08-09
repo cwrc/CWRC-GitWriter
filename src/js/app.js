@@ -46,10 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let CWRCWriter = require('cwrc-writer-base');
     var writer = new CWRCWriter(config);
 
-    writer.exit = function() {
-        writer.storageDialogs.logOut();
-    }
-
     window.writer = writer;
 
     writer.event('writerInitialized').subscribe(function() {
