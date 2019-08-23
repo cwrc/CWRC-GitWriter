@@ -74,6 +74,12 @@ module.exports = {
             "cssUrl": "https://cwrc.ca/templates/css/tei.css",
             "schemaMappingsId": "tei"
         },
+        "teiLite": {
+            "name": "TEI Lite Schema",
+            "url": "https://tei-c.org/release/xml/tei/custom/schema/relaxng/tei_lite.rng",
+            "cssUrl": "https://cwrc.ca/templates/css/tei.css",
+            "schemaMappingsId": "tei"
+        },
         "teiCorpus": {
             "name": "TEI Corpus Schema",
             "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_corpus.rng",
