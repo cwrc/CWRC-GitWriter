@@ -3,6 +3,7 @@ let dbpedia = require('dbpedia-entity-lookup');
 let wikidata = require('wikidata-entity-lookup');
 let getty = require('getty-entity-lookup');
 let geonames = require('geonames-entity-lookup');
+let lgpn = require('lgpn-entity-lookup');
 let EntityLookupDialogs = require('cwrc-public-entity-dialogs');
 
 EntityLookupDialogs.showNoLinkButton(true);
@@ -10,8 +11,8 @@ EntityLookupDialogs.showCreateNewButton(false);
 EntityLookupDialogs.showEditButton(false);
 EntityLookupDialogs.registerEntitySources({
     rs: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
-    person: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('getty', getty).set('dbpedia', dbpedia),
-    place: (new Map()).set('geonames', geonames).set('viaf', viaf).set('dbpedia', dbpedia).set('wikidata', wikidata),
+    person: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('getty', getty).set('dbpedia', dbpedia).set('lgpn', lgpn),
+    place: (new Map()).set('geonames', geonames).set('viaf', viaf).set('dbpedia', dbpedia).set('wikidata', wikidata).set('lgpn', lgpn),
     organization: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
     title: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
 })

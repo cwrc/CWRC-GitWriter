@@ -47,6 +47,7 @@
     "dbpedia-entity-lookup": "^0.5.0",
     "geonames-entity-lookup": "^1.1.7",
     "getty-entity-lookup": "^1.4.5",
+    "lgpn-entity-lookup": "^1.0.0",
     "viaf-entity-lookup": "^1.3.1",
     "wikidata-entity-lookup": "^1.3.0"
   },
