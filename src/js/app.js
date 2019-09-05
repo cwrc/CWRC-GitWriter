@@ -12,7 +12,7 @@ EntityLookupDialogs.showEditButton(false);
 EntityLookupDialogs.registerEntitySources({
     rs: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
     person: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('getty', getty).set('dbpedia', dbpedia).set('lgpn', lgpn),
-    place: (new Map()).set('geonames', geonames).set('viaf', viaf).set('dbpedia', dbpedia).set('wikidata', wikidata).set('lgpn', lgpn),
+    place: (new Map()).set('geonames', geonames).set('viaf', viaf).set('dbpedia', dbpedia).set('wikidata', wikidata),
     organization: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
     title: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
 })

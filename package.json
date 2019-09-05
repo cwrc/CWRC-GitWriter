@@ -25,7 +25,7 @@
     "cm": "git-cz",
     "build": "rimraf build && npm run build:cwrc-writer && npm run copyfiles && npm run webpack-prod",
     "webpack-prod": "webpack --mode production",
-    "webpack-dev": "webpack --mode production",
+    "webpack-dev": "webpack --mode development",
     "dev-server": "webpack-dev-server --config ./webpack.config.js --mode development",
     "build:cwrc-writer": "cd \"node_modules/cwrc-writer-base\" && npm run build && npm run build-scoped-css -- --global-var=\"parentId=#cwrcWriterContainer\"",
     "copyfiles": "npm run copy:images && npm run copy:css && npm run copy:html",
@@ -37,9 +37,9 @@
     "analyzer": "webpack-bundle-analyzer build/stats.json"
   },
   "dependencies": {
-    "cwrc-git-dialogs": "^1.15.1",
+    "cwrc-git-dialogs": "^1.16.0",
     "cwrc-public-entity-dialogs": "^1.16.1",
-    "cwrc-writer-base": "^3.0.2",
+    "cwrc-writer-base": "^3.2.0",
     "dbpedia-entity-lookup": "^0.6.1",
     "geonames-entity-lookup": "^1.2.0",
     "getty-entity-lookup": "^1.5.0",

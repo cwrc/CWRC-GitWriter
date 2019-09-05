@@ -71,32 +71,37 @@ module.exports = {
         "teiAll": {
             "name": "TEI All Schema",
             "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng",
-            "cssUrl": "https://cwrc.ca/templates/css/tei.css",
-            "schemaMappingsId": "tei"
-        },
-        "teiLite": {
-            "name": "TEI Lite Schema",
-            "url": "https://tei-c.org/release/xml/tei/custom/schema/relaxng/tei_lite.rng",
+            "altUrl": "https://jenkins.tei-c.org/job/TEIP5/lastSuccessfulBuild/artifact/P5/release/xml/tei/custom/schema/relaxng/tei_all.rng",
             "cssUrl": "https://cwrc.ca/templates/css/tei.css",
             "schemaMappingsId": "tei"
         },
         "teiCorpus": {
             "name": "TEI Corpus Schema",
             "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_corpus.rng",
+            "altUrl": "https://jenkins.tei-c.org/job/TEIP5/lastSuccessfulBuild/artifact/P5/release/xml/tei/custom/schema/relaxng/tei_corpus.rng",
             "cssUrl": "https://cwrc.ca/templates/css/tei.css",
             "schemaMappingsId": "tei"
         },
         "teiMs": {
             "name": "TEI Manuscript Schema",
             "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_ms.rng",
+            "altUrl": "https://jenkins.tei-c.org/job/TEIP5/lastSuccessfulBuild/artifact/P5/release/xml/tei/custom/schema/relaxng/tei_ms.rng",
             "cssUrl": "https://cwrc.ca/templates/css/tei.css",
             "schemaMappingsId": "tei"
         },
         "teiSpeech": {
             "name": "TEI Speech Schema",
             "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_speech.rng",
+            "altUrl": "https://jenkins.tei-c.org/job/TEIP5/lastSuccessfulBuild/artifact/P5/release/xml/tei/custom/schema/relaxng/tei_speech.rng",
             "cssUrl": "https://cwrc.ca/templates/css/tei.css",
             "schemaMappingsId": "tei"
+        },
+        "teiLite": {
+            "name": "TEI Lite Schema",
+            "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_lite.rng",
+            "altUrl": "https://jenkins.tei-c.org/job/TEIP5/lastSuccessfulBuild/artifact/P5/release/xml/tei/custom/schema/relaxng/tei_lite.rng",
+            "cssUrl": "https://cwrc.ca/templates/css/tei.css",
+            "schemaMappingsId": "teiLite"
         }
     }
 };
