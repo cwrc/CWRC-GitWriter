@@ -37,9 +37,9 @@
     "analyzer": "webpack-bundle-analyzer build/stats.json"
   },
   "dependencies": {
-    "cwrc-git-dialogs": "^1.16.0",
+    "cwrc-git-dialogs": "^1.16.1",
     "cwrc-public-entity-dialogs": "^1.16.1",
-    "cwrc-writer-base": "^3.2.0",
+    "cwrc-writer-base": "^3.4.0",
     "dbpedia-entity-lookup": "^0.6.1",
     "geonames-entity-lookup": "^1.2.0",
     "getty-entity-lookup": "^1.5.0",
@@ -67,6 +67,7 @@
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "mkdirp": "^0.5.1",
+    "path-exists-cli": "^1.0.0",
     "rimraf": "^2.6.3",
     "style-loader": "^1.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
