@@ -28,10 +28,12 @@
     "webpack-dev": "webpack --mode development --debug=true --display-error-details=true",
     "dev-server": "webpack-dev-server --config ./webpack.config.js --mode development",
     "build-cwrc-writer-base": "cd \"node_modules/cwrc-writer-base\" && npm run build",
+    "build-cwrc-writer-base-css": "cd \"node_modules/cwrc-writer-base\" && npm run build-css",
     "copy-files": "npm run copy-css && npm run copy-images && npm run copy-bootstrap-fonts",
     "copy-css": "copyfiles -u 3 \"node_modules/cwrc-writer-base/build/css/**/*\" build && copyfiles -u 3 \"node_modules/cwrc-git-dialogs/src/css/bootstrap.css\" build",
     "copy-images": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/img/**/*\" build/",
     "copy-bootstrap-fonts": "copyfiles -f \"node_modules/bootstrap/fonts/*\" build/fonts/",
+    "css-dev": "npm run build-cwrc-writer-base-css && npm run copy-css",
     "stats": "webpack --profile --json > build/stats.json",
     "analyzer": "webpack-bundle-analyzer build/stats.json"
   },
