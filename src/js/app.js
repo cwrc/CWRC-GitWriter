@@ -46,6 +46,8 @@ config.storageDialogs = GitStorageDialogs;
 let CWRCWriter = require('cwrc-writer-base');
 var writer = new CWRCWriter(config);
 
+writer.utilities.addCSS('css/bootstrap.css');
+
 window.writer = writer;
 
 writer.event('writerInitialized').subscribe(function() {
