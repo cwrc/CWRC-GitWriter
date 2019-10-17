@@ -11,10 +11,13 @@ let config = {
 		path: path.resolve(__dirname, 'build')
 	},
 
-	plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin({
-		template: "src/html/index.html",
-		inject: false
-	})],
+	plugins: [
+		new webpack.ProgressPlugin(),
+		new HtmlWebpackPlugin({
+			template: "src/html/index.html",
+			inject: false
+		})
+	],
 
 	module: {
 		rules: [
