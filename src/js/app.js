@@ -18,7 +18,11 @@ EntityLookupDialogs.registerEntitySources({
 })
 
 let GitStorageDialogs = require('cwrc-git-dialogs');
-GitStorageDialogs.setServerURL('./github');
+if (process.env.NODE_ENV === 'development') {
+    GitStorageDialogs.setServerURL('http://localhost:3000/github');
+} else {
+    GitStorageDialogs.setServerURL('./github');
+}
 
 let config = require('./config.js');
 config.container = 'cwrcWriterContainer';

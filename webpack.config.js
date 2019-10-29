@@ -75,11 +75,11 @@ let config = {
 };
 
 module.exports = (env, argv) => {
-	if (argv.mode === 'development') {
+	if (process.env.NODE_ENV === 'development') {
 		config.devtool = 'eval-source-map';
 	}
 
-	if (argv.mode === 'production') {
+	if (process.env.NODE_ENV === 'production') {
 		config.devtool = 'source-map';
 	}
 
