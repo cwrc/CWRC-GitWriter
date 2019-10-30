@@ -76,7 +76,7 @@ let config = {
 
 module.exports = (env, argv) => {
 	config.devtool = false;
-	const excludes = [/jquery/, /jquery-ui/, /openseadragon/, /moment/, /tinymce/, /bootstrap/, /react/, /react-bootstrap/];
+	const excludes = [/jquery/, /tinymce.js/, /bootstrap/, /react/, /openseadragon/, /moment/];
 
 	if (argv.mode === 'development') {
 		// config.devtool = 'cheap-eval-source-map';
