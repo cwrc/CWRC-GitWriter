@@ -24,8 +24,8 @@
   "scripts": {
     "cm": "git-cz",
     "build": "rimraf build && npm run build-cwrc-writer-base && npm run copy-files && npm run webpack-prod",
-    "webpack-prod": "cross-env NODE_ENV=production node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js",
-    "webpack-dev": "cross-env NODE_ENV=development node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --debug=true --display-error-details=true",
+    "webpack-prod": "cross-env NODE_ENV=production node --max_old_space_size=2560 ./node_modules/webpack/bin/webpack.js",
+    "webpack-dev": "cross-env NODE_ENV=development node --max_old_space_size=2560 ./node_modules/webpack/bin/webpack.js --debug=true --display-error-details=true",
     "dev-server": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack.config.js",
     "build-cwrc-writer-base": "cd \"node_modules/cwrc-writer-base\" && npm run build",
     "build-cwrc-writer-base-css": "cd \"node_modules/cwrc-writer-base\" && npm run build-css",
