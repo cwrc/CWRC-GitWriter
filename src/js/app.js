@@ -31,13 +31,13 @@ config.modules = {
         {id: 'structure', title: 'Markup'},
         {id: 'entities', title: 'Entities'},
         {id: 'nerve', title: 'NERVE', config: {
-            'nerveUrl': 'https://dh.sharcnet.ca/NerveService'
+            'nerveUrl': config.nerveUrl
         }}
     ],
     south: [
             {id: 'selection', title: 'Selection'},
             {id: 'validation', title: 'Validation', config: {
-            'validationUrl': 'https://validator.services.cwrc.ca/validator/validate.html'
+            'validationUrl': config.validationUrl
         }}
     ],
     east: [

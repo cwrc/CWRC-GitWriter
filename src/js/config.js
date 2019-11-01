@@ -1,5 +1,7 @@
 module.exports = {
     "cwrcRootUrl": "",
+    "nerveUrl": "https://dh.sharcnet.ca/NerveService",
+    "validationUrl": "https://validator.services.cwrc.ca/validator/validate.html",
     "schemas": {
         "tei": {
             "name": "CWRC Basic TEI Schema",
