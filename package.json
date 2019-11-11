@@ -30,7 +30,7 @@
     "copy:images": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/img/**/*\" build/",
     "copy:css": "copyfiles -u 3 \"node_modules/cwrc-writer-base/build/**/*\" build/",
     "copy:html": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/html/*\" build/ && copyfiles -f src/html/index.html build/",
-    "build:js": "mkdirp build/js && browserify src/js/app.js -o build/js/app.js --debug -g babelify -g deamdify",
+    "build:js": "mkdirp build/js && browserify src/js/app.js -o build/js/app.js -g babelify -g deamdify",
     "build:debug:js": "mkdirp build/js && browserify src/js/app.js -o build/js/app.js --debug --verbose -g babelify -g deamdify",
     "watch": "watchify src/js/app.js --debug -o build/js/app.js --verbose -g babelify -g deamdify"
   },
