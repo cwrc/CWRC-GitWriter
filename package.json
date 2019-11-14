@@ -28,6 +28,7 @@
     "webpack-dev": "webpack --config webpack.dev.js --debug=true --display-error-details=true",
     "dev-server": "webpack-dev-server --config webpack.dev.js",
     "build-cwrc-writer-base": "cd \"node_modules/cwrc-writer-base\" && npm run build",
+    "cwrc-writer-css-dev": "cd \"node_modules/cwrc-writer-base\" && npm run build-css",
     "stats": "webpack --profile --json > build/stats.json",
     "analyzer": "webpack-bundle-analyzer build/stats.json"
   },
