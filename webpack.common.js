@@ -1,8 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 
 module.exports = {
     entry: './src/js/app.js',
@@ -18,11 +19,6 @@ module.exports = {
 		new webpack.ProgressPlugin(),
 		new CleanWebpackPlugin(),
 		new CopyWebpackPlugin([{
-			context: 'node_modules/cwrc-writer-base/build/js/',
-			from: '**/*',
-			to: 'js',
-			flatten: true
-		},{
 			context: 'node_modules/cwrc-writer-base/build/css/',
 			from: '**/*',
 			to: 'css'
@@ -42,6 +38,19 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: "src/html/index.html",
 			inject: "body"
+		}),
+		new HtmlWebpackExternalsPlugin({
+			externals: [{
+				module: 'rdflib',
+				global: '$rdf',
+				entry: {
+					path: 'rdflib.min.js',
+					cwpPatternConfig: {
+						context: path.resolve(__dirname, 'node_modules/cwrc-writer-base/src/lib')
+					}
+				}
+			}],
+			outputPath: 'js'
 		})
 	],
     
@@ -84,10 +93,6 @@ module.exports = {
                 }
             }
         }
-	},
-
-	externals: {
-		rdflib: '$rdf'
 	},
 
 	resolve: {
