@@ -92,6 +92,12 @@ module.exports = {
             "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_speech.rng",
             "cssUrl": "https://cwrc.ca/templates/css/tei.css",
             "schemaMappingsId": "tei"
+        },
+        "moravian": {
+            "name": "Moravian Lives (TEI)",
+            "url": "https://raw.githubusercontent.com/moravianlives/ML/master/Projects/TEI_Memoirs/out/MoravianMemoirs.rng",
+            "cssUrl": "https://cwrc.ca/templates/css/tei.css",
+            "schemaMappingsId": "teiLite"
         }
     }
 };
