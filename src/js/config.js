@@ -104,6 +104,12 @@ module.exports = {
             "altUrl": "https://jenkins.tei-c.org/job/TEIP5/lastSuccessfulBuild/artifact/P5/release/xml/tei/custom/schema/relaxng/tei_lite.rng",
             "cssUrl": "https://cwrc.ca/templates/css/tei.css",
             "schemaMappingsId": "teiLite"
+        },
+        "moravian": {
+            "name": 'Moravian Lives (TEI)',
+            "url": "https://raw.githubusercontent.com/moravianlives/ML/master/Projects/TEI_Memoirs/out/MoravianMemoirs.rng",
+            "cssUrl": "https://cwrc.ca/templates/css/tei.css",
+            "schemaMappingsId": "teiLite"
         }
     }
 };
