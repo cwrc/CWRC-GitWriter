@@ -25,6 +25,9 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 let config = require('./config.js');
+if (process.env.NODE_ENV === 'development') {
+    config.schema.schemaProxyUrl = 'http://localhost:3000';
+}
 config.container = 'cwrcWriterContainer';
 config.modules = {
     west: [

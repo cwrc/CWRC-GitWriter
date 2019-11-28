@@ -3,7 +3,7 @@ module.exports = {
     nerveUrl: 'https://dh.sharcnet.ca/NerveService',
     validationUrl: 'https://validator.services.cwrc.ca/validator/validate.html',
     schema: {
-        schemaProxyUrl: 'http://localhost:3000',
+        schemaProxyUrl: '.',
         schemas: [{
                 id: 'tei',
                 name: 'CWRC Basic TEI Schema',
