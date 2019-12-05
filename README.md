@@ -35,6 +35,8 @@ A running deployment of the code in this repository is available for anyone's us
 
 Although the sandbox version provides a freely usable instance, you may of course install an instance of the CWRC-GitWriter on your own server.  CWRC-GitWriter also requires a running instance<sup id="a1">[1](#f1)</sup> of [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), which in turn interacts with GitHub through the [GitHub API](https://developer.github.com/v3/).
 
+You can follow this tutorial to install an instance of CWRC GitWriter on your own server: [https://github.com/cwrc/CWRC-GitWriter/wiki/Installing-an-instance-of-CWRC-GitWriter-on-your-own-server](https://github.com/cwrc/CWRC-GitWriter/wiki/Installing-an-instance-of-CWRC-GitWriter-on-your-own-server)
+
 Note that if you want to create a new version of the CWRC-Writer that is configured to work with your own document repository (e.g., a database), this repository still provides you with the best example to follow.  You'll also want to look at the [cwrc-git-dialogs](https://www.npmjs.com/package/cwrc-git-dialogs) repository, which holds
 the javascript class that handles calls to the backend storage, in this case to Github via the CWRC-GitServer.  This is the class you'd want to replace with your own.  To replace the entity lookups you'd replace [cwrc-public-entity-dialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)
 
