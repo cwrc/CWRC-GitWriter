@@ -36,8 +36,8 @@ module.exports = {
 			to: 'fonts'
 		}]),
 		new HtmlWebpackPlugin({
-			template: "src/html/index.html",
-			inject: "body"
+			template: 'src/html/index.html',
+			inject: 'body'
 		}),
 		new HtmlWebpackExternalsPlugin({
 			externals: [{
@@ -61,19 +61,19 @@ module.exports = {
 				use: [{
 					loader: 'babel-loader',
 					options: {
-						sourceType: "unambiguous",
+						sourceType: 'unambiguous',
 						presets: [
-							"@babel/preset-env",
-							"@babel/preset-react"
+							'@babel/preset-env',
+							'@babel/preset-react'
 						],
 						plugins: [
-							"@babel/plugin-proposal-class-properties",
-							["@babel/plugin-transform-runtime", {
-								"absoluteRuntime": false,
-								"corejs": false,
-								"helpers": false,
-								"regenerator": true,
-								"useESModules": false
+							'@babel/plugin-proposal-class-properties',
+							['@babel/plugin-transform-runtime', {
+								'absoluteRuntime': false,
+								'corejs': false,
+								'helpers': false,
+								'regenerator': true,
+								'useESModules': false
 							}]
 						]
 					}
@@ -88,8 +88,8 @@ module.exports = {
                 commons: {
 					// don't include cwrc or entity lookup modules in vendor bundle
                     test: /[\\/]node_modules[\\/](?!.*(cwrc|entity\-lookup))/,
-                    name: "vendor",
-                    chunks: "initial"
+                    name: 'vendor',
+                    chunks: 'initial'
                 }
             }
         }
