@@ -34,6 +34,10 @@ module.exports = {
 			context: 'node_modules/bootstrap/fonts/',
 			from: '*',
 			to: 'fonts'
+		},{
+			context: 'config/',
+			from: '*',
+			to: 'config'
 		}]),
 		new HtmlWebpackPlugin({
 			template: 'src/html/index.html',
