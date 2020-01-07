@@ -40,7 +40,7 @@ the javascript class that handles calls to the backend storage, in this case to 
 
 ### Building
 
-This repository contains a JS file — the [app file](src/js/app.js), and a JSON file — the [config file](config/config.js). The app file does not contain much code itself; it's main purpose to load/require other code bases, and then configure and instantiate the CWRC-Writer. It must first be built in order to be useable. To build:
+This repository contains a JS file — the [app file](src/js/app.js), and a JSON file — the [config file](config/config.json). The app file does not contain much code itself; it's main purpose to load/require other code bases, and then configure and instantiate the CWRC-Writer. It must first be built in order to be useable. To build:
 
 - Download the code for this repository, or clone the repository
 - Install all the NPM package dependencies: `npm install`
@@ -86,7 +86,7 @@ The app.js file imports ('requires') the following NPM CWRC packages:
 
 The app.js file also imports a config file:
 
-- [config/config.js](config/config.js)
+- [config/config.json](config/config.json)
 
    JSON object that defines the url for external services (XML Validator and Nerve), describes the XML schemas supported, and is used to pass in other objects to the CWRC-Writer.
 
