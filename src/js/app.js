@@ -31,12 +31,7 @@ const init = async () => {
 		.catch( (err) => {
 			console.log(err)
 		});
-
-	console.log(configRequest)
-	
 	const config = await configRequest.json()
-	
-	console.log(config)
 
 	if (process.env.NODE_ENV === 'development') {
 		config.schema.schemaProxyUrl = 'http://localhost:3000';
