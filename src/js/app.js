@@ -1,10 +1,10 @@
-let viaf = require('viaf-entity-lookup')
-let dbpedia = require('dbpedia-entity-lookup');
-let wikidata = require('wikidata-entity-lookup');
-let getty = require('getty-entity-lookup');
-let geonames = require('geonames-entity-lookup');
-let lgpn = require('lgpn-entity-lookup');
-let EntityLookupDialogs = require('cwrc-public-entity-dialogs');
+const viaf = require('viaf-entity-lookup')
+const dbpedia = require('dbpedia-entity-lookup');
+const wikidata = require('wikidata-entity-lookup');
+const getty = require('getty-entity-lookup');
+const geonames = require('geonames-entity-lookup');
+const lgpn = require('lgpn-entity-lookup');
+const EntityLookupDialogs = require('cwrc-public-entity-dialogs');
 
 EntityLookupDialogs.showNoLinkButton(true);
 EntityLookupDialogs.showCreateNewButton(false);
@@ -17,7 +17,7 @@ EntityLookupDialogs.registerEntitySources({
 	title: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
 })
 
-let GitStorageDialogs = require('cwrc-git-dialogs');
+const GitStorageDialogs = require('cwrc-git-dialogs');
 if (process.env.NODE_ENV === 'development') {
 	GitStorageDialogs.setServerURL('http://localhost:3000/github');
 } else {
@@ -26,7 +26,6 @@ if (process.env.NODE_ENV === 'development') {
 
 const init = async () => {
 
-	// const configRequest = await fetch('./config.json')
 	const configRequest = await fetch('./config/config.json')
 		.catch( (err) => {
 			console.log(err)
