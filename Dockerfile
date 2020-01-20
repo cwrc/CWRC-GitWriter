@@ -2,16 +2,15 @@
 
 FROM node
 
-RUN npm install -g less
-RUN npm install http-server -g
-
 WORKDIR /apps/CWRC-GitWriter
+
+RUN npm install pm2 -g
 
 COPY . .
 
-RUN npm install && npm run build
+RUN npm install && \
+    npm run build
 
-WORKDIR /apps/CWRC-GitWriter/build
+CMD ["pm2", "start", "server.js", "--no-daemon"]
 
 EXPOSE 3000
-CMD ["http-server", "-p", "3000"]

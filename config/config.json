@@ -1,7 +1,7 @@
 {
 	"cwrcRootUrl": "",
-	"nerveUrl": "https://dh.sharcnet.ca/NerveService",
-	"validationUrl": "https://validator.services.cwrc.ca/validator/validate.html",
+	"nerveUrl": "https://localhost/nerve/",
+	"validationUrl": "https://localhost/validator/validate.html",
 	"schema": {
 		"schemaProxyUrl": ".",
 		"schemas": [

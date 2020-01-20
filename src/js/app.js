@@ -18,11 +18,11 @@ EntityLookupDialogs.registerEntitySources({
 })
 
 const GitStorageDialogs = require('cwrc-git-dialogs');
-if (process.env.NODE_ENV === 'development') {
-	GitStorageDialogs.setServerURL('http://localhost:3000/github');
-} else {
-	GitStorageDialogs.setServerURL('./github');
-}
+// if (process.env.NODE_ENV === 'development') {
+// 	GitStorageDialogs.setServerURL('http://localhost:3000/github');
+// } else {
+// 	GitStorageDialogs.setServerURL('./github');
+// }
 
 const init = async () => {
 
@@ -32,9 +32,9 @@ const init = async () => {
 		});
 	const config = await configRequest.json()
 
-	if (process.env.NODE_ENV === 'development') {
-		config.schema.schemaProxyUrl = 'http://localhost:3000';
-	}
+	// if (process.env.NODE_ENV === 'development') {
+	// 	config.schema.schemaProxyUrl = 'http://localhost:3000';
+	// }
 
 	config.container = 'cwrcWriterContainer';
 	config.modules = {
