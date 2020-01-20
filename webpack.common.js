@@ -6,18 +6,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 
 module.exports = {
-    entry: './src/js/app.js',
+	// entry: './src/js/app.js',
+	entry: {
+        app: [
+            './src/js/app.js'
+        ]
+    },
 
 	mode: 'none', // all mode defaults for dev and prod and set in the respective configs
 
 	output: {
-		filename: 'js/[name].[contenthash].js',
-		path: path.resolve(__dirname, 'build')
+		filename: 'js/[name].js',
+		path: path.resolve(__dirname, 'build'),
+		publicPath: '/',
     },
     
     plugins: [
 		new webpack.ProgressPlugin(),
-		new CleanWebpackPlugin(),
+		new CleanWebpackPlugin({
+			cleanStaleWebpackAssets: false
+		}),
 		new CopyWebpackPlugin([{
 			context: 'node_modules/cwrc-writer-base/build/css/',
 			from: '**/*',

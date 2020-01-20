@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
@@ -37,7 +38,8 @@ module.exports = merge(common, {
         })
     ],
     devServer: {
-        open: false,
-        contentBase: './build'
+        contentBase: path.join(__dirname, 'build'),
+        port: 3000,
+        host: 'localhost',
     }
 });
