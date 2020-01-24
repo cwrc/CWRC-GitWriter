@@ -145,7 +145,7 @@
 			{
 				"id": "moravian",
 				"name": "Moravian Lives (TEI)",
-				"schemaMappingsId": "teiLite",
+				"schemaMappingsId": "tei",
 				"xmlUrl": [
 					"https://raw.githubusercontent.com/moravianlives/ML/master/Projects/TEI_Memoirs/out/MoravianMemoirs.rng"
 				],
