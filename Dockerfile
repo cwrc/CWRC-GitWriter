@@ -11,6 +11,6 @@ COPY . .
 RUN npm install && \
     npm run build
 
-CMD ["pm2", "start", "server.js", "--no-daemon"]
+CMD ["pm2", "start", "./server/server.js", "--no-daemon"]
 
 EXPOSE 3000

@@ -21,7 +21,7 @@ const GitStorageDialogs = require('cwrc-git-dialogs');
 // if (process.env.NODE_ENV === 'development') {
 // 	GitStorageDialogs.setServerURL('http://localhost:3000/github');
 // } else {
-// 	GitStorageDialogs.setServerURL('./github');
+GitStorageDialogs.setServerURL('./github');
 // }
 
 const init = async () => {
