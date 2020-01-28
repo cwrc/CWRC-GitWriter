@@ -2,26 +2,26 @@
   "name": "cwrc-git-writer",
   "version": "0.0.0",
   "description": "xml editing and rdf annotation using github as document store",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cwrc/CWRC-GitWriter.git"
-  },
   "keywords": [
     "xml",
     "rdf",
     "editor",
     "annotation"
   ],
+  "homepage": "https://github.com/cwrc/CWRC-GitWriter",
+  "bugs": {
+    "url": "https://github.com/cwrc/CWRC-GitWriter/issues"
+  },
+  "license": "GPL-2.0",
   "contributors": [
     "Andrew MacDonald",
     "James Chartrand",
     "Luciano Frizzera"
   ],
-  "license": "GPL-2.0",
-  "bugs": {
-    "url": "https://github.com/cwrc/CWRC-GitWriter/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cwrc/CWRC-GitWriter.git"
   },
-  "homepage": "https://github.com/cwrc/CWRC-GitWriter#readme",
   "scripts": {
     "cm": "git-cz",
     "build": "npm run build-cwrc-writer-base && npm run webpack-prod",
@@ -37,9 +37,9 @@
     "analyzer": "webpack-bundle-analyzer build/stats.json"
   },
   "dependencies": {
-    "cwrc-git-dialogs": "github:cwrc/cwrc-git-dialogs#development",
-    "cwrc-public-entity-dialogs": "^1.16.2",
-    "cwrc-writer-base": "github:cwrc/CWRC-WriterBase#development",
+    "cwrc-git-dialogs": "1.17.0",
+    "cwrc-public-entity-dialogs": "1.16.4",
+    "cwrc-writer-base": "4.0.0",
     "dbpedia-entity-lookup": "^0.6.1",
     "express": "^4.17.1",
     "geonames-entity-lookup": "^1.2.0",
