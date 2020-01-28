@@ -32,13 +32,13 @@ A running deployment of the code in this repository is available for anyone's us
 
 As you can see from the overview diagram, CWRC-GitWriter is the parent package which collects and configures the various child packages. While [CWRC-WriterBase](https://github.com/cwrc/CWRC-WriterBase) provides the primary editing functionality, it requires both storage and entity lookup packages, which in this case are [cwrc-git-dialogs](https://github.com/cwrc/cwrc-git-dialogs) and [CWRC-PublicEntityDialogs](https://github.com/cwrc/CWRC-PublicEntityDialogs).
 
-### Installation
+## Installation
 
 Although the sandbox version provides a freely usable instance, you may of course install an instance of the CWRC-GitWriter on your own server.  CWRC-GitWriter also requires a running instance of [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), which in turn interacts with GitHub through the [GitHub API](https://developer.github.com/v3/).
 
 Note that if you want to create a new version of the CWRC-Writer that is configured to work with your own document repository (e.g. a database) this repository still provides you with the best example to follow.  You'll also want to look at the [cwrc-git-dialogs](https://github.com/cwrc/cwrc-git-dialogs) repository, which holds the javascript class that handles calls to the backend storage, in this case to GitHub via the [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer).  This is the class you'd want to replace with your own. To replace the entity lookups you'd need to replace [CWRC-PublicEntityDialogs](https://github.com/cwrc/CWRC-PublicEntityDialogs).
 
-#### Building
+### Building
 
 This repository contains two JS files: the [app file](src/js/app.js) and the [config file](src/js/config.js). The app file does not contain much code itself; its main purpose to load/require other packages, and then configure and instantiate the CWRC-Writer. It must first be built in order to be useable. To build:
 
@@ -67,11 +67,11 @@ To develop a new configuration of the CWRC-Writer, you'll therefore need to unde
 
 The [src/js/app.js](src/js/app.js) file imports the following npm CWRC packages:
 
-* [CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)
+- [CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)
 
    The CWRC-Writer editor
 
-* [cwrc-git-dialogs](https://www.npmjs.com/package/cwrc-git-dialogs)
+- [cwrc-git-dialogs](https://www.npmjs.com/package/cwrc-git-dialogs)
 
    The javascript class that handles calls to the storage, in this case to GitHub via the [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer). This is the class you'd want to replace with your own.
 
@@ -121,6 +121,6 @@ We could store this token in a server side session, but instead we store it in a
 
 ![OAuth Overview](/docs/images/oauth.svg)
 
-### License
+## License
 
 [GNU GPL V2](LICENSE)

@@ -43,3 +43,5 @@ build
 /classes/
 .classpath
 .settings
+
+.DS_Store
