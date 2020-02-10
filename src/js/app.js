@@ -17,7 +17,8 @@ EntityLookupDialogs.registerEntitySources({
 	title: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
 })
 
-const GitStorageDialogs = require('cwrc-git-dialogs');
+// const GitStorageDialogs = require('cwrc-git-dialogs');
+import GitStorageDialogs from 'cwrc-git-dialogs';
 // if (process.env.NODE_ENV === 'development') {
 // 	GitStorageDialogs.setServerURL('http://localhost:3000/github');
 // } else {
