@@ -37,9 +37,9 @@
     "analyzer": "webpack-bundle-analyzer build/stats.json"
   },
   "dependencies": {
-    "cwrc-git-dialogs": "1.17.0",
+    "cwrc-git-dialogs": "github:cwrc/cwrc-git-dialogs#development",
     "cwrc-public-entity-dialogs": "1.16.4",
-    "cwrc-writer-base": "4.0.0",
+    "cwrc-writer-base": "github:cwrc/CWRC-WriterBase#development",
     "dbpedia-entity-lookup": "^0.6.1",
     "express": "^4.17.1",
     "geonames-entity-lookup": "^1.2.0",
