@@ -14,9 +14,9 @@
   },
   "license": "GPL-2.0",
   "contributors": [
-    "Andrew MacDonald",
-    "James Chartrand",
-    "Luciano Frizzera"
+    "Andrew MacDonald <andrewjames.code@gmail.com>",
+    "James Chartrand <jc.chartrand@gmail.com>",
+    "Luciano Frizzera <lucaju@gmail.com>"
   ],
   "repository": {
     "type": "git",
