@@ -50,7 +50,7 @@ This repository contains a JS file — the [app file](src/js/app.js), and a JSON
 
 - Download the code for this repository, or clone the repository
 - Install all the NPM package dependencies: `npm install`
-- Browserify the code to package it up for deployment: `npm run build`
+- Use Webpack to package it up for deployment: `npm run build`
 
 The built code resides in the newly created build directory. It contains the app, along with all the necessary CSS, XML, and image files. To deploy the CWRC-GitWriter simply copy the build directory to your server, probably the same server from which you'd serve the [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer). You might choose to use ftp, scp, rsync, etc. An example rsync command might be:
 
