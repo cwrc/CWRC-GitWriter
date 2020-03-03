@@ -69,6 +69,7 @@
     "less": "^3.11.1",
     "mkdirp": "^1.0.3",
     "nodemon": "^2.0.2",
+    "path-exists-cli": "^1.0.0",
     "terser-webpack-plugin": "^2.3.5",
     "webpack": "^4.41.6",
     "webpack-bundle-analyzer": "^3.6.0",
