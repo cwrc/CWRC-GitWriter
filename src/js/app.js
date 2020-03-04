@@ -1,4 +1,3 @@
-import CWRCWriter from 'cwrc-writer-base';
 import GitStorageDialogs from 'cwrc-git-dialogs';
 
 const viaf = require('viaf-entity-lookup')
@@ -8,6 +7,8 @@ const getty = require('getty-entity-lookup');
 const geonames = require('geonames-entity-lookup');
 const lgpn = require('lgpn-entity-lookup');
 const EntityLookupDialogs = require('cwrc-public-entity-dialogs');
+
+const CWRCWriter = require('cwrc-writer-base');
 
 EntityLookupDialogs.showNoLinkButton(true);
 EntityLookupDialogs.showCreateNewButton(false);
@@ -60,7 +61,6 @@ const init = async () => {
 	config.entityLookupDialogs = EntityLookupDialogs;
 	config.storageDialogs = GitStorageDialogs;
 	
-
 	const writer = new CWRCWriter(config);	
 	writer.utilities.addCSS('css/bootstrap.css');
 
