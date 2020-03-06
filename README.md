@@ -12,28 +12,32 @@
 6. [Contributing](#contributing)
 7. [License](#license)
 
-## Overview
-
-CWRC-GitWriter is an instance of the [CWRC-Writer](http://cwrc.ca/Documentation/project-editor/#DITA_Files-Various_Applications/CWRC-Writer/Embed_Ref_Splash.html), a [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) text editor for in-browser simultaneous XML editing and stand-off RDF annotation using the [Open Annotation Data Model](http://www.openannotation.org/spec/core/). CWRC-GitWriter stores documents, annotations, templates, and XML schemas in GitHub.
-
 The code in this repository serves two purposes:
+
+1.  To back the sandbox deployment: [https://cwrc-writer.cwrc.ca/](https://cwrc-writer.cwrc.ca/)
+2.  To provide an example configuration of the CWRC-Writer for those who might like to substitute a different storage or lookup system.
+
+## Table of Contents
 
 1. To back the sandbox deployment [https://cwrc-writer.cwrc.ca](https://cwrc-writer.cwrc.ca)
 2. To provide an example configuration of the CWRC-Writer for those who might like to substitute a different backend (e.g., database, file system on server, different entity lookup.)
 
-## Use
+### Use
 
 A running deployment of the code in this repository is available for anyone's use at:
 
 [https://cwrc-writer.cwrc.ca](https://cwrc-writer.cwrc.ca)
 
-![High Level Overview](/docs/images/cwrcwriter-high-level-diagram.png?raw=true "High Level Overview")
+### Overview
 
-## Installation
+![High Level Overview](/docs/images/cwrc-gitwriter-overview.svg)
+
+As you can see from the overview diagram, CWRC-GitWriter is the parent package which collects and configures the various child packages. While [CWRC-WriterBase](https://github.com/cwrc/CWRC-WriterBase) provides the primary editing functionality, it requires both storage and entity lookup packages, which in this case are [cwrc-git-dialogs](https://github.com/cwrc/cwrc-git-dialogs) and [CWRC-PublicEntityDialogs](https://github.com/cwrc/CWRC-PublicEntityDialogs).
+
 
 Although the sandbox version provides a freely usable instance, you may of course install an instance of the CWRC-GitWriter on your own server. CWRC-GitWriter also requires a running instance<sup id="a1">[1](#f1)</sup> of [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), which in turn interacts with GitHub through the [GitHub API](https://developer.github.com/v3/).
 
-You can follow this tutorial to install an instance of CWRC GitWriter on your own server: [https://github.com/cwrc/CWRC-GitWriter/wiki/Installing-an-instance-of-CWRC-GitWriter-on-your-own-server](https://github.com/cwrc/CWRC-GitWriter/wiki/Installing-an-instance-of-CWRC-GitWriter-on-your-own-server)
+Although the sandbox version provides a freely usable instance, you may of course install an instance of the CWRC-GitWriter on your own server.  CWRC-GitWriter also requires a running instance of [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer), which in turn interacts with GitHub through the [GitHub API](https://developer.github.com/v3/).
 
 Note that if you want to create a new version of the CWRC-Writer that is configured to work with your own document repository (e.g., a database), this repository still provides you with the best example to follow. You'll also want to look at the [cwrc-git-dialogs](https://www.npmjs.com/package/cwrc-git-dialogs) repository, which holds
 the javascript class that handles calls to the backend storage, in this case to Github via the CWRC-GitServer. This is the class you'd want to replace with your own. To replace the entity lookups you'd replace [cwrc-public-entity-dialogs](https://www.npmjs.com/package/cwrc-public-entity-dialogs)
@@ -54,17 +58,15 @@ This repository contains a JS file — the [app file](src/js/app.js), and a JSON
 
 The built code resides in the newly created build directory. It contains the app, along with all the necessary CSS, XML, and image files. To deploy the CWRC-GitWriter simply copy the build directory to your server, probably the same server from which you'd serve the [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer). You might choose to use ftp, scp, rsync, etc. An example rsync command might be:
 
-```bash
-rsync -azvh -e ssh build/ jchartrand@1.1.1.1:cwrc
-```
+Alternately, if your server has Git and npm support you can clone and build this repository directly on your server.
 
-where you'd subsitute your own userid (for jchartrand), ip address (for 1.1.1.1) and directory on server (for 'cwrc')
+### Development
+#### Using this code as an example to build a CWRC-Writer with a different backend
 
-Another alternative would be to fork this repository, adjust the configuration as needed, and deploy to a host that allows git deployment.
+The code in this repository brings together and configures code from other repositories and wouldn't in itself typically be usefully modified. You could, however, clone this repository as a base from which to create a new configuration of the CWRC-Writer, or simply use the code here as a guide in creating your own configuration. Your configuration might, for example, use Fedora to store documents, rather than GitHub.
 
-## Development
+#### npm and Browserify
 
-### Using this as an example to build a CWRCWriter with a different backend
 
 The code in this repository simply brings together and configures code from other repositories and wouldn't in itself typically be usefully modified. You could, however, clone this repository as a base from which to create a new configuration of the CWRC-Writer, or simply use the code here as a guide in creating your own configuration. Your configuration might, for example, use Fedora to store documents, rather than GitHub.
 
@@ -74,13 +76,11 @@ The entry point into the CWRC-GitWriter code, on which Webpack is invoked, is [s
 
 To develop a new configuration of the CWRC-Writer, you'll therefore need to understand NPM and Webpack. Then you can get into the CWRC-GitWriter NPM [package.json](package.json) file and [src/js/app.js](src/js/app.js) and adapt it to your own project.
 
-The [src/js/app.js](src/js/app.js) is in particular a good example of how to configure a instance of a CWRC-Writer to use a different backend (other than Github, e.g., file system, database).
-
-The app.js file imports ('requires') the following NPM CWRC packages:
+The [src/js/app.js](src/js/app.js) file imports the following npm CWRC packages:
 
 - [CWRC-WriterBase](https://www.npmjs.com/package/cwrc-writer-base)
 
-   The base CWRC-Writer
+   The CWRC-Writer editor
 
 - [cwrc-git-dialogs](https://www.npmjs.com/package/cwrc-git-dialogs)
 
@@ -92,9 +92,9 @@ The app.js file imports ('requires') the following NPM CWRC packages:
 
 The app.js file also imports a config file:
 
-- [config/config.json](config/config.json)
-
-   JSON object that defines the url for external services (XML Validator and Nerve), describes the XML schemas supported, and is used to pass in other objects to the CWRC-Writer.
+* [src/js/config.js](src/js/config.js)
+   
+   A javascript object that describes the XML schemas supported, and is used to pass in other objects to the CWRC-Writer.
 
 The [src/js/app.js](src/js/app.js) file ties all these together as you would for your own configuration of the CWRC-Writer.
 
@@ -113,12 +113,10 @@ If you are making changes to the npm packages that contribute to the GitWriter (
   }
  ```
 
-When doing a new build, first pull in any changes you made to the local packages:
+If you are making changes to the npm packages that contribute to the CWRC-GitWriter (or more likely to some custom instance of the CWRC-GitWriter that you've built) and you find yourself repeatedly packaging and publishing the npm packages and re-importing the newly published packages (e.g.`npm i cwrc-writer-base@latest`) then you can instead use [npm link](https://docs.npmjs.com/cli/link) to point the package.json dependencies at the local instances.
 
-```bash
-rm -rf node_modules/cwrc-public-entity-dialogs && rm -rf node_modules/cwrc-writer-base && rm -rf node_modules/cwrc-git-dialogs && npm install && npm run build
+For example, when developing cwrc-git-dialogs you would use:
 ```
-
 Once finished making and testing local changes, publish the new NPM packages, including the local packages, and remove the dependencies from package.json:
 
 ```json
@@ -128,11 +126,13 @@ Once finished making and testing local changes, publish the new NPM packages, in
     "js-cookie": "2.1.3"
   }
 ```
+This creates a symbolic link between the two packages on your computer. Then, when you run `npm run watch` from CWRC-GitWriter, changes made to cwrc-git-dialogs will cause the CWRC-GitWriter build to update.
 
- and finally reinstall them from NPM:
-
-```bash
-  npm i cwrc-writer-base cwrc-git-dialogs cwrc-public-entity-dialogs -S
+After completing the changes to cwrc-git-dialogs and publishing it to npm, you would then use `npm unlink` to remove the symbolic link:
+```
+cd ~/projects/CWRC-GitWriter
+npm unlink cwrc-git-dialogs
+npm i cwrc-git-dialogs@latest
 ```
 
 NOTE: another alternative to working with local packages is [npm link](https://docs.npmjs.com/cli/link)
@@ -153,16 +153,18 @@ and the section called Web Application Flow in:
 
 After authenticating with Github, Github returns an OAuth token, which is then submitted on every request to the Github API.
 
-We could store this token in a server side session, but instead we store it in a browser cookie that the GitWriter submits in the request header (to help with CSRF) for each request to the GitServer:
+Authentication is done with GitHub using OAuth, as described in the [GitHub developer docs](https://developer.github.com/apps/building-oauth-apps/).
+ 
+The two relevant steps there are:
+1. [Creating an OAuth App](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
+2. The section called Web Application Flow in [Authorizing OAuth Apps](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)
 
-<img width="873" alt="image" src="https://user-images.githubusercontent.com/547165/45240465-cc872100-b2b6-11e8-905a-7b8e08fd640c.png">
+After authenticating with GitHub, GitHub returns an OAuth token, which is then submitted on every request to the GitHub API.
 
-## Contributing
+We could store this token in a server side session, but instead we store it in a browser cookie that the CWRC-GitWriter submits in the request header (to help guard against [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)) for each request to the CWRC-GitServer.
 
 As explained in the development section you wouldn't typically usefully modify anything here for use by others. Nevertheless, if there is something we've missed, please submit an Issue. If you are interested, however, please take a look at our [Development Docs](https://github.com/cwrc/CWRC-Writer-Dev-Docs)
 
 ## License
 
 [GNU GPL V2](LICENSE)
-
-<b id="f1">1.</b> Instructions for installing the CWRC-GitServer are here: [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer). [↩](#a1)
