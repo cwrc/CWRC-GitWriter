@@ -1,3 +1,5 @@
+import GitStorageDialogs from 'cwrc-git-dialogs';
+
 const viaf = require('viaf-entity-lookup')
 const dbpedia = require('dbpedia-entity-lookup');
 const wikidata = require('wikidata-entity-lookup');
@@ -5,6 +7,8 @@ const getty = require('getty-entity-lookup');
 const geonames = require('geonames-entity-lookup');
 const lgpn = require('lgpn-entity-lookup');
 const EntityLookupDialogs = require('cwrc-public-entity-dialogs');
+
+const CWRCWriter = require('cwrc-writer-base');
 
 EntityLookupDialogs.showNoLinkButton(true);
 EntityLookupDialogs.showCreateNewButton(false);
@@ -17,7 +21,6 @@ EntityLookupDialogs.registerEntitySources({
 	title: (new Map()).set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia)
 })
 
-const GitStorageDialogs = require('cwrc-git-dialogs');
 // if (process.env.NODE_ENV === 'development') {
 // 	GitStorageDialogs.setServerURL('http://localhost:3000/github');
 // } else {
@@ -58,14 +61,12 @@ const init = async () => {
 	config.entityLookupDialogs = EntityLookupDialogs;
 	config.storageDialogs = GitStorageDialogs;
 	
-	let CWRCWriter = require('cwrc-writer-base');
-	var writer = new CWRCWriter(config);
-	
+	const writer = new CWRCWriter(config);	
 	writer.utilities.addCSS('css/bootstrap.css');
-	
+
 	window.writer = writer;
-	
-	writer.event('writerInitialized').subscribe(function() {
+
+	writer.event('writerInitialized').subscribe(() => {
 		writer.showLoadDialog();
 	});
 
