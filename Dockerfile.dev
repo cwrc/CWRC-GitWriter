@@ -1,0 +1,11 @@
+# CWRC-GitWriter
+
+FROM node:13.8.0
+
+WORKDIR /apps/CWRC-GitWriter
+
+COPY . .
+
+CMD ["npm", "run", "server-dev"]
+
+EXPOSE 3000
