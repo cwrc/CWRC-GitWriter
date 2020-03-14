@@ -42,7 +42,7 @@
     "cwrc-writer-base": "github:cwrc/CWRC-WriterBase#development",
     "dbpedia-entity-lookup": "^0.6.1",
     "express": "^4.17.1",
-    "geonames-entity-lookup": "^1.2.0",
+    "geonames-entity-lookup": "github:cwrc/geonames-entity-lookup#development",
     "getty-entity-lookup": "^1.5.0",
     "lgpn-entity-lookup": "^1.0.0",
     "viaf-entity-lookup": "^1.4.1",
