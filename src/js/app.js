@@ -1,10 +1,10 @@
 import dbpedia from 'dbpedia-entity-lookup';
 import geonames from 'geonames-entity-lookup';
+import getty from 'getty-entity-lookup';
 import GitStorageDialogs from 'cwrc-git-dialogs';
 
 const viaf = require('viaf-entity-lookup')
 const wikidata = require('wikidata-entity-lookup');
-const getty = require('getty-entity-lookup');
 const lgpn = require('lgpn-entity-lookup');
 const EntityLookupDialogs = require('cwrc-public-entity-dialogs');
 

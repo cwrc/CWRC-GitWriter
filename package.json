@@ -43,7 +43,7 @@
     "dbpedia-entity-lookup": "github:cwrc/dbpedia-entity-lookup#development",
     "express": "^4.17.1",
     "geonames-entity-lookup": "github:cwrc/geonames-entity-lookup#development",
-    "getty-entity-lookup": "^1.5.0",
+    "getty-entity-lookup": "github:cwrc/getty-entity-lookup#development",
     "lgpn-entity-lookup": "^1.0.0",
     "viaf-entity-lookup": "^1.4.1",
     "wikidata-entity-lookup": "^1.4.1"
