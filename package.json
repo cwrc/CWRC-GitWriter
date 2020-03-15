@@ -40,7 +40,7 @@
     "cwrc-git-dialogs": "github:cwrc/cwrc-git-dialogs#development",
     "cwrc-public-entity-dialogs": "github:cwrc/CWRC-PublicEntityDialogs#development",
     "cwrc-writer-base": "github:cwrc/CWRC-WriterBase#development",
-    "dbpedia-entity-lookup": "^0.6.1",
+    "dbpedia-entity-lookup": "github:cwrc/dbpedia-entity-lookup#development",
     "express": "^4.17.1",
     "geonames-entity-lookup": "github:cwrc/geonames-entity-lookup#development",
     "getty-entity-lookup": "^1.5.0",
