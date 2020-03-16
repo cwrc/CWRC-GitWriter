@@ -4,10 +4,9 @@ import geonames from 'geonames-entity-lookup';
 import getty from 'getty-entity-lookup';
 import lgpn from 'lgpn-entity-lookup';
 import viaf from 'viaf-entity-lookup';
+import wikidata from 'wikidata-entity-lookup';
+
 import GitStorageDialogs from 'cwrc-git-dialogs';
-
-const wikidata = require('wikidata-entity-lookup');
-
 const EntityLookupDialogs = require('cwrc-public-entity-dialogs');
 
 const CWRCWriter = require('cwrc-writer-base');

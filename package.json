@@ -46,7 +46,7 @@
     "getty-entity-lookup": "github:cwrc/getty-entity-lookup#development",
     "lgpn-entity-lookup": "github:cwrc/lgpn-entity-lookup#development",
     "viaf-entity-lookup": "github:cwrc/viaf-entity-lookup#development",
-    "wikidata-entity-lookup": "^1.4.1"
+    "wikidata-entity-lookup": "github:cwrc/wikidata-entity-lookup#development"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
