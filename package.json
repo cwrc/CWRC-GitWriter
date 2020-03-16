@@ -45,7 +45,7 @@
     "geonames-entity-lookup": "github:cwrc/geonames-entity-lookup#development",
     "getty-entity-lookup": "github:cwrc/getty-entity-lookup#development",
     "lgpn-entity-lookup": "github:cwrc/lgpn-entity-lookup#development",
-    "viaf-entity-lookup": "^1.4.1",
+    "viaf-entity-lookup": "github:cwrc/viaf-entity-lookup#development",
     "wikidata-entity-lookup": "^1.4.1"
   },
   "devDependencies": {
