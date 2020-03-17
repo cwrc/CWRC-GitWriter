@@ -61,6 +61,12 @@ const init = async () => {
 	};
 	config.entityLookupDialogs = EntityLookupDialogs;
 	config.storageDialogs = GitStorageDialogs;
+
+	//setup geonames
+	if (config.lookups.geonames.username &&
+		config.lookups.geonames.username !== '') {
+		geonames.credentials.username = config.lookups.geonames.username;
+	}
 	
 	const writer = new CWRCWriter(config);	
 	writer.utilities.addCSS('css/bootstrap.css');

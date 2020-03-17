@@ -2,6 +2,11 @@
 	"cwrcRootUrl": "",
 	"nerveUrl": "https://localhost/nerve/",
 	"validationUrl": "https://localhost/validator/validate.html",
+	"lookups": {
+		"geonames": {
+			"username": ""
+		}
+	},
 	"schema": {
 		"schemaProxyUrl": ".",
 		"schemas": [
