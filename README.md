@@ -89,17 +89,13 @@ A list of schemas made available on CWRC-Writer. **Default list of shemas**: CWR
 
 Each schema is am object with the following information:
 
-```json
+```js
 {
-  "id":  ${uniqueID},
-  "name":  ${name},
-  "schemaMappingsId": ${one-of-the-following["tei", "orlando", "cwrcEntry", "teiLite"]},
-  "xmlUrl":  [
-    ${list-of-uri}
-  ],
-  "cssUrl":  [
-    ${list-of-uri}
-  ]
+  id:  `${uniqueID}`,
+  name:  `${name}`,
+  schemaMappingsId: `${one_of_the_following['tei', 'orlando', 'cwrcEntry', 'teiLite']}`,
+  xmlUrl: [`${list_of_URI}`],
+  cssUrl: [`${list_of_URI}`]
 }
 ```
 
