@@ -85,7 +85,7 @@ The path to make call request for schemas. Usually the same as where CWRC-GitWri
 
 ##### schemas
 
-A list of schemas made available on CWRC-Writer. **Default list of shemas**: CWRC Basic TEI, Events, Biography, Writing, CWRC Entry, EpiDoc, TEI All, TEI Corpus, TEI Manuscript, TEI Speech, TEI Lite, Moravian Lives (TEI).
+A list of schemas made available on CWRC-Writer. **Default list of schemas**: CWRC Basic TEI, Events, Biography, Writing, CWRC Entry, EpiDoc, TEI All, TEI Corpus, TEI Manuscript, TEI Speech, TEI Lite, Moravian Lives (TEI).
 
 Each schema is am object with the following information:
 
