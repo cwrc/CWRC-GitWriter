@@ -45,3 +45,5 @@ build
 .settings
 
 .DS_Store
+
+/config/config.json

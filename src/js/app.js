@@ -1,11 +1,12 @@
-import GitStorageDialogs from 'cwrc-git-dialogs';
 
-const viaf = require('viaf-entity-lookup')
-const dbpedia = require('dbpedia-entity-lookup');
-const wikidata = require('wikidata-entity-lookup');
-const getty = require('getty-entity-lookup');
-const geonames = require('geonames-entity-lookup');
-const lgpn = require('lgpn-entity-lookup');
+import dbpedia from 'dbpedia-entity-lookup';
+import geonames from 'geonames-entity-lookup';
+import getty from 'getty-entity-lookup';
+import lgpn from 'lgpn-entity-lookup';
+import viaf from 'viaf-entity-lookup';
+import wikidata from 'wikidata-entity-lookup';
+
+import GitStorageDialogs from 'cwrc-git-dialogs';
 const EntityLookupDialogs = require('cwrc-public-entity-dialogs');
 
 const CWRCWriter = require('cwrc-writer-base');
@@ -60,6 +61,12 @@ const init = async () => {
 	};
 	config.entityLookupDialogs = EntityLookupDialogs;
 	config.storageDialogs = GitStorageDialogs;
+
+	//setup geonames
+	if (config.lookups.geonames.username &&
+		config.lookups.geonames.username !== '') {
+		geonames.credentials.username = config.lookups.geonames.username;
+	}
 	
 	const writer = new CWRCWriter(config);	
 	writer.utilities.addCSS('css/bootstrap.css');
