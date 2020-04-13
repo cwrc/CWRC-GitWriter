@@ -24,6 +24,19 @@
 				]
 			},
 			{
+				"id": "orlando",
+				"name": "Orlando Schema",
+				"schemaMappingsId": "orlando",
+				"xmlUrl": [
+					"https://cwrc.ca/schemas/orlando_entry.rng",
+					"https://raw.githubusercontent.com/cwrc/CWRC-Schema/master/schemas/orlando_entry.rng"
+				],
+				"cssUrl": [
+					"https://cwrc.ca/templates/css/orlando_v2_cwrc-writer.css",
+					"https://raw.githubusercontent.com/cwrc/CWRC-Schema/master/templates/css/orlando_v2_cwrc-writer.css"
+				]
+			},
+			{
 				"id": "events",
 				"name": "Events Schema",
 				"schemaMappingsId": "orlando",
