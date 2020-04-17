@@ -6,7 +6,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 
 module.exports = {
-	// entry: './src/js/app.js',
 	entry: {
         app: [
             './src/js/app.js'
@@ -26,27 +25,34 @@ module.exports = {
 		new CleanWebpackPlugin({
 			cleanStaleWebpackAssets: false
 		}),
-		new CopyWebpackPlugin([{
-			context: 'node_modules/cwrc-writer-base/build/css/',
-			from: '**/*',
-			to: 'css'
-		},{
-			context: 'node_modules/cwrc-writer-base/src/img/',
-			from: '**/*',
-			to: 'img'
-		},{
-			context: 'node_modules/cwrc-git-dialogs/src/css/',
-			from: 'bootstrap.css',
-			to: 'css'
-		},{
-			context: 'node_modules/bootstrap/fonts/',
-			from: '*',
-			to: 'fonts'
-		},{
-			context: 'config/',
-			from: '*',
-			to: 'config'
-		}]),
+		new CopyWebpackPlugin([
+			{
+				context: 'node_modules/cwrc-writer-base/build/css/',
+				from: '**/*',
+				to: 'css'
+			},{
+				context: 'node_modules/cwrc-writer-base/src/img/',
+				from: '**/*',
+				to: 'img'
+			},{
+				context: 'node_modules/cwrc-git-dialogs/src/css/',
+				from: 'bootstrap.css',
+				to: 'css'
+			},{
+				context: 'node_modules/bootstrap/fonts/',
+				from: '*',
+				to: 'fonts'
+			},{
+				context: 'config/',
+				from: '*',
+				to: 'config'
+			},
+			{
+				context: 'src/img',
+				from: '*',
+				to: 'img'
+			}
+		]),
 		new HtmlWebpackPlugin({
 			template: 'src/html/index.html',
 			inject: 'body'
