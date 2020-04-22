@@ -37,7 +37,7 @@
 				]
 			},
 			{
-				"id": "events",
+				"id": "event",
 				"name": "Events Schema",
 				"schemaMappingsId": "orlando",
 				"xmlUrl": [
