@@ -7,9 +7,11 @@ import viaf from 'viaf-entity-lookup';
 import wikidata from 'wikidata-entity-lookup';
 
 import GitStorageDialogs from 'cwrc-git-dialogs';
-const EntityLookupDialogs = require('cwrc-public-entity-dialogs');
+// const EntityLookupDialogs = require('cwrc-public-entity-dialogs');
+import EntityLookupDialogs from 'cwrc-public-entity-dialogs';
 
-const CWRCWriter = require('cwrc-writer-base');
+// const CWRCWriter = require('cwrc-writer-base');
+import CWRCWriter from 'cwrc-writer-base';
 
 EntityLookupDialogs.showNoLinkButton(true);
 EntityLookupDialogs.showCreateNewButton(false);
