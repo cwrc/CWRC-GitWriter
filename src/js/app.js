@@ -69,7 +69,7 @@ const init = async () => {
 	}
 	
 	const writer = new CWRCWriter(config);	
-	writer.utilities.addCSS('css/bootstrap.css');
+	// writer.utilities.addCSS('css/bootstrap.css');
 
 	window.writer = writer;
 
