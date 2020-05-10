@@ -7,12 +7,8 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
     devtool: false,
     cache: true,
-    performance: {
-        hints: false
-    },
-    output: {
-        pathinfo: true
-    },
+    performance: { hints: false },
+    output: { pathinfo: true },
     optimization: {
         namedModules: true,
         namedChunks: true,
