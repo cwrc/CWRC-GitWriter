@@ -19,7 +19,8 @@ module.exports = {
 	plugins: [
 		new webpack.ProgressPlugin(),
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-		new CopyWebpackPlugin([
+		new CopyWebpackPlugin({
+			patterns: [
 			{
 				//copy config.json
 				context: 'config/',
@@ -33,7 +34,7 @@ module.exports = {
 				to: 'img'
 			},
 			{
-				//Copy pre-compiled CSS required tinyMCE
+				//Copy pre-compiled CSS required by tinyMCE
 				context: 'node_modules/cwrc-writer-base/src/css/tinymce/',
 				from: '*.css',
 				to: 'css/tinymce'
@@ -44,8 +45,8 @@ module.exports = {
 				from: 'editor.css',
 				to: 'css/editor.css',
 				toType: 'file',
-			},
-		]),
+			}
+		]}),
 		new HtmlWebpackPlugin({
 			template: 'src/html/index.html',
 			inject: 'body'
