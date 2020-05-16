@@ -110,7 +110,8 @@ module.exports = {
 						loader: 'less-loader', // compiles Less to CSS //more: https://itnext.io/webpack-and-less-a75e04aaf528
 						options: {
 							lessOptions: {
-								relativeUrls: 'local', //https://github.com/webpack-contrib/less-loader/issues/109
+								// relativeUrls: 'local', //https://github.com/webpack-contrib/less-loader/issues/109,
+								// rewriteUrls: 'all',
 								globalVars: { parentId: '#cwrcWriterContainer' }
 							},
 						},
