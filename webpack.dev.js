@@ -5,14 +5,11 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
+    // devtool: 'inline-cheap-module-source-map',
     devtool: false,
     cache: true,
-    performance: {
-        hints: false
-    },
-    output: {
-        pathinfo: true
-    },
+    performance: { hints: false },
+    output: { pathinfo: true },
     optimization: {
         namedModules: true,
         namedChunks: true,
