@@ -2,6 +2,7 @@
 	"cwrcRootUrl": "",
 	"nerveUrl": "https://localhost/nerve/",
 	"validationUrl": "https://localhost/validator/validate.html",
+	"helpUrl": "https://cwrc.ca/Documentation/CWRC-Writer",
 	"lookups": {
 		"geonames": {
 			"username": ""
