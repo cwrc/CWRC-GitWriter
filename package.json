@@ -37,16 +37,16 @@
     "cm": "git-cz"
   },
   "dependencies": {
-    "cwrc-git-dialogs": "github:cwrc/cwrc-git-dialogs#development",
-    "cwrc-public-entity-dialogs": "github:cwrc/CWRC-PublicEntityDialogs#development",
-    "cwrc-writer-base": "github:cwrc/CWRC-WriterBase#development",
-    "dbpedia-entity-lookup": "github:cwrc/dbpedia-entity-lookup#development",
+    "cwrc-git-dialogs": "^2.0.2",
+    "cwrc-public-entity-dialogs": "^3.0.1",
+    "cwrc-writer-base": "^5.1.6",
+    "dbpedia-entity-lookup": "^1.0.0",
     "express": "^4.17.1",
-    "geonames-entity-lookup": "github:cwrc/geonames-entity-lookup#development",
-    "getty-entity-lookup": "github:cwrc/getty-entity-lookup#development",
-    "lgpn-entity-lookup": "github:cwrc/lgpn-entity-lookup#development",
-    "viaf-entity-lookup": "github:cwrc/viaf-entity-lookup#development",
-    "wikidata-entity-lookup": "github:cwrc/wikidata-entity-lookup#development"
+    "geonames-entity-lookup": "^2.0.0",
+    "getty-entity-lookup": "^2.0.0",
+    "lgpn-entity-lookup": "^2.0.0",
+    "viaf-entity-lookup": "^2.0.0",
+    "wikidata-entity-lookup": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
