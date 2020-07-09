@@ -12,8 +12,8 @@
 		"schemaProxyUrl": ".",
 		"schemas": [
 			{
-				"id": "tei",
-				"name": "CWRC Basic TEI Schema",
+				"id": "cwrcTeiLite",
+				"name": "CWRC TEI Lite",
 				"schemaMappingsId": "tei",
 				"xmlUrl": [
 					"https://cwrc.ca/schemas/cwrc_tei_lite.rng",
@@ -167,6 +167,17 @@
 				"schemaMappingsId": "tei",
 				"xmlUrl": [
 					"https://raw.githubusercontent.com/moravianlives/ML/master/Projects/TEI_Memoirs/out/MoravianMemoirs.rng"
+				],
+				"cssUrl": [
+					"https://cwrc.ca/templates/css/tei.css"
+				]
+			},
+			{
+				"id": "reed",
+				"name": "Reed",
+				"schemaMappingsId": "tei",
+				"xmlUrl": [
+					"https://cwrc.ca/islandora/object/cwrc%3A5d5159ce-8710-4717-b977-cc528dedc25e/datastream/SCHEMA/view"
 				],
 				"cssUrl": [
 					"https://cwrc.ca/templates/css/tei.css"
