@@ -114,6 +114,18 @@
 				]
 			},
 			{
+				"id": "teiDrama",
+				"name": "TEI Drama Schema",
+				"schemaMappingsId": "tei",
+				"xmlUrl": [
+					"https://tei-c.org/release/xml/tei/custom/schema/relaxng/tei_drama.rng",
+					"https://jenkins.tei-c.org/job/TEIP5/lastSuccessfulBuild/artifact/P5/release/xml/tei/custom/schema/relaxng/tei_drama.rng"
+				],
+				"cssUrl": [
+					"https://cwrc.ca/templates/css/tei.css"
+				]
+			},
+			{
 				"id": "teiCorpus",
 				"name": "TEI Corpus Schema",
 				"schemaMappingsId": "tei",
