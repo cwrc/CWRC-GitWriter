@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "node ./server/server.js",
-    "middleware-server-dev": "NODE_ENV=development nodemon -L ./server/server.js",
+    "middleware-server-dev": "NODE_ENV=development nodemon -L ./server/index.mjs",
     "dev-server": "npm run cwrc-writer-editor-css-dev & webpack-dev-server --config webpack.dev.js",
     "webpack-dev": "npm run build-cwrc-writer-base && webpack --config webpack.dev.js --debug=true --display-error-details=true",
     "webpack-dev-watch": "npm run cwrc-writer-editor-css-dev & webpack --config webpack.dev.js --debug=true --display-error-details=true --watch",
@@ -64,7 +64,7 @@
     "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^3.6.0",
     "cz-conventional-changelog": "^3.2.0",
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "file-loader": "^6.0.0",
     "html-webpack-externals-plugin": "^3.8.0",
     "html-webpack-plugin": "^4.3.0",
@@ -84,7 +84,8 @@
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.11.0",
     "webpack-hot-middleware": "^2.25.0",
-    "webpack-merge": "^5.0.9"
+    "webpack-merge": "^5.0.9",
+    "webpackbar": "^4.0.0"
   },
   "config": {
     "commitizen": {
