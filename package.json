@@ -23,11 +23,11 @@
     "url": "https://github.com/cwrc/CWRC-GitWriter.git"
   },
   "scripts": {
-    "start": "node ./server/server.js",
-    "middleware-server-dev": "NODE_ENV=development nodemon -L ./server/index.mjs",
+    "start": "env-cmd -e production node ./server/server.js",
+    "middleware-server-dev": "env-cmd -e development nodemon -L ./server/index.mjs",
     "dev-server": "npm run cwrc-writer-editor-css-dev & webpack-dev-server --config webpack.dev.js",
     "webpack-dev": "npm run build-cwrc-writer-base && webpack --config webpack.dev.js --debug=true --display-error-details=true",
-    "webpack-dev-watch": "npm run cwrc-writer-editor-css-dev & webpack --config webpack.dev.js --debug=true --display-error-details=true --watch",
+    "webpack-dev-watch": "env-cmd -e development npm run cwrc-writer-editor-css-dev & webpack --config webpack.dev.js --debug=true --display-error-details=true --watch",
     "cwrc-writer-editor-css-dev": "cd \"node_modules/cwrc-writer-base\" && npm run build-editor-css-dev",
     "build": "npm run build-cwrc-writer-base && npm run webpack-prod",
     "build-cwrc-writer-base": "cd \"node_modules/cwrc-writer-base\" && npm run build",
@@ -41,6 +41,7 @@
     "cwrc-public-entity-dialogs": "github:cwrc/CWRC-PublicEntityDialogs#development",
     "cwrc-writer-base": "github:cwrc/CWRC-WriterBase#development",
     "dbpedia-entity-lookup": "github:cwrc/dbpedia-entity-lookup#development",
+    "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "geonames-entity-lookup": "github:cwrc/geonames-entity-lookup#development",
     "getty-entity-lookup": "github:cwrc/getty-entity-lookup#development",
