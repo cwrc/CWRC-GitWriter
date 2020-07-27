@@ -12,12 +12,17 @@
     },
     "parser": "babel-eslint",
     "parserOptions": {
-        "ecmaVersion": 2019,
+        "ecmaVersion": 2020,
         "sourceType": "module",
         "allowImportExportEverywhere": true
     },
     "rules": {
         "require-atomic-updates": "off",
-        "quotes": [2, "single"]
+        "quotes": [2, "single"],
+        "no-multi-spaces": 0,
+        "no-trailing-spaces": 0,
+        "no-unused-vars": 2,
+        "semi": ["error", "always"],
+        "require-await": ["error"]
     }
 }

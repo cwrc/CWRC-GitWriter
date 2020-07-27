@@ -1,10 +1,10 @@
 const path = require('path');
-const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackBar = require('webpackbar');
 
 module.exports = {
 	entry: {
@@ -17,7 +17,6 @@ module.exports = {
 		publicPath: './',
 	},
 	plugins: [
-		new webpack.ProgressPlugin(),
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
 		new CopyWebpackPlugin({
 			patterns: [
@@ -73,7 +72,8 @@ module.exports = {
 				}
 			}],
 			outputPath: 'js'
-		})
+		}),
+		new WebpackBar({ color: '#0099ff' }),
 	],
 	module: {
 		rules: [{

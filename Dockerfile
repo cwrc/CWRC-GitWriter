@@ -1,6 +1,6 @@
 # CWRC-GitWriter
 
-FROM node:14.2.0
+FROM node:14.5.0
 
 WORKDIR /apps/CWRC-GitWriter
 
@@ -11,6 +11,7 @@ COPY . .
 RUN npm install && \
     npm run build
 
-CMD ["pm2", "start", "./server/server.js", "--no-daemon"]
+# CMD ["pm2", "start", "./server/server.js", "--no-daemon"]
+CMD ["pm2-runtime", "ecosystem.config.js"]
 
 EXPOSE 3000
