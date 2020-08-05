@@ -62,11 +62,15 @@ The path where CWRC-GitWriter is located on the server. Default `""`
 
 #### nerveUrl
 
-Nerve uri. Default `"https://localhost/nerve/"`
+Nerve url. Default `"https://localhost/nerve/"`
 
 #### validationUrl
 
-Validator uri. Default `"https://localhost/validator/validate.html"`
+Validator url. Default `"https://localhost/validator/validate.html"`
+
+#### helpUrl
+
+Help url. Default `"https://cwrc.ca/Documentation/CWRC-Writer"`
 
 #### lookups
 
