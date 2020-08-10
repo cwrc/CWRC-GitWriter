@@ -46,10 +46,9 @@ GitStorageDialogs.setServerURL('./github');
 // }
 
 const init = async () => {
-	const configRequest = await fetch('./config/config.json')
-		.catch((err) => {
-			console.log(err);
-		});
+	const configRequest = await fetch('./config/config.json').catch((err) => {
+		console.log(err);
+	});
 	const config = await configRequest.json();
 
 	// if (process.env.NODE_ENV === 'development') {
