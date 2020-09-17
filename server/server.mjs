@@ -17,3 +17,8 @@ export const app = express();
 
 //make content available
 app.use(express.static(publicPath));
+app.use('cwrc-writer-2.0-ui-mockup/',express.static(`${publicPath}/cwrc-writer-2.0-ui-mockup/`));
+// app.use('cwrc-writer-2.0-ui-mockup/images/',express.static(`${publicPath}/cwrc-writer-2.0-ui-mockup/images/`));
+// app.use('cwrc-writer-2.0-ui-mockup/resource/',express.static(`${publicPath}/cwrc-writer-2.0-ui-mockup/resource/`));
+
+

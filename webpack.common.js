@@ -49,6 +49,12 @@ module.exports = {
 				from: 'editor.css',
 				to: 'css/editor.css',
 				toType: 'file',
+			},
+			{
+				//Copy CWRC Writer 2.0 ui mockup files
+				context: 'cwrc-writer-2.0-ui-mockup/',
+				from: '**/*',
+				to: 'cwrc-writer-2.0-ui-mockup/',
 			}],
 		}),
 		new HtmlWebpackPlugin({

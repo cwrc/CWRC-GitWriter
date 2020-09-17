@@ -5,13 +5,12 @@
 	"helpUrl": "https://cwrc.ca/Documentation/CWRC-Writer",
 	"lookups": {
 		"geonames": {
-			"username": ""
+			"username": "cwrcgeonames"
 		}
 	},
 	"schema": {
 		"schemaProxyUrl": ".",
-		"schemas": [
-			{
+		"schemas": [{
 				"id": "cwrcTeiLite",
 				"name": "CWRC TEI Lite",
 				"schemaMappingsId": "tei",
