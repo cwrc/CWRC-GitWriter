@@ -5,7 +5,7 @@
 	"helpUrl": "https://cwrc.ca/Documentation/CWRC-Writer",
 	"lookups": {
 		"geonames": {
-			"username": ""
+			"username": "cwrcgeonames"
 		}
 	},
 	"schema": {
