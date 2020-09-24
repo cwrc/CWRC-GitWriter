@@ -134,7 +134,7 @@ module.exports = {
 				}],
 			},
 			{
-				test: /\.(png|jpg|jpeg|gif|svg)$/i,
+				test: /\.(png|jpg|jpeg|gif)$/i,
 				enforce: 'pre', // preload the jshint loader
 				// exclude: /node_modules/, // exclude any and all files in the node_modules folder
 				use: [{
@@ -148,6 +148,13 @@ module.exports = {
 					loader: 'image-webpack-loader',
 					options: { disable: true /* webpack@2.x and newer */ },
 				}],
+			},
+			{
+				test: /\.svg$/,
+				loader: 'svg-inline-loader',
+				options: {
+					removeSVGTagAttrs: false
+				}
 			},
 		],
 	},

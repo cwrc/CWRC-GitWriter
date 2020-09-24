@@ -31,7 +31,14 @@ module.exports = merge(common, {
 		new webpack.EvalSourceMapDevToolPlugin({
 			module: true,
 			columns: true,
-			exclude: [/jquery/, /tinymce.js/, /bootstrap/, /react/, /openseadragon/, /moment/],
+			exclude: [
+				// /jquery/,
+				// /tinymce.js/,
+				// /bootstrap/,
+				/react/,
+				/openseadragon/,
+				/moment/
+			],
 		}),
 	],
 	devServer: {
