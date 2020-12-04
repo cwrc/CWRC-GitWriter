@@ -17,3 +17,4 @@ export const app = express();
 
 //make content available
 app.use(express.static(publicPath));
+app.use('mockup-ui/', express.static(`${publicPath}/mockup-ui/`));

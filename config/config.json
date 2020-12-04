@@ -10,8 +10,7 @@
 	},
 	"schema": {
 		"schemaProxyUrl": ".",
-		"schemas": [
-			{
+		"schemas": [{
 				"id": "cwrcTeiLite",
 				"name": "CWRC TEI Lite",
 				"schemaMappingsId": "tei",

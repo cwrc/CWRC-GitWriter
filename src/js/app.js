@@ -14,10 +14,7 @@ EntityLookupDialogs.showNoLinkButton(true);
 EntityLookupDialogs.showCreateNewButton(false);
 EntityLookupDialogs.showEditButton(false);
 EntityLookupDialogs.registerEntitySources({
-	rs: new Map()
-		.set('viaf', viaf)
-		.set('wikidata', wikidata)
-		.set('dbpedia', dbpedia),
+	rs: new Map().set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
 	person: new Map()
 		.set('viaf', viaf)
 		.set('wikidata', wikidata)
@@ -29,14 +26,8 @@ EntityLookupDialogs.registerEntitySources({
 		.set('viaf', viaf)
 		.set('dbpedia', dbpedia)
 		.set('wikidata', wikidata),
-	organization: new Map()
-		.set('viaf', viaf)
-		.set('wikidata', wikidata)
-		.set('dbpedia', dbpedia),
-	title: new Map()
-		.set('viaf', viaf)
-		.set('wikidata', wikidata)
-		.set('dbpedia', dbpedia),
+	organization: new Map().set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
+	title: new Map().set('viaf', viaf).set('wikidata', wikidata).set('dbpedia', dbpedia),
 });
 
 // if (process.env.NODE_ENV === 'development') {
@@ -46,10 +37,9 @@ GitStorageDialogs.setServerURL('./github');
 // }
 
 const init = async () => {
-	const configRequest = await fetch('./config/config.json')
-		.catch((err) => {
-			console.log(err);
-		});
+	const configRequest = await fetch('./config/config.json').catch((err) => {
+		console.log(err);
+	});
 	const config = await configRequest.json();
 
 	// if (process.env.NODE_ENV === 'development') {

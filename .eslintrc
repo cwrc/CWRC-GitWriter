@@ -2,8 +2,8 @@
     "env": {
         "browser": true,
         "es6": true,
-        "node": true,
-        "jquery": true
+        "jquery": true,
+        "node": true
     },
     "extends": "eslint:recommended",
     "globals": {
@@ -12,17 +12,18 @@
     },
     "parser": "babel-eslint",
     "parserOptions": {
+        "allowImportExportEverywhere": true,
         "ecmaVersion": 2020,
-        "sourceType": "module",
-        "allowImportExportEverywhere": true
+        "sourceType": "module"
     },
     "rules": {
-        "require-atomic-updates": "off",
-        "quotes": [2, "single"],
-        "no-multi-spaces": 0,
-        "no-trailing-spaces": 0,
+        "indent": ["warn", "tab"],
+        "no-multi-spaces": 1,
+        "no-trailing-spaces": 1,
         "no-unused-vars": 2,
-        "semi": ["error", "always"],
-        "require-await": ["error"]
+        "quotes": [2, "single"],
+        "require-atomic-updates": "off",
+        "require-await": ["error"],
+        "semi": ["error", "always"]
     }
 }
