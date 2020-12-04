@@ -37,7 +37,7 @@ module.exports = merge(common, {
 				// /bootstrap/,
 				/react/,
 				/openseadragon/,
-				/moment/
+				/moment/,
 			],
 		}),
 	],

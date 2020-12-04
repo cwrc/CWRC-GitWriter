@@ -9,10 +9,12 @@ export const devTools = (app) => {
 	config.entry.app.unshift('webpack-hot-middleware/client?reload=true&timeout=1000'); //Auto-reloading when webpack detects any changes
 	config.plugins.push(new webpack.HotModuleReplacementPlugin()); //Add HMR plugin
 	const compiler = webpack(config);
-	app.use(webpackDevMiddleware(compiler, {
-		publicPath: config.output.publicPath,
-		writeToDisk: true,
-	}));
+	app.use(
+		webpackDevMiddleware(compiler, {
+			publicPath: config.output.publicPath,
+			writeToDisk: true,
+		})
+	);
 
 	// Enable "webpack-hot-middleware"
 	app.use(webpackHotMiddleware(compiler));
