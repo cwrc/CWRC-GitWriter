@@ -40,7 +40,7 @@
 	"dependencies": {
 		"cwrc-git-dialogs": "github:cwrc/cwrc-git-dialogs#development",
 		"cwrc-public-entity-dialogs": "github:cwrc/CWRC-PublicEntityDialogs#development",
-		"cwrc-writer-base": "github:cwrc/CWRC-WriterBase#development",
+		"cwrc-writer-base": "github:cwrc/CWRC-WriterBase#Schema-Navigator",
 		"dbpedia-entity-lookup": "github:cwrc/dbpedia-entity-lookup#development",
 		"env-cmd": "^10.1.0",
 		"express": "^4.17.1",
@@ -74,7 +74,7 @@
 		"html-webpack-externals-plugin": "^3.8.0",
 		"html-webpack-plugin": "^4.5.0",
 		"image-webpack-loader": "^7.0.1",
-		"less": "^3.13.0",
+		"less": "^3.13.1",
 		"less-loader": "^7.1.0",
 		"less-watch-compiler": "^1.14.6",
 		"mini-css-extract-plugin": "^0.11.3",
