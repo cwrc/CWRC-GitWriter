@@ -87,6 +87,7 @@ module.exports = {
 						sourceType: 'unambiguous',
 						presets: ['@babel/preset-env', '@babel/preset-react'],
 						plugins: [
+							'@babel/plugin-proposal-private-methods',
 							'@babel/plugin-proposal-class-properties', [
 								'@babel/plugin-transform-runtime', {
 									absoluteRuntime: false,
