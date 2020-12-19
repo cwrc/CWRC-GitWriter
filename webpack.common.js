@@ -2,7 +2,6 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 
@@ -58,22 +57,6 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: '/css/[name].css',
 			chunkFilename: '/css/[id].css',
-		}),
-		new HtmlWebpackExternalsPlugin({
-			externals: [{
-				module: 'rdflib',
-				global: '$rdf',
-				entry: {
-					path: 'rdflib.min.js',
-					cwpPatternConfig: {
-						context: path.resolve(
-							__dirname,
-							'node_modules/cwrc-writer-base/src/lib'
-						),
-					},
-				},
-			}],
-			outputPath: 'js',
 		}),
 		new WebpackBar({ color: '#0099ff' }),
 	],
