@@ -1,6 +1,6 @@
 # CWRC-GitWriter
 
-FROM node:14.15.1
+FROM node:14.15.4
 
 WORKDIR /apps/CWRC-GitWriter
 
