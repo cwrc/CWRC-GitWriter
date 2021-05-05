@@ -58,11 +58,24 @@ module.exports = {
 			filename: '/css/[name].css',
 			chunkFilename: '/css/[id].css',
 		}),
-		new WebpackBar({ color: '#0099ff' }),
-	],
-	module: {
-		rules: [
-			{
+    // new ThreadsPlugin(),
+    new WebpackBar({ color: '#0099ff' }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.worker\.js$/,
+        use: [
+          { loader: 'worker-loader' },
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          },
+        ],
+      },
+      {
 				test: /\.(js|jsx)$/,
 				use: [{
 					loader: 'babel-loader',
