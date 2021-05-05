@@ -1,19 +1,19 @@
 {
-    "presets": [
-        "@babel/preset-env",
-        "@babel/preset-react"
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-private-methods"
+  ],
+  "overrides": [{
+    "include": [
+      "./node_modules/cwrc-writer-base/node_modules/tinymce/tinymce.js",
+      "./node_modules/cwrc-writer-base/node_modules/react-dom/cjs/react-dom.development.js",
+      "./node_modules/cwrc-writer-base/node_modules/openseadragon/build/openseadragon/openseadragon.js",
+      "./node_modules/cwrc-git-dialogs/node_modules/react-dom/cjs/react-dom.development.js"
     ],
-    "plugins": [
-        "@babel/plugin-proposal-class-properties",
-        "@babel/plugin-proposal-private-methods"
-    ],
-    "overrides": [{
-        "include": [
-            "./node_modules/cwrc-writer-base/node_modules/tinymce/tinymce.js",
-            "./node_modules/cwrc-writer-base/node_modules/react-dom/cjs/react-dom.development.js",
-            "./node_modules/cwrc-writer-base/node_modules/openseadragon/build/openseadragon/openseadragon.js",
-            "./node_modules/cwrc-git-dialogs/node_modules/react-dom/cjs/react-dom.development.js"
-        ],
-        "compact": true
-    }]
+    "compact": true
+  }]
 }
