@@ -40,7 +40,7 @@
 	"dependencies": {
 		"cwrc-git-dialogs": "github:cwrc/cwrc-git-dialogs#development",
 		"cwrc-public-entity-dialogs": "github:cwrc/CWRC-PublicEntityDialogs#development",
-		"cwrc-writer-base": "github:cwrc/CWRC-WriterBase#Schema-Navigator",
+		"cwrc-writer-base": "github:cwrc/CWRC-WriterBase#worker-validator",
 		"dbpedia-entity-lookup": "github:cwrc/dbpedia-entity-lookup#development",
 		"env-cmd": "^10.1.0",
 		"express": "^4.17.1",

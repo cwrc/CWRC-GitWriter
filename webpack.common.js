@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const ThreadsPlugin = require('threads-plugin');
+const ThreadsPlugin = require('threads-plugin');
 const WebpackBar = require('webpackbar');
 
 module.exports = {
@@ -61,23 +61,11 @@ module.exports = {
       filename: '/css/[name].css',
       chunkFilename: '/css/[id].css',
     }),
-    // new ThreadsPlugin(),
+    new ThreadsPlugin(),
     new WebpackBar({ color: '#0099ff' }),
   ],
   module: {
     rules: [
-      {
-        test: /\.worker\.js$/,
-        use: [
-          { loader: 'worker-loader' },
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-            },
-          },
-        ],
-      },
       {
         test: /\.(js|jsx)$/,
         use: [
