@@ -62,7 +62,6 @@ const init = async () => {
       {
         id: 'validation',
         title: 'Validation',
-        config: { validationUrl: config.validationUrl },
       },
     ],
     east: [{ id: 'imageViewer', title: 'Image Viewer' }],

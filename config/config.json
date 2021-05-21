@@ -1,7 +1,6 @@
 {
 	"cwrcRootUrl": "",
 	"nerveUrl": "https://localhost/nerve/",
-	"validationUrl": "https://localhost/validator/validate.html",
 	"helpUrl": "https://cwrc.ca/Documentation/CWRC-Writer",
 	"lookups": {
 		"geonames": {
@@ -43,32 +42,6 @@
 				"xmlUrl": [
 					"https://cwrc.ca/schemas/orlando_event.rng",
 					"https://raw.githubusercontent.com/cwrc/CWRC-Schema/master/schemas/orlando_event.rng"
-				],
-				"cssUrl": [
-					"https://cwrc.ca/templates/css/orlando_v2_cwrc-writer.css",
-					"https://raw.githubusercontent.com/cwrc/CWRC-Schema/master/templates/css/orlando_v2_cwrc-writer.css"
-				]
-			},
-			{
-				"id": "biography",
-				"name": "Biography Schema",
-				"schemaMappingsId": "orlando",
-				"xmlUrl": [
-					"https://cwrc.ca/schemas/orlando_biography_v2.rng",
-					"https://raw.githubusercontent.com/cwrc/CWRC-Schema/master/schemas/orlando_biography_v2.rng"
-				],
-				"cssUrl": [
-					"https://cwrc.ca/templates/css/orlando_v2_cwrc-writer.css",
-					"https://raw.githubusercontent.com/cwrc/CWRC-Schema/master/templates/css/orlando_v2_cwrc-writer.css"
-				]
-			},
-			{
-				"id": "writing",
-				"name": "Writing Schema",
-				"schemaMappingsId": "orlando",
-				"xmlUrl": [
-					"https://cwrc.ca/schemas/orlando_writing_v2.rng",
-					"https://raw.githubusercontent.com/cwrc/CWRC-Schema/master/schemas/orlando_writing_v2.rng"
 				],
 				"cssUrl": [
 					"https://cwrc.ca/templates/css/orlando_v2_cwrc-writer.css",
