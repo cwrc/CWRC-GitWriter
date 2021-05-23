@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ThreadsPlugin = require('threads-plugin');
 const WebpackBar = require('webpackbar');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -15,9 +16,13 @@ module.exports = {
     filename: 'js/[name].js',
     path: path.resolve(__dirname, 'build'),
     publicPath: './',
+    globalObject: 'this',
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -67,7 +72,33 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        include: /node_modules\/cwrc-worker-validator/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              compilerOptions: {
+                module: "esnext"
+              }
+            }
+          },
+        ]
+      },
+      {
         test: /\.(js|jsx)$/,
+        include: [
+          /node_modules\/cwrc-git-dialogs/,
+          /node_modules\/cwrc-public-entity-dialogs/,
+          /node_modules\/cwrc-writer-base/,
+          /node_modules\/dbpedia-entity-lookup/,
+          /node_modules\/geonames-entity-lookup/,
+          /node_modules\/getty-entity-lookup/,
+          /node_modules\/lgpn-entity-lookup/,
+          /node_modules\/viaf-entity-lookup/,
+          /node_modules\/wikidata-entity-lookup/,
+          /node_modules\/cwrc-worker-validator/,
+        ],
         use: [
           {
             loader: 'babel-loader',
@@ -175,7 +206,7 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.tsx', '.ts','.js', '.jsx'],
     symlinks: false,
   },
   node: { fs: 'empty' },
