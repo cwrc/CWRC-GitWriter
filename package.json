@@ -40,7 +40,7 @@
 	"dependencies": {
 		"cwrc-git-dialogs": "^3.0.0",
 		"cwrc-public-entity-dialogs": "^3.1.0",
-		"cwrc-writer-base": "^7.0.0",
+		"cwrc-writer-base": "^7.0.1",
 		"dbpedia-entity-lookup": "^2.0.0",
 		"env-cmd": "^10.1.0",
 		"express": "^4.17.1",
