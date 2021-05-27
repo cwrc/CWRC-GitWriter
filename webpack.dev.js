@@ -5,44 +5,47 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  devtool: false,
+  mode: 'development',
   cache: true,
-  performance: { hints: false },
-  output: { pathinfo: true },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    // host: 'localhost',
+    // port: 3000,
+  },
+  devtool: false,
+  output: {
+    pathinfo: true,
+    publicPath: '/',
+  },
   optimization: {
-    namedModules: true,
-    namedChunks: true,
-    nodeEnv: 'development',
+    checkWasmTypes: false,
+    concatenateModules: false,
+    emitOnErrors: true,
     flagIncludedChunks: false,
-    occurrenceOrder: false,
+    minimize: false,
+    nodeEnv: 'development',
+    removeAvailableModules: false,
     sideEffects: false,
     usedExports: false,
-    concatenateModules: false,
-    noEmitOnErrors: false,
-    checkWasmTypes: false,
-    minimize: false,
-    removeAvailableModules: false,
   },
+  performance: { hints: false },
   plugins: [
-    new webpack.NamedModulesPlugin(),
-    new webpack.NamedChunksPlugin(),
-    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development'),
+    }),
     new webpack.EvalSourceMapDevToolPlugin({
-      module: true,
       columns: true,
       exclude: [
-        // /jquery/,
-        // /tinymce.js/,
-        // /bootstrap/,
-        /react/,
-        /openseadragon/,
+        /bootstrap/,
+        /jquery/,
         /moment/,
+        /openseadragon/,
+        /react/,
+        /tinymce.js/,
       ],
+      module: true,
     }),
   ],
-  devServer: {
-    contentBase: path.join(__dirname, 'build'),
-    port: 3000,
-    host: 'localhost',
-  },
+
+
 });

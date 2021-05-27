@@ -3,77 +3,125 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ThreadsPlugin = require('threads-plugin');
+// const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
-const webpack = require('webpack');
+const babelLoaderExcludeNodeModulesExcept = require('babel-loader-exclude-node-modules-except');
+// const ThreadsPlugin = require('threads-plugin');
 
 module.exports = {
-  entry: {
-    app: ['./src/js/app.js'],
-  },
   mode: 'none', // all mode defaults for dev and prod and set in the respective configs
+  entry: {
+    app: [path.resolve(__dirname, 'src', 'index.js')],
+    // worker: [path.resolve(__dirname, '..', 'cwrc-worker-validator', 'src', 'index.ts')],
+  },
   output: {
-    filename: 'js/[name].js',
-    path: path.resolve(__dirname, 'build'),
-    publicPath: './',
-    globalObject: 'this',
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    // libraryTarget: 'umd',
+    globalObject: 'this', //* important for web workers
+  },
+  // stats: {
+  //   children: true
+  // },
+  resolve: {
+    alias: {
+      '@src': path.resolve(__dirname, 'src/'),
+    },
+    extensions: ['*', '.tsx', '.ts', '.js', '.jsx'],
+    // symlinks: false,
+    // // alias: {
+    // //   process: 'process/browser',
+    // // },
+    fallback: {
+      // assert: false,
+      // assert: require.resolve('assert/'),
+      buffer: false,
+      // 'console-browserify': false,
+      'console-browserify': require.resolve('console-browserify'),
+      events: false,
+      fs: false,
+      path: false,
+      // process: false,
+      // // process: 'process/browser',
+      querystring: false,
+      // // stream: false,
+      // stream: require.resolve('stream-browserify'),
+      url: false,
+    },
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    new webpack.ProvidePlugin({
-      process: 'process/browser',
-    }),
     new CopyWebpackPlugin({
       patterns: [
         {
           //copy config.json
-          context: 'config/',
+          context: path.resolve(__dirname, 'config'),
           from: '*',
           to: 'config',
         },
         {
-          //copy images for GitWriter (favicon)
-          context: 'src/img',
-          from: '*',
-          to: 'img',
-        },
-        {
-          //copy images from Writer-Base
-          context: 'node_modules/cwrc-writer-base/src/img',
-          from: '*',
-          to: 'img',
-        },
-        {
           //Copy pre-compiled CSS required by tinyMCE
-          context: 'node_modules/cwrc-writer-base/src/css/tinymce/',
+          context: path.resolve(
+            __dirname,
+            'node_modules',
+            'cwrc-writer-base',
+            'src',
+            'css',
+            'tinymce'
+          ),
           from: '*.css',
           to: 'css/tinymce',
         },
         {
           //Copy pre-compiled CSS to stylize the editor (must be recompiled after each change)
-          context: 'node_modules/cwrc-writer-base/src/css/build/',
+          context: path.resolve(
+            __dirname,
+            'node_modules',
+            'cwrc-writer-base',
+            'src',
+            'css',
+            'build'
+          ),
           from: 'editor.css',
           to: 'css/editor.css',
+          toType: 'file',
+        },
+        {
+          context: path.resolve(
+            __dirname,
+            '..',
+            'CWRC-Worker-Validator',
+            'build',
+            'dist'
+          ),
+          from: 'worker.js',
+          to: 'worker.js',
           toType: 'file',
         },
       ],
     }),
     new HtmlWebpackPlugin({
-      template: 'src/html/index.html',
-      inject: 'body',
+      template: path.resolve(__dirname, 'src', 'index.html'),
+      favicon: path.resolve(__dirname, 'src', 'assets', 'favicon-32x32.png'),
+      inject: 'head',
     }),
     new MiniCssExtractPlugin({
-      filename: '/css/[name].css',
-      chunkFilename: '/css/[id].css',
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[id].css',
     }),
-    new ThreadsPlugin(),
+    // new ThreadsPlugin(),
     new WebpackBar({ color: '#0099ff' }),
   ],
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        include: /node_modules\/cwrc-worker-validator/,
+        // include: /node_modules\/cwrc-worker-validator/,
+        // exclude: babelLoaderExcludeNodeModulesExcept([
+        //   'cwrc-writer-base',
+        //   'cwrc-worker-validator',
+        // ]),
         use: [
           {
             loader: 'ts-loader',
@@ -85,56 +133,34 @@ module.exports = {
           },
         ]
       },
+      // {
+      //   //Only because `async` module doesn't comply with ESM: CWRC-GitWriter/node_modules/cwrc-writer-base/node_modules/async/dist
+      //   test: /\.m?js/,
+      //   resolve: { fullySpecified: false },
+      // },
       {
         test: /\.(js|jsx)$/,
-        include: [
-          /node_modules\/cwrc-git-dialogs/,
-          /node_modules\/cwrc-public-entity-dialogs/,
-          /node_modules\/cwrc-writer-base/,
-          /node_modules\/dbpedia-entity-lookup/,
-          /node_modules\/geonames-entity-lookup/,
-          /node_modules\/getty-entity-lookup/,
-          /node_modules\/lgpn-entity-lookup/,
-          /node_modules\/viaf-entity-lookup/,
-          /node_modules\/wikidata-entity-lookup/,
-          /node_modules\/cwrc-worker-validator/,
-        ],
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              sourceType: 'unambiguous',
-              presets: ['@babel/preset-env', '@babel/preset-react'],
-              plugins: [
-                '@babel/plugin-proposal-private-methods',
-                '@babel/plugin-proposal-class-properties',
-                [
-                  '@babel/plugin-transform-runtime',
-                  {
-                    absoluteRuntime: false,
-                    corejs: false,
-                    helpers: false,
-                    regenerator: true,
-                    useESModules: false,
-                  },
-                ],
-              ],
-            },
-          },
-        ],
+        //exclude `node_modules` except CWRC modules
+        exclude: babelLoaderExcludeNodeModulesExcept([
+          'cwrc-writer-base',
+          'cwrc-git-dialogs',
+          'cwrc-public-entity-dialogs',
+          'dbpedia-entity-lookup',
+          'geonames-entity-lookup',
+          'getty-entity-lookup',
+          'lgpn-entity-lookup',
+          'viaf-entity-lookup',
+          'wikidata-entity-lookup',
+          // 'cwrc-worker-validator',
+        ]),
+        use: ['babel-loader']
       },
       {
         test: /\.(le|c)ss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              // you can specify a publicPath here
-              // by default it uses publicPath in webpackOptions.output
-              publicPath: '../',
-              esModule: true,
-              hmr: process.env.NODE_ENV === 'development', //allows to use this plugin in DEV
-            },
+            options: { publicPath: '../' }, // you can specify a publicPath here by default it uses publicPath in webpackOptions.output
           },
           { loader: 'css-loader' /* translates CSS into CommonJS*/ },
           {
@@ -150,41 +176,29 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        enforce: 'pre', // preload the jshint loader
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              query: { limit: 25000 },
-            },
-          },
-        ],
+        type: 'asset',
+        generator: {
+          filename: 'fonts/[name][ext][query]',
+        },
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
-        enforce: 'pre', // preload the jshint loader
-        // exclude: /node_modules/, // exclude any and all files in the node_modules folder
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'img',
-            },
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: { disable: true /* webpack@2.x and newer */ },
-          },
-        ],
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader',
-        options: {
-          removeSVGTagAttrs: false,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext][query]',
         },
       },
+      {
+        test: /\.svg/,
+        type: 'asset/inline',
+      },
+      // {
+      //   test: /\.svg$/,
+      //   loader: 'svg-inline-loader',
+      //   options: {
+      //     removeSVGTagAttrs: false,
+      //   },
+      // },
     ],
   },
   optimization: {
@@ -205,9 +219,4 @@ module.exports = {
       },
     },
   },
-  resolve: {
-    extensions: ['*', '.tsx', '.ts','.js', '.jsx'],
-    symlinks: false,
-  },
-  node: { fs: 'empty' },
 };

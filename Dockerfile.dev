@@ -6,6 +6,6 @@ WORKDIR /apps/CWRC-GitWriter
 
 COPY . .
 
-CMD ["npm", "run", "middleware-server-dev"]
+CMD ["npm", "run", "dev:middleware-server-dev"]
 
 EXPOSE 3000

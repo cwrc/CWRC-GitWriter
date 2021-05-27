@@ -1,10 +1,10 @@
 {
 	"cwrcRootUrl": "",
 	"nerveUrl": "https://localhost/nerve/",
-	"helpUrl": "https://cwrc.ca/Documentation/CWRC-Writer",
+	"helpUrl": "https://cwrc.ca/CWRC-Writer_Documentation/",
 	"lookups": {
 		"geonames": {
-			"username": ""
+			"username": "cwrcwriter"
 		}
 	},
 	"schema": {
