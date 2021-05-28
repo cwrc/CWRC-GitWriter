@@ -1,8 +1,8 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
-const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -31,9 +31,20 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          //Copy pre-compiled woerker
+          context: 'node_modules/cwrc-worker-validator/build/dist/',
+          from: 'cwrc.worker.js',
+          to: 'js/cwrc.worker.js',
+          toType: 'file',
+        },
+      ],
+    }),
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
+    // new webpack.optimize.ModuleConcatenationPlugin(),
+    // new webpack.NoEmitOnErrorsPlugin(),
     new webpack.SourceMapDevToolPlugin({
       filename: 'js/app.js.map',
       module: true,

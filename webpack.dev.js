@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
+const ThreadsPlugin = require('threads-plugin');
 
 const common = require('./webpack.common.js');
 
@@ -24,7 +25,6 @@ module.exports = merge(common, {
     removeAvailableModules: false,
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
     new webpack.NamedChunksPlugin(),
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') }),
     new webpack.EvalSourceMapDevToolPlugin({
@@ -39,6 +39,7 @@ module.exports = merge(common, {
         /moment/,
       ],
     }),
+    new ThreadsPlugin(),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'build'),

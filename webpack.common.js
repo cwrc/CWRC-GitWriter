@@ -3,15 +3,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ThreadsPlugin = require('threads-plugin');
 const WebpackBar = require('webpackbar');
 const webpack = require('webpack');
 
 module.exports = {
+  mode: 'none', // all mode defaults for dev and prod and set in the respective configs
   entry: {
     app: ['./src/js/app.js'],
   },
-  mode: 'none', // all mode defaults for dev and prod and set in the respective configs
   output: {
     filename: 'js/[name].js',
     path: path.resolve(__dirname, 'build'),
@@ -66,7 +65,6 @@ module.exports = {
       filename: '/css/[name].css',
       chunkFilename: '/css/[id].css',
     }),
-    new ThreadsPlugin(),
     new WebpackBar({ color: '#0099ff' }),
   ],
   module: {
