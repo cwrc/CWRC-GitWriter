@@ -34,7 +34,7 @@ module.exports = merge(common, {
     new CopyWebpackPlugin({
       patterns: [
         {
-          //Copy pre-compiled woerker
+          //Copy pre-compiled worker
           context: 'node_modules/cwrc-worker-validator/build/dist/',
           from: 'cwrc.worker.js',
           to: 'js/cwrc.worker.js',
