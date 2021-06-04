@@ -63,7 +63,8 @@ const copyPrecompiledWorker = () => ({
     new CopyWebpackPlugin({
       patterns: [
         {
-          context: 'node_modules/cwrc-worker-validator/build/dist/',
+          // context: 'node_modules/cwrc-worker-validator/build/dist/',
+          context: 'node_modules/cwrc-writer-base/node_modules/cwrc-worker-validator/build/dist/',
           from: 'cwrc.worker.js',
           to: 'js/cwrc.worker.js',
           toType: 'file',

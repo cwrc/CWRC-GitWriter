@@ -44,9 +44,9 @@ module.exports = {
         },
         {
           //Copy pre-compiled CSS required by tinyMCE
-          context: 'node_modules/cwrc-writer-base/src/css/tinymce/',
-          from: '*.css',
-          to: 'css/tinymce',
+          // context: 'node_modules/cwrc-writer-base/src/css/tinymce/skins',
+          from: 'node_modules/cwrc-writer-base/src/css/tinymce/skins',
+          to: 'css/tinymce/skins',
         },
         {
           //Copy pre-compiled CSS to stylize the editor (must be recompiled after each change)
@@ -71,7 +71,10 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        include: /node_modules\/cwrc-worker-validator/,
+        include: [
+          /node_modules\/cwrc-writer-base/,
+          /node_modules\/cwrc-worker-validator/
+        ],
         use: [
           {
             loader: 'ts-loader',
