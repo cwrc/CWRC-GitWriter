@@ -9,7 +9,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'none', // all mode defaults for dev and prod and set in the respective configs
   entry: {
-    app: ['./src/js/app.js'],
+    app: ['./src/index.js'],
   },
   output: {
     filename: 'js/[name].js',
@@ -32,9 +32,9 @@ module.exports = {
         },
         {
           //copy images for GitWriter (favicon)
-          context: 'src/img',
+          context: 'src/assets',
           from: '*',
-          to: 'img',
+          to: 'assets',
         },
         {
           //copy images from Writer-Base
@@ -58,8 +58,8 @@ module.exports = {
       ],
     }),
     new HtmlWebpackPlugin({
-      template: 'src/html/index.html',
-      inject: 'body',
+      template: 'src/index.html',
+      // inject: 'head',
     }),
     new MiniCssExtractPlugin({
       filename: '/css/[name].css',
@@ -79,6 +79,7 @@ module.exports = {
           {
             loader: 'ts-loader',
             options: {
+              allowTsInNodeModules: true,
               compilerOptions: {
                 module: "esnext"
               }
@@ -207,6 +208,9 @@ module.exports = {
     },
   },
   resolve: {
+    alias: {
+      '@src': path.resolve(__dirname, 'node_modules/cwrc-writer-base/src/'),
+    },
     extensions: ['*', '.tsx', '.ts','.js', '.jsx'],
     symlinks: false,
   },

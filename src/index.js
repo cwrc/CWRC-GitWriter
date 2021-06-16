@@ -42,45 +42,53 @@ const init = async () => {
   });
   const config = await configRequest.json();
 
-  // if (process.env.NODE_ENV === 'development') {
-  // 	config.schema.schemaProxyUrl = 'http://localhost:3000';
-  // }
-
-  config.container = 'cwrcWriterContainer';
-  config.modules = {
-    west: [
-      { id: 'structure', title: 'Markup' },
-      { id: 'entities', title: 'Entities' },
-      {
-        id: 'nerve',
-        title: 'NERVE',
-        config: { nerveUrl: config.nerveUrl },
-      },
-    ],
-    south: [
-      { id: 'selection', title: 'Selection' },
-      {
-        id: 'validation',
-        title: 'Validation',
-      },
-    ],
-    east: [{ id: 'imageViewer', title: 'Image Viewer' }],
+  const writer_settings = {
+    container: 'cwrc-writer-app',
+    // legacy: will be setup on writer-core without external config.
+    modules: {
+      west: [
+        { id: 'structure', title: 'Markup' },
+        { id: 'entities', title: 'Entities' },
+        {
+          id: 'nerve',
+          title: 'NERVE',
+          config: { nerveUrl: config.nerveUrl },
+        },
+      ],
+      south: [
+        { id: 'selection', title: 'Selection' },
+        { id: 'validation', title: 'Validation' },
+      ],
+      east: [{ id: 'imageViewer', title: 'Image Viewer' }],
+    },
+    entityLookupDialogs: EntityLookupDialogs,
+    // entityLookupDialogs: {
+    // 	module: EntityLookupDialogs, //will be integrated to writer-core
+    // 	lookups: {
+    // 		geonames: {
+    // 			username: ''
+    // 		},
+    // 	},
+    // },
+    storageDialogs: {
+      //will be decouple from writer-base
+      module: GitStorageDialogs,
+      setServerURL: './github',
+    },
   };
-  config.entityLookupDialogs = EntityLookupDialogs;
-  config.storageDialogs = GitStorageDialogs;
 
-  //setup geonames
-  if (config.lookups.geonames.username && config.lookups.geonames.username !== '') {
-    geonames.credentials.username = config.lookups.geonames.username;
-  }
+  writer_settings.services = {
+    validator: { url: config.validationUrl },
+    nerve: { url: config.nerveUrl },
+  };
+  writer_settings.schema = config.schema;
+  writer_settings.helpUrl = config.helpUrl;
+  writer_settings.cwrcRootUrl = config.cwrcRootUrl;
 
-  const writer = new CWRCWriter(config);
+  // const writer = new CWRCWriter(config);
 
-  window.writer = writer;
-
-  writer.event('writerInitialized').subscribe(() => {
-    writer.showLoadDialog();
-  });
+  // window.writer = writer;
+  CWRCWriter.init(writer_settings);
 };
 
 init();
