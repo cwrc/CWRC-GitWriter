@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-import config from '../../webpack.dev.js';
+import config from '../../webpack.mjs';
 
 export const devTools = (app) => {
   //webpack middleware and hot reload

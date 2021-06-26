@@ -1,20 +1,34 @@
 {
+  "sourceType": "unambiguous",
   "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react"
-  ],
-  "plugins": [
-    "@babel/plugin-transform-runtime",
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-private-methods"
-  ],
-  "overrides": [{
-    "include": [
-      "./node_modules/cwrc-writer-base/node_modules/tinymce/tinymce.js",
-      "./node_modules/cwrc-writer-base/node_modules/react-dom/cjs/react-dom.development.js",
-      "./node_modules/cwrc-writer-base/node_modules/openseadragon/build/openseadragon/openseadragon.js",
-      "./node_modules/cwrc-git-dialogs/node_modules/react-dom/cjs/react-dom.development.js"
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "modules": false,
+          "corejs": { 
+            "version": 3,
+            "proposals": true
+          }
+        }
+      ],
+      "@babel/preset-react"
     ],
-    "compact": true
-  }]
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-react-jsx",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "absoluteRuntime": false,
+        "corejs": {
+          "version": 3,
+          "proposals": true
+        },
+        "helpers": true,
+        "regenerator": true,
+        "version": "^7.14.7"
+      }
+    ]
+  ]
 }

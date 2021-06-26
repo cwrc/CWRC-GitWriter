@@ -1,11 +1,11 @@
 # CWRC-GitWriter
 
-FROM node:16.2.0
+FROM node:16.3.0
 
 WORKDIR /apps/CWRC-GitWriter
 
 COPY . .
 
-CMD ["npm", "run", "middleware-server-dev"]
+CMD ["npm", "run", "DEV-SERVER:middleware-server"]
 
 EXPOSE 3000

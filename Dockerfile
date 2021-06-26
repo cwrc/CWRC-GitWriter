@@ -11,7 +11,6 @@ COPY . .
 RUN npm install && \
     npm run build
 
-# CMD ["pm2", "start", "./server/server.js", "--no-daemon"]
 CMD ["pm2-runtime", "ecosystem.config.js"]
 
 EXPOSE 3000
