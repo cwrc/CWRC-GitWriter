@@ -1,10 +1,13 @@
+# Workflow to align with special naming of `next` branch to DockerHub `dev-next` convention
+# ToDo: stopgap - find better way to map Git branch to custom tag name (in ways not supported by docker/metadata-action)
+
 name: CI
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master, main ]
+    branches: [ next ]
     tags:
       - 'v*.*.*'
 
@@ -29,13 +32,8 @@ jobs:
             ${{ github.repository }}
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=raw,value=latest
-            type=schedule
+            type=raw,value=dev-next
             type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
             type=sha
       -
         name: Set up QEMU
