@@ -1,7 +1,7 @@
 # Workflow to align with special naming of `next` branch to DockerHub `dev-next` convention
 # ToDo: stopgap - find better way to map Git branch to custom tag name (in ways not supported by docker/metadata-action)
 
-name: CI
+name: CI (next branch)
 
 # Controls when the workflow will run
 on:
