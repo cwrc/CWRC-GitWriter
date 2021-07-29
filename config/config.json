@@ -8,7 +8,8 @@
 		}
 	},
 	"schema": {
-		"schemaProxyUrl": ".",
+		"proxyXmlEndpoint": "./schema/xml/",
+		"proxyCssEndpoint": "./schema/css/",
 		"schemas": [{
 				"id": "cwrcTeiLite",
 				"name": "CWRC TEI Lite",
