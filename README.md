@@ -83,9 +83,15 @@ You can create a free user account here account: [https://www.geonames.org/login
 
 #### schema
 
-##### schemaProxyUrl
+#### proxyXmlEndpoint
 
-The path to make call request for schemas. Usually the same as where CWRC-GitWriter is located on the server. Default `"."`
+The endpoint path to make call request for schemas xml files. Default: `"./schema/xml/"`
+The schema is requested as the 'xml' parameter. eg. `"./schema/xml/:url"`
+
+#### proxyCssEndpoint
+
+The endpoint path to make call request for schemas css files. Default: `"./schema/css/"`
+The schema is requested as the 'css' parameter. eg. `"./schema/css/:url"`
 
 ##### schemas
 
