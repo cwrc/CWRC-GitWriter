@@ -1,14 +1,16 @@
 {
 	"cwrcRootUrl": "",
 	"nerveUrl": "https://localhost/nerve/",
+	"validationUrl": "https://localhost/validator/validate.html",
 	"helpUrl": "https://cwrc.ca/CWRC-Writer_Documentation/",
 	"lookups": {
 		"geonames": {
-			"username": "cwrc"
+			"username": ""
 		}
 	},
 	"schema": {
-		"schemaProxyUrl": ".",
+		"proxyXmlEndpoint": "./schema/xml/",
+		"proxyCssEndpoint": "./schema/css/",
 		"schemas": [{
 				"id": "cwrcTeiLite",
 				"name": "CWRC TEI Lite",
