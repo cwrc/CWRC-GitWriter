@@ -1,29 +1,22 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "jquery": true,
-        "node": true
-    },
-    "extends": "eslint:recommended",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parser": "babel-eslint",
-    "parserOptions": {
-        "allowImportExportEverywhere": true,
-        "ecmaVersion": 2020,
-        "sourceType": "module"
-    },
-    "rules": {
-        "indent": ["warn", "tab"],
-        "no-multi-spaces": 1,
-        "no-trailing-spaces": 1,
-        "no-unused-vars": 2,
-        "quotes": [2, "single"],
-        "require-atomic-updates": "off",
-        "require-await": ["error"],
-        "semi": ["error", "always"]
-    }
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jquery": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "prettier"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "allowImportExportEverywhere": true,
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-unused-vars": 2
+  }
 }
