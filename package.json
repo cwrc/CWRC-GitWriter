@@ -36,7 +36,7 @@
 		"cm": "git-cz"
 	},
 	"dependencies": {
-		"cwrc-git-dialogs": "github:cwrc/cwrc-git-dialogs#development",
+		"cwrc-git-dialogs": "github:cwrc/cwrc-git-dialogs#next",
 		"cwrc-public-entity-dialogs": "github:cwrc/CWRC-PublicEntityDialogs#development",
 		"cwrc-writer-base": "github:cwrc/CWRC-WriterBase#next",
 		"dbpedia-entity-lookup": "github:cwrc/dbpedia-entity-lookup#development",
@@ -86,7 +86,7 @@
 		"terser-webpack-plugin": "^5.1.4",
 		"ts-loader": "^9.2.5",
 		"typescript": "^4.3.5",
-		"webpack": "^5.48.0",
+		"webpack": "^5.49.0",
 		"webpack-bundle-analyzer": "^4.4.2",
 		"webpack-cli": "^4.7.2",
 		"webpack-dev-middleware": "^5.0.0",
