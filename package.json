@@ -45,7 +45,7 @@
 		"env-cmd": "^10.1.0",
 		"express": "^4.17.1",
 		"geonames-entity-lookup": "^2.1.0",
-		"getty-entity-lookup": "^2.2.0",
+		"getty-entity-lookup": "^2.3.0",
 		"lgpn-entity-lookup": "^2.2.0",
 		"viaf-entity-lookup": "^2.1.0",
 		"wikidata-entity-lookup": "^2.1.0"
