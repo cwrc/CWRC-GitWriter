@@ -45,7 +45,7 @@
 		"env-cmd": "^10.1.0",
 		"express": "^4.17.1",
 		"geonames-entity-lookup": "github:cwrc/geonames-entity-lookup#development",
-		"getty-entity-lookup": "github:cwrc/getty-entity-lookup#development",
+		"getty-entity-lookup": "^2.3.1",
 		"lgpn-entity-lookup": "github:cwrc/lgpn-entity-lookup#development",
 		"viaf-entity-lookup": "github:cwrc/viaf-entity-lookup#development",
 		"wikidata-entity-lookup": "github:cwrc/wikidata-entity-lookup#development"
