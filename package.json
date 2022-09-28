@@ -44,13 +44,7 @@
 		"dbpedia-entity-lookup": "github:cwrc/dbpedia-entity-lookup#development",
 		"env-cmd": "^10.1.0",
 		"express": "^4.18.1",
-		"geonames-entity-lookup": "github:cwrc/geonames-entity-lookup#development",
-		"getty-entity-lookup": "github:cwrc/getty-entity-lookup#development",
-		"i": "^0.3.7",
-		"lgpn-entity-lookup": "github:cwrc/lgpn-entity-lookup#development",
-		"npm": "^8.19.2",
-		"viaf-entity-lookup": "github:cwrc/viaf-entity-lookup#development",
-		"wikidata-entity-lookup": "github:cwrc/wikidata-entity-lookup#development"
+		"getty-entity-lookup": "^2.3.2",
 	},
 	"devDependencies": {
 		"@babel/core": "^7.19.3",
